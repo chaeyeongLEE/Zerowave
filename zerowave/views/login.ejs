@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+        * {
+            font-family: 'Noto Sans KR', sans-serif; padding: 0;
+        }
+        .log{
+            width: 100%;
+            text-align: center;
+        }
+        h1{
+            align-items: center;
+            justify-items: center;
+        }
+
+        body {
+            background-color: #EEEFF1;
+        }
+
+        .wrapper {
+                  display: flex;
+                  min-height: 100vh;
+                }
+
+        .item {
+                margin: auto;
+                width: 300px;
+                background-color: #EEEFF1;
+                border-radius: 5px;
+                padding: 300px;
+        }
+        .login_form {
+            height: 180px;
+            border: 1px solid;
+            padding: 20px;
+            border-radius: 1px;
+            border-color: #9B9B9B;
+        }
+
+      
+        .test{
+            width: 10px;
+        }
+
+        .in {
+            width: 255px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        #btn {
+            background-color: #1BBC9B;
+   
+            color: white;
+        }
+
+        a {
+            color: #9B9B9B;
+            font-size: 12px;
+        }
+        form {
+            font-size: 15px;
+        }
+
+
+    </style>         
+    <div class="wrapper">
+
+        <div class="item">
+            <div class="log">          <h1>Login</h1></div>
+
+            <form action="" class="login_form">
+                <input  type="text" placeholder="아이디" class="in">
+                <input type="password" placeholder="비밀번호" class="in">
+                <input class="in" type="submit" id="btn" value="로그인"><br>
+                <input class="test" type="checkbox">
+                <label for="check">로그인 상태 유지 </label>
+            </form>
+           <a href="#none">비밀번호를 잊어버리셨나요?</a>
+        </div>
+    </div>
+ 
+</body>
+</html>
