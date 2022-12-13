@@ -4,9 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="text/javascript">   
+        $(document).ready( function() {
+        
+        // 넣을 헤더의 id
+        $("#nav").load("/static/html/nav.html");  // 원하는 파일 경로를 삽입하면 된다
+        
+        });
+        </script>
     <title>Document</title>
 </head>
 <body>
-    안녕하세요
+    <nav id="nav"></nav>
+    <section>
+        <img src="https://i.pinimg.com/564x/61/c5/a5/61c5a5081f6d830173a7e5061ab9f3b6.jpg" alt="">
+        <div>
+            <h2>제로웨이브</h2>
+            <h4>Zero Wave</h4>
+            <p>제로웨이브는 일상 속에서 환경보호를 실천할 수 있게 도움을 주는 
+                제로웨이스트 커뮤니티 서비스입니다. </p>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h3>우리의 지구는 건강한가요?</h3>
+            <p>세계적으로 산업화가 확산되면서 폐기물의 양이 크게 증가하고 있습니다. 2012년, 세계은행은
+                도시 인구에 의해 13억 톤의 도시 폐기물이 생산 되었다고 발표했으며 그 수는 2025년에는
+                 22억 톤에 이를 것이라고 예측하고 있습니다. 그리고 고형 폐기물의 생산량 증가는 쓰레기 매립장의 
+                필요성을 증가시킵니다. 쓰레기 매립지에서 나오는 침출수에서 가정용 화학물질과 처방 약이 다량 
+                포함되어 있습니다. 이 때문에 화학물질이나 약품이 지하수나 그 주변 환경에 유입될 가능성이 제기되어
+                 큰 우려를 야기하고 있습니다.</p>
+            <p>
+                환경으로부터 자원은 한정되어 있는데, 전세계 인구는 점점 증가하고 있는데 따라서 이용 가능한 
+                자원을 위해 낭비를 막는 것이 더욱 중요해진 상황입니다. 이제 환경에 대해 고민하는 것에 머물지
+                않고 실천해야 할 타이밍입니다.</p>
+        </div>
+        <img src="https://i.pinimg.com/564x/84/35/82/84358264c3629b335f41cc714ea1f28b.jpg" alt="">
+    </section>
+    <section >
+        <img src="https://i.pinimg.com/564x/07/f6/bb/07f6bbbbe90207f368d32ea9dfa6af4f.jpg" alt="">
+        <div>
+            <h3>Why</h3>
+            <h1>Zero Waste?</h1>
+            <p>제로 웨이스트(zero waste)는 모든 제품, 포장 및 자재를 태우지 않고, 재사용될 
+                수 있도록 하는 것이 목표로 하는 것 입니다. 즉, 환경이나 인간의 건강을 위협할 수 있는 토지, 해양, 
+                공기로 배출하지 않고 생산, 소비, 재사용 및 회수를 통해 모든 자원을 보존 및 재활용하는 것 입니다.
+                제로 웨이스트를 통해 폐기물을 제거하면 환경 오염을 줄일 수 있고, 또한 원자재에 대한 필요성이 
+                줄어들기 때문에 비용도 절감할 수 있습니다. </p>
+            <p>
+                제로 웨이브는 일상 속에서 제로웨이스트를 실천할 수 있는 방안을 모색하고 많은 제로웨이스터들이
+    모일 수 있는 커뮤니티로서 기능해 제로 웨이스트의 흐름이 만연한 사회의 도래를 목표로 합니다. 
+    제로 웨이브를 통해 환경보호에 동참해주세요
+            </p>
+        </div>
+    
+    </section>
+    <section>
+        <h3>Zero Wave는 제로웨이스트를 실천합니다</h3>
+        <h4>제로웨이스트를 위한 제로웨이브의 기능을 소개합니다</h4>
+        <div id="zwFuncInfo">
+            <div>
+                <img src="/static/img/locationIcon.png" alt="">
+                <h3>Wave Map</h3>
+                <p>
+                    제로웨이스트를 실천하고 있는 공간에
+     대한 정보를 한 눈에 파악할 수 있습니다.
+    또한 직접 용기내 챌린지가 가능한 가게에
+    대한 정보를 추가할 수 있습니다.
+                </p>
+                <a href="./map.ejs">둘러보기 ></a>
+            </div>
+            <div>
+                <div>
+                    <h3>제로 웨이스트 샵 정보 제공</h3>
+                    <p>제로웨이스트를 실천하고 있는 공간에 대한 정보를 한 눈에 파악할 수 있습니다.</p>
+                </div>
+                <div>
+                    <h3>직접 용기내 챌린지 샵 정보 추가</h3>
+                    <p>용기내 챌린지가 가능한 가게에 대한 정보를 추가해보세요</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
 </body>
 </html>

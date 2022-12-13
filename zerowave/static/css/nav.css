@@ -1,0 +1,49 @@
+nav{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 70px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+nav section{
+    display: flex;
+    width: 1400px;
+    align-items: center;
+    justify-content: center;
+    height: 48px !important;
+}
+
+nav img{
+    width: 72px;
+    margin-right: 23px;
+}
+
+nav section div{
+    background-color: #7FA17F;
+    border-radius: 6px;
+    height: 48px;
+    display: flex;
+align-items: center;
+}
+
+nav section>div:nth-child(2){
+    width: 1400px;
+    margin-right: 27px;
+}
+
+nav section>div:nth-child(2) a{
+    margin-left: 30px;
+}
+
+nav section>div:last-child{
+width: 308px;
+justify-content: space-around;
+}
+
+
+
+nav a {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
