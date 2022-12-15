@@ -50,6 +50,7 @@ nav a {
   color: yellow;
 }
 
+
 #logoutBtn{
   border: none;
   background-color: transparent;
@@ -60,4 +61,10 @@ nav a {
 
 .transparent{
   display: none;
+
+nav a {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+
 }
