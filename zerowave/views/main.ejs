@@ -9,6 +9,7 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
+    <script src="https://kit.fontawesome.com/bfc07fa97f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/nav.css" />
     <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +30,7 @@
   <body>
     
     <nav id="nav">
-        <%-include('./nav.ejs', {type: '', islogin:'false' })%>
+        <%-include('./nav.ejs', {type: '', islogin:'true' })%>
     </nav>
     <section>
       <img
@@ -127,6 +128,11 @@
       <div class="wave"></div>
       <div class="wave"></div>
     </div>
+    <div class="moveTopBtn"><i class="fa-solid fa-chevron-up"></i></div>
+    <a href="https://www.jigushop.co.kr/jigu-made/?idx=94" class="item 1" target="_blank">
+      <img src="/static/img/비누망.png" alt="" >
+    </a>
     <footer></footer>
+    <script src="/static/js/main.js"></script>
   </body>
 </html>

@@ -1,15 +1,16 @@
 <section>
-    <a href="/zerowave">
-        <img src="/static/img/mainLogo.png" id="mainLogo">
+    <a href="/zerowave" id="mainLogo">
+        <img src="/static/img/mainLogo.png">
+        <span>제로웨이브</span>
     </a>
     <div>
         <a href="/zerowave/main/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
     </div>
     <div>
         <a href="/zerowave/main/login" id="loginLink" class="navlink <% type == 'login' &&  __append('selectedLink')%> transparent">Login</a>
-        <button id="logoutBtn" class="">Logout</button>
         <a href="/zerowave/main/join" class="navlink  <% type == 'join' &&  __append('selectedLink')%>" >Join</a>
         <a href="/zerowave/main/mypage" class="navlink <% type == 'mypage' && __append('selectedLink')%>">Mypage</a>
+        <button id="logoutBtn" class="">Logout</button>
     </div>
 </section>
 <script>
