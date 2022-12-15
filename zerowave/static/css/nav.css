@@ -46,8 +46,14 @@ nav a {
   font-size: 18px;
 }
 
+nav a:hover{
+  color: #FFEEB4;
+  font-size: 20px;
+}
+
 .selectedLink {
-  color: yellow;
+  color: #FFEEB4;
+  font-size: 20px;
 }
 
 button:hover{

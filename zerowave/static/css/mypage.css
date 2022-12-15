@@ -189,3 +189,9 @@ margin-bottom: 74px;
   font-size: 14px;
   line-height: 18px;
 }
+
+button{
+  border: none;
+  background-color: transparent;
+}
+
