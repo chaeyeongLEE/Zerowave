@@ -1,0 +1,20 @@
+<section>
+    <a href="/zerowave">
+        <img src="/static/img/mainLogo.png" id="mainLogo">
+    </a>
+    <div>
+        <a href="/zerowave/main/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
+    </div>
+    <div>
+        <a href="/zerowave/main/login" class="navlink <% type == 'login' &&  __append('selectedLink')%>">Login</a>
+        <button id="logoutBtn" class="transparent">Logout</button>
+        <a href="/zerowave/main/join" class="navlink  <% type == 'join' &&  __append('selectedLink')%>" >Join</a>
+        <a href="/zerowave/main/mypage" class="navlink <% type == 'mypage' && __append('selectedLink')%>">Mypage</a>
+    </div>
+</section>
+
+<!--
+    조건? true : false
+
+    조건 && true
+-->

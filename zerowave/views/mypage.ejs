@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/static/css/nav.css" />
+    <link rel="stylesheet" href="/static/css/mypage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Mypage</title>
+    <!-- <script type="text/javascript">
+      $(document).ready(function () {
+        // 넣을 헤더의 id
+        $('#nav').load('/static/html/nav.html'); // 원하는 파일 경로를 삽입하면 된다
+      });
+    </script> -->
+  </head>
+  <body>
+    
+    <nav id="nav">
+      <%-include('./nav.ejs')%>
+    </nav>
+    <section></section>
+  </body>
+</html>

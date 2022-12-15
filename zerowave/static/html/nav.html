@@ -1,15 +1,19 @@
 <head>
+    <script src="/static/js/nav.js"></script>
 </head>
 <body>
     <section>
-        <img src="/static/img/mainLogo.png" id="mainLogo">
+        <a href="/zerowave">
+            <img src="/static/img/mainLogo.png" id="mainLogo">
+        </a>
         <div>
-            <a href="../../views/map.ejs">Map</a>
+            <a href="../../views/map.ejs" class="navlink">Map</a>
         </div>
         <div>
-            <a href="../../views/login.ejs">Login</a>
-            <a href="../../views/join.ejs">Join</a>
-            <a href="../../views/mypage.ejs">Mypage</a>
+            <a href="/zerowave/main/login"class="navlink">Login</a>
+            <button id="logoutBtn" class="transparent">Logout</button>
+            <a href="/zerowave/main/join" class="navlink">Join</a>
+            <a href="/zerowave/main/mypage" class="navlink">Mypage</a>
         </div>
     </section>
 </body>
