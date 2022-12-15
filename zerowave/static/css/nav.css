@@ -49,3 +49,15 @@ nav a {
 .selectedLink {
   color: yellow;
 }
+
+#logoutBtn{
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.transparent{
+  display: none;
+}

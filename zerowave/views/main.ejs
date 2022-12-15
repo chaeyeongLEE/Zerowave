@@ -17,16 +17,20 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script type="text/javascript">
+    
+    <!-- <script type="text/javascript">
       $(document).ready(function () {
         // 넣을 헤더의 id
         $('#nav').load('/static/html/nav.html'); // 원하는 파일 경로를 삽입하면 된다
       });
-    </script>
+    </script> -->
     <title>ZeroWave</title>
   </head>
   <body>
-    <nav id="nav"></nav>
+    
+    <nav id="nav">
+        <%-include('./nav.ejs', {type: ''})%>
+    </nav>
     <section>
       <img
         src="https://i.pinimg.com/564x/61/c5/a5/61c5a5081f6d830173a7e5061ab9f3b6.jpg"

@@ -4,6 +4,7 @@ exports.main = (req, res) => {
   res.render('main');
 };
 
+/*
 exports.map = (req, res) => {
   res.render('map');
 };
@@ -18,4 +19,11 @@ exports.join = (req, res) => {
 
 exports.mypage = (req, res) => {
   res.render('mypage');
+};
+*/
+
+
+exports.mainC = (req, res) => {
+  // req.params.type
+  res.render(req.params.type, { type: req.params.type });
 };
