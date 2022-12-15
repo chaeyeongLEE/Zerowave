@@ -56,6 +56,7 @@ nav a:hover{
   font-size: 20px;
 }
 
+
 button:hover{
   cursor: pointer;
 }
@@ -71,4 +72,10 @@ button:hover{
 
 .transparent{
   display: none;
+
+nav a {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+
 }
