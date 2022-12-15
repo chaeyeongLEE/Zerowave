@@ -50,6 +50,11 @@ nav a {
   color: yellow;
 }
 
+button:hover{
+  cursor: pointer;
+}
+
+
 #logoutBtn{
   border: none;
   background-color: transparent;
