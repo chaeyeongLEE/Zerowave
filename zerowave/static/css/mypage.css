@@ -142,8 +142,56 @@ section {
   width: 1400px;
 }
 
-body > section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+h1{
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 260px;
 }
+
+h2{
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+h4{
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#contents {
+  display: flex;
+ width: 1400px;;
+ flex-wrap: wrap;
+ margin-top: 70px;
+}
+
+.content{
+width: calc(100%/3 - 58px);
+margin:0 10px;
+border: 1px solid #7FA17F;
+border-radius: 10px;
+padding: 15px;
+display: flex;
+margin-bottom: 74px;
+}
+
+.content img{
+  width: 100px;
+  height: 100px;
+  margin-right: 50px;
+}
+
+.content p {
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+button{
+  border: none;
+  background-color: transparent;
+}
+

@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="/static/css/mypage.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Mypage</title>
     <!-- <script type="text/javascript">
       $(document).ready(function () {
@@ -24,8 +28,16 @@
   <body>
     
     <nav id="nav">
-      <%-include('./nav.ejs')%>
+      <%-include('./nav.ejs', { islogin:'false' })%>
     </nav>
-    <section></section>
+    <section>
+      <h1><span id="userName"></span>님 안녕하세요</h1>
+      <h2>내가 기록한 Maps</h2>
+      <div id="contents">
+      </div>
+    </section>
+    <button id="withdrawalBtn">회원탈퇴</button>
+    <script src="/static/js/mypage.js">
+    </script>
   </body>
 </html>
