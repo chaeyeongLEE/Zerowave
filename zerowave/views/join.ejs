@@ -6,151 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Form</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        function join(){
-             let form = document.querySelector("#join_form"); 
-             let data = { id : form.id.value , pwd : form.pw.value , name : form.name.value }
-             if(!form.id.value && !form.pw.value && !form.name.value){
-                 alert("값을 입력해주세요");
-             }
-             axios({
-                 method : "post",
-                 url : "/",
-                 data : data
-             }).then((res)=>{
-                 location.href = "/login";
-             })
-
-         }
-    </script>
+    <link rel="stylesheet" href="/static/css/join.css">
 </head>
-<body>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-
-        * {
-            font-family: 'Noto Sans KR', sans-serif; 
-            padding: 0;
-        }
-        .log{
-            text-align: center;
-        }
-
-        body {
-            background-color: #EEEFF1;
-        }
-        .wrapper {
-                  display: flex;
-                  min-height: 100vh;
-                }
-        .item {
-                margin: auto;
-                width: 300px;
-                background-color: #EEEFF1;
-                border-radius: 5px;
-                padding: 300px;
-        }
-        .join_form {
-                 height: 350px;
-                 width: 350px;
-                 border: 1px solid;
-                 padding: 20px;
-                 border-radius: 1px;
-                 border-color: #9B9B9B;
-        }
-      
-        .test{
-            width: 10px;
-        }
-
-        .in {
-            width: 350px;
-            padding: 10px;
-            box-sizing: border-box;
-            border-radius: 5px;
-            border: none;
-            margin-bottom: 10px;
-        }
-        .inId{ 
-            width: 110px;
-            padding: 10px;
-            box-sizing: border-box;
-            border-radius: 5px;
-            border: none;
-            margin-bottom: 10px;
-        }       
-        .inEmail{
-            width: 75px;
-            padding: 10px;
-            box-sizing: border-box;
-            border-radius: 5px;
-            border: none;
-            margin-bottom: 10px;
-        }
-        #domain-txt{
-            width: 95PX;
-            padding: 10px;
-        }
-        #domain-list{
-            padding: 10px;
-            box-sizing: border-box;
-            border-radius: 5px;
-            border: none;
-        }
-     
-        #btn {
-            background-color: #1BBC9B;
-            color: white;
-            width: 350px;
-            border-radius: 5px;
-            border: none;
-            padding: 10px;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        form {
-            font-size: 14px;
-        }
-        .birth {
-             margin: 0px;
-        }
-       
-        option {
-                font-size: 16px;
-                    }
-                    
-        #birth-year{
-            border-radius: 5px;
-            width: 140px;
-            height: 37px;
-            border: none;
-        }
-
-        #birth-month{
-            border-radius: 5px;
-            width: 90px;
-            height: 37px;
-            border: none;
-        }
-        #birth-day{
-            border-radius: 5px;
-            width: 90px;
-            height: 37px;
-            border: none;
-        }
-
-    </style>         
+<body>  
     <div class="wrapper">
         <div class="item">
             <div class="log"><h1>Join</h1></div>
+
             <form action="" class="join_form">
-                <input  type="text" placeholder="아이디" class="in">
-                <input type="password" placeholder="비밀번호" class="in">
-                <input type="password" placeholder="비밀번호 확인" class="in">
-                <input type="text" placeholder="아이디" class="inId">
-                <span>@</span>
-                <input type="text" placeholder="이메일" class="inEmail" id="domain-txt">
+                <input  type="text" placeholder="이름" class="in" name="user_name">
+                <div name="user_email">
+                    <input type="text" placeholder="아이디" class="inId">
+                        <span>@</span>
+                    <input type="text" placeholder="이메일" class="inEmail" id="domain-txt">
                     <select id="domain-list">
                         <option value="type">직접 입력</option>
                         <option value="naver.com">naver.com</option>
@@ -159,6 +27,11 @@
                         <option value="nate.com">nate.com</option>
                         <option value="kakao.com">kakao.com</option>
                     </select>
+                </div>
+                
+                <input type="password" placeholder="비밀번호" class="in" name="user_pw">
+                <input type="password" placeholder="비밀번호 확인" class="in" name="user_pw">
+
                 <p class="birth">생년월일</p>
                 <div class="info" id="info_birth">
                     <select class="box" id="birth-year">
@@ -173,8 +46,11 @@
                 </div>
                 <input type="submit" id="btn" value="회원가입" onclick="join()"><br>
             </form>
+
+
         </div>
     </div>
+
     <script>
             const domainListEl = document.querySelector('#domain-list')
             const domainInputEl = document.querySelector('#domain-txt')
@@ -226,6 +102,25 @@
                 }
             }
         });
+
+
+    function join(){
+        let form = document.querySelector("#join_form"); 
+        let data = { email : form.user_email.value , 
+                        pw : form.user_pw.value , 
+                      name : form.user_name.value }
+            if(!form.user_email.value&& !form.user_pw.value && !form.user_name.value){
+                alert("값을 입력해주세요");
+                }
+                axios({
+                     method : "post",
+                        url : "/join",
+                     data : data
+                 }).then((res)=>{
+                     location.href = "/login";
+                 })
+}
+
     </script>
  
 </body>

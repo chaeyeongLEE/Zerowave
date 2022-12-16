@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Noto Sans KR', sans-serif; 
+    padding: 0;
+}
+.log{
+    text-align: center;
+}
+
+body {
+    background-color: #EEEFF1;
+}
+.wrapper {
+          display: flex;
+          min-height: 100vh;
+        }
+.item {
+        margin: auto;
+        width: 300px;
+        background-color: #EEEFF1;
+        border-radius: 5px;
+        padding: 300px;
+}
+.join_form {
+         height: 350px;
+         width: 350px;
+         border: 1px solid;
+         padding: 20px;
+         border-radius: 1px;
+         border-color: #9B9B9B;
+}
+
+.test{
+    width: 10px;
+}
+
+.in {
+    width: 350px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+.inId{ 
+    width: 110px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}       
+.inEmail{
+    width: 75px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+#domain-txt{
+    width: 95PX;
+    padding: 10px;
+}
+#domain-list{
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+
+#btn {
+    background-color: #1BBC9B;
+    color: white;
+    width: 350px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+form {
+    font-size: 14px;
+}
+.birth {
+     margin: 0px;
+}
+
+option {
+        font-size: 16px;
+            }
+            
+#birth-year{
+    border-radius: 5px;
+    width: 140px;
+    height: 37px;
+    border: none;
+}
+
+#birth-month{
+    border-radius: 5px;
+    width: 90px;
+    height: 37px;
+    border: none;
+}
+#birth-day{
+    border-radius: 5px;
+    width: 90px;
+    height: 37px;
+    border: none;
+}
