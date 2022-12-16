@@ -1,21 +1,13 @@
 {
-  "name": "earth",
+  "name": "zerowave",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chaeyeongLEE/earth.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chaeyeongLEE/earth/issues"
-  },
-  "homepage": "https://github.com/chaeyeongLEE/earth#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
