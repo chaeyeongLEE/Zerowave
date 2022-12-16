@@ -1,90 +1,26 @@
-/* ---------------CSS 초기화 ---------------------*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-/*--map wrap은 지도 위 공간--*/
-.map_wrap, .map_wrap * {margin:;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+/* --map wrap은 지도 위 공간--*/
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-.map_wrap {position:fixed;width:100%;height:200px; } 
+.map_wrap {position:relative;width:100%;height:500px;}
 
-#map{position:fixed;top:200;left:0; bottom:20; width:600PX; margin:200px 10px; padding:400px;border-radius: 10px;}
-/* 위의 margin : 150px은 위와의 여백을 얼마나 둘것인가 가운데는 지도를 왼쪽으로부터 얼마나 거리를 둘지를 의미.
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
 
-/*--menu wrap은 메뉴 백그라운드(투명배경)/ */
-#menu_wrap {position:absolute; height: 500px;top:100px; left:0; bottom:250; width:250px; margin:170px 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 9999;font-size:12px;border-radius: 10px;}
 
-#menu_wrap .option {display: block; border: 0; margin:3px 0; text-align: center;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
 #menu_wrap .option p {margin:10px 0;}  
-#menu_wrap .option button {margin:5px; }
-
-/*--------------- 토글 목록-------------------*/
-
-ul{list-style:none;}
-.me a {text-decoration:none; position: relative; bottom: 450px; color:#8FBC8F; font-size:medium; font-weight: bold;border-radius: 15px; border-bottom: 1px solid rgb(255, 255, 255) }
-.me:after{display:block; content:''; clear:both;}
-.me > li{position:relative; float:left; margin-right:25px;}
-.me > li > a{display:block; padding:0 100px; background:#7C9E7D; height:40px; line-height:40px; color:#fff;}
-.me > li:hover .depth_1 {display:block;}
-.me .depth_1{display:none; position:absolute; left:0; right:0; text-align:center;}
-.me .depth_1 a{display:block; padding:10px; background:#8FBC8F; color:#fff; border-radius: 15px;
-    border-bottom: 1px solid rgb(255, 255, 255)}
-
-/*--------------- 결과 목록 -------------------*/
+#menu_wrap .option button {margin-left:5px;}
 #placesList li {list-style: none;}
-#placesList .item {position:relative;border-bottom:1px solid #888; overflow: hidden; cursor: pointer; min-height: 65px;}
-#placesList .item span {display: block; margin-top:4px;}
-#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap; bord:1px}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 #placesList .item .info{padding:10px 0 10px 55px;}
-
 #placesList .info .gray {color:#8a8a8a;}
 #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-#placesList .info .tel {color:#247224;}
-
-/*marker*/
+#placesList .info .tel {color:#009900;}
 #placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
-#placesList .item .marker_1 {background-position: 0 -10px;} 
+#placesList .item .marker_1 {background-position: 0 -10px;}
 #placesList .item .marker_2 {background-position: 0 -56px;}
 #placesList .item .marker_3 {background-position: 0 -102px}
 #placesList .item .marker_4 {background-position: 0 -148px;}
@@ -99,54 +35,67 @@ ul{list-style:none;}
 #placesList .item .marker_13 {background-position: 0 -562px;}
 #placesList .item .marker_14 {background-position: 0 -608px;}
 #placesList .item .marker_15 {background-position: 0 -654px;}
-
-#pagination {margin:auto;text-align: center;}
+#pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 
-/*---------------- button --------------------*/
 
+/*--menu wrap은 메뉴 백그라운드(투명배경)*/
+#menu_wrap {position:absolute; height: 500px;top:100px; left:0; bottom:250; width:250px; margin:170px 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 9999;font-size:12px;border-radius: 10px;}
+#map{position:fixed;top:200;left:0; bottom:20; width:600PX; margin:200px 10px; padding:400px;border-radius: 10px;}
+/* 위의 margin : 150px은 위와의 여백을 얼마나 둘것인가 가운데는 지도를 왼쪽으로부터 얼마나 거리를 둘지를 의미.*/
 
-button {
-    margin: 10px;
-}
+.option p {margin:30px 30px;}  
+.option button {position: relative;}
+/*option 위는 검색 칸을 의미*/
 
-.w-btn {
-    position: relative;
-    border: none;
+.dropdown {
+    margin-left: 20px;
+    width: 200px; 
+    font-family: 'Noto Sans KR', sans-serif;
+    color : blueviolet;
+    line-height: 1.2em;
     display: inline-block;
-    padding: 10px 15px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/*--------------- 토글 목록-------------------
+ 보통 바디태그에 주고나서 a태그에 색상을 주는게 기본이다!!! (상속이 안되니까 별도로) */
+a {
+    color : #222;
     text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
 
-.w-btn-outline {
-    position: relative;
-    padding: 15px 30px;
+}    
+
+.dropdown-btn {
+    width: 200px;
+    /* 패딩으로 크기 늘려주기 */
+    padding : 10px;
+    font-size: 15px;
+    background-color: #8FBC8F;
+    color: white;
+    border: none;
+    cursor: pointer;
     border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
 }
 
-.w-btn-indigo {
-    background-color: aliceblue;
-    color: #1e6b7b;
+.dropdown-submenu{
+    /* border: 1px solid #000; */
+    width:200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
+    display: none;
+    border-radius: 15px;
+
+}
+.dropdown-submenu a {
+    display: block;
+    padding: 9px;
+    text-align: center;
 }
 
-.w-btn-indigo-outline {
-    border: 3px solid aliceblue;
-    color: #1e6b7b;
+.dropdown-submenu a:hover{
+    background-color: #eee;
 }
-
-.w-btn-indigo-outline:hover {
-    color: #1e6b7b;
-    background: aliceblue;
+.dropdown:hover .dropdown-submenu {
+    display: block;
 }
 
