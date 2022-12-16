@@ -2,6 +2,7 @@ let express = require('express');
 const controller = require('../controller/Cmain');
 //const ctrl = require('../controller/Cuser');
 const router = express.Router();
+const port = 8000;
 
 router.get('/',  controller.main);
 /*
