@@ -18,7 +18,7 @@ router.patch("/mypage", Cuser.mypage_edit);
 router.delete("/mypage", Cuser.mypage_delete);
 
 
-router.get('/', controller.map);
+//router.get('/', controller.map);
 
 
 router.get('/main/:type', controller.mainC);
