@@ -1,24 +1,83 @@
-/* --map wrap은 지도 위 공간--*/
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-.map_wrap {position:relative;width:100%;height:500px;}
 
-#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+/* --map wrap은 지도 위 공간--*/
+
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap { position:relative; top:200; left:0; bottom:20; }
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+
+/*--menu wrap은 메뉴 백그라운드(투명배경)*/
+.menu_wrap {position:absolute; height: 700px;top:100px; bottom:250; width:250px; margin:170px 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 9999;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 
 
-#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
-#menu_wrap .option{text-align: center;}
-#menu_wrap .option p {margin:10px 0;}  
-#menu_wrap .option button {margin-left:5px;}
-#placesList li {list-style: none;}
+.menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+.menu_wrap .option{text-align: center;}
+.menu_wrap .option p {margin:10px 0;}  
+.menu_wrap .option button {margin-left:5px;}
+
+
+/*---MAP---*/
+#map{margin:200px 10px; padding:600px;border-radius: 10px; width:1000PX;  }
+/* 위의 margin : 150px은 위와의 여백을 얼마나 둘것인가 가운데는 지도를 왼쪽으로부터 얼마나 거리를 둘지를 의미.*/
+
+#keyword {margin:10px 15px;}  
+#option button {position: relative;}
+/*option 위는 검색 칸을 의미*/
+
+
+/*--------------- 토글 map 목록-------------------*/
+ .dropbtn {
+    background-color: #7C9E7D;
+    color: white;
+    min-width: 210px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px;
+    margin-left: 15px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 210px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 15px;
+    margin-left: 15px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropbtn {background-color: #3e7340;}
+
+/*--------------- 페이지 목록-------------------*/
+
+
+#placesList li {list-style: none;left:0; top:0;}
 #placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
-#placesList .item span {display: block;margin-top:4px;}
-#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item span {display: block; margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
 #placesList .item .info{padding:10px 0 10px 55px;}
+
 #placesList .info .gray {color:#8a8a8a;}
 #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
 #placesList .info .tel {color:#009900;}
+
 #placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
 #placesList .item .marker_1 {background-position: 0 -10px;}
 #placesList .item .marker_2 {background-position: 0 -56px;}
@@ -35,67 +94,7 @@
 #placesList .item .marker_13 {background-position: 0 -562px;}
 #placesList .item .marker_14 {background-position: 0 -608px;}
 #placesList .item .marker_15 {background-position: 0 -654px;}
-#pagination {margin:10px auto;text-align: center;}
-#pagination a {display:inline-block;margin-right:10px;}
-#pagination .on {font-weight: bold; cursor: default;color:#777;}
 
-
-/*--menu wrap은 메뉴 백그라운드(투명배경)*/
-#menu_wrap {position:absolute; height: 500px;top:100px; left:0; bottom:250; width:250px; margin:170px 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 9999;font-size:12px;border-radius: 10px;}
-#map{position:fixed;top:200;left:0; bottom:20; width:600PX; margin:200px 10px; padding:400px;border-radius: 10px;}
-/* 위의 margin : 150px은 위와의 여백을 얼마나 둘것인가 가운데는 지도를 왼쪽으로부터 얼마나 거리를 둘지를 의미.*/
-
-.option p {margin:30px 30px;}  
-.option button {position: relative;}
-/*option 위는 검색 칸을 의미*/
-
-.dropdown {
-    margin-left: 20px;
-    width: 200px; 
-    font-family: 'Noto Sans KR', sans-serif;
-    color : blueviolet;
-    line-height: 1.2em;
-    display: inline-block;
-}
-
-/*--------------- 토글 목록-------------------
- 보통 바디태그에 주고나서 a태그에 색상을 주는게 기본이다!!! (상속이 안되니까 별도로) */
-a {
-    color : #222;
-    text-decoration: none;
-
-}    
-
-.dropdown-btn {
-    width: 200px;
-    /* 패딩으로 크기 늘려주기 */
-    padding : 10px;
-    font-size: 15px;
-    background-color: #8FBC8F;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-}
-
-.dropdown-submenu{
-    /* border: 1px solid #000; */
-    width:200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
-    display: none;
-    border-radius: 15px;
-
-}
-.dropdown-submenu a {
-    display: block;
-    padding: 9px;
-    text-align: center;
-}
-
-.dropdown-submenu a:hover{
-    background-color: #eee;
-}
-.dropdown:hover .dropdown-submenu {
-    display: block;
-}
-
+#pagination {margin:10px auto; text-align: center;}
+#pagination a {display:inline-block; margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default; color:#777;}
