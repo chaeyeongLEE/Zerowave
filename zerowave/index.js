@@ -24,11 +24,14 @@ app.use(
 const router = require('./routes');
 app.use('/zerowave', router);
 
+const map = require('./routes/map');
+app.use('/zerowave/map', map);
 
-app.get('/map',(req, res)=>{
-    res.render("map");
+
+// app.get('/map',(req, res)=>{
+//     res.render("map");
     
-  });
+//   });
 
 // app.get('*', (req, res) => {
 //     res.send('주소가 존재하지 않습니다. 다시 한 번 확인해주세요.');
@@ -36,6 +39,6 @@ app.get('/map',(req, res)=>{
 
 
 app.listen(process.env.PORT, () => {
-    console.log('server open: ');
+    console.log('server open:', process.env.PORT);
   });
   
