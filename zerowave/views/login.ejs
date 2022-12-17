@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Form</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/static/js/login.js">
-    </script>
     <link rel="stylesheet" href="/static/css/login.css">
   </head>
   <body>
@@ -15,8 +13,8 @@
       <div class="item">
         <div class="log"><h1>Login</h1></div>
         <form class="login_form" action="../views/main.ejs" method="post">
-          <input type="text" placeholder="아이디" class="in">
-          <input type="password" placeholder="비밀번호" class="in">
+          <input type="text" placeholder="이메일" class="in" name="user_email">
+          <input type="password" placeholder="비밀번호" class="in" name="user_pw">
           <input class="in" type="submit" id="btn" value="로그인" onclick="login()"><br>
           <input class="test" type="checkbox">
           <label for="check">로그인 상태 유지</label>
@@ -24,5 +22,6 @@
         <a href="#none">비밀번호를 잊어버리셨나요?</a>
       </div>
     </div>
+    <script src="/static/js/login.js"></script>
   </body>
 </html>
