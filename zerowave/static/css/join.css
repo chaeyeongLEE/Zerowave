@@ -111,3 +111,7 @@ option {
     height: 37px;
     border: none;
 }
+
+.hide {
+    display: none;
+  }
