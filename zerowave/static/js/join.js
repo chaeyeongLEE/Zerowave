@@ -1,4 +1,4 @@
-//생년월일
+//생년월일 함수
     const domainListEl = document.querySelector('#domain-list')
     const domainInputEl = document.querySelector('#domain-txt')
     domainListEl.addEventListener('change', (event) => {
@@ -52,9 +52,9 @@
 
 function join(){
 let form = document.querySelector("#join_form"); 
-let data = { email : form.user_email.value , 
-                pw : form.user_pw.value , 
-              name : form.user_name.value }
+let data = { user_email : form.user_email.value , 
+                user_pw : form.user_pw.value , 
+              user_name : form.user_name.value }
     if(!form.user_email.value&& !form.user_pw.value && !form.user_name.value){
         alert("빈칸을 입력하세요");
         }
@@ -75,12 +75,13 @@ let data = { email : form.user_email.value ,
               });
           }
 
+
+
+//비밀번호 입력창에 값을 입력하면, 비밀번호 값과 비밀번호 확인값이 일치하지 않으면 불일치 메시지를 표시하는 함수
 let elInputPassword = document.querySelector("#user_pw1")
 let elInputPasswordretype = document.querySelector("#user_pw2")
 let elMismatchmessage = document.querySelector(".mismatch-message")
 
-
-//비밀번호 입력창에 값을 입력하면, 비밀번호 값과 비밀번호 확인값이 일치하지 않으면 불일치 메시지를 표시하는 함수
 elInputPasswordretype.onkeyup = function () {
     if ( isMatch(elInputPassword.value, elInputPasswordretype.value) ) {
       elMismatchmessage.classList.add('hide')
