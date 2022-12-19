@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+        * {
+            font-family: 'Noto Sans KR', sans-serif; 
+             padding: 0;
+        }
+        h1{
+            font-weight: 700;
+            font-size: 12px;
+            color: #051619;
+        }
+        /* .forgot_form{
+            text-align: left;
+        } */
+        .password_description {
+            font-weight: 700;
+            font-size: 18px;
+            color: #051619;
+        }
+        #find_email{
+            margin: auto;
+            width: 550px;
+            height: 40px;
+        }
+
+        span{
+            font-size: 12px;
+            color: #051619;
+        }
+        .forgot_form{
+            margin: auto;
+            width: 500px;
+            border-radius: 5px;
+            padding: 300px;
+        }
+        .password_send{
+            display: inline-block;
+            min-width: 104px;
+            text-align: center;
+            padding: 10px 1.5rem 11px;
+            cursor: pointer;
+            position: relative;
+            background: #051619;
+            border: 1px solid #051619;
+            color: #fff;
+        }
+        .emailaddress{
+            margin-top: 20px;
+            margin-bottom: 30px;    
+        }
+
+    
+    </style>
+</head>
+<body>
+    <form action="" class="forgot_form">
+
+        <h1 class="password_title">비밀번호 찾기</h1>
+        <p class="password_description">비밀번호를 재설정할 수 있는 링크를 보내드려요.</p>
+
+        <div class="emailaddress">
+            <label for="find_email">이메일 주소</label><br>
+            <input type="text" placeholder="이메일" id="find_email" name="user_email"><br>
+            <button type="" class="password_send">링크발송</button>
+    
+            <span class="password_link">
+                이메일 주소가 떠오르지 않으시나요?
+                <a href="/join">가입하기</a>
+            </span>
+        </div>
+
+    </form>
+
+<script>
+
+</script>
+</body>
+</html>
