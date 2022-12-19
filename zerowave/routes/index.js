@@ -21,6 +21,6 @@ router.delete("/mypage", Cuser.mypage_delete);
 //router.get('/', controller.map);
 
 
-router.get('/main/:type', controller.mainC);
+//router.get('/main/:type', controller.mainC);
 
 module.exports = router;

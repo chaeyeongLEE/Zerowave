@@ -8,34 +8,14 @@ exports.postJoin = async(req, res) => {
     user_email : req.body.user_email,
     user_pw : req.body.user_pw, 
     user_name : req.body.user_name
-  }
-
-console.log(data);
-
-   let result = await User.create(data);
-   console.log(result);
-   res.send(true);
- 
   };
-
-//
-exports.login = (req, res) => {
-  // let sessionInputData = req.session.inputData; 
-
-  // if(!sessionInputData) {
-  //   sessionInputData = {
-  //       hasError: false,
-  //       email: "",
-  //       password: "",
-  //   };
-  // }
-
-  // req.session.inputData = null;
-  // res.render("login", {sessionInputData});
-  res.render("login");
+  console.log(data);
+  let result = await User.create(data);
+  res.send(true);
 };
 
 
+exports.login = (req, res) => { res.render("login") };
 
 exports.postLogin = async (req, res) => {
   // const enteredEmail = req.body.email;

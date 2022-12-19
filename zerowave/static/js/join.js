@@ -51,29 +51,34 @@
 });
 
 function join(){
-let form = document.querySelector("#join_form"); 
-let data = { user_email : form.user_email.value , 
-                user_pw : form.user_pw.value , 
-              user_name : form.user_name.value }
-    if(!form.user_email.value&& !form.user_pw.value && !form.user_name.value){
-        alert("빈칸을 입력하세요");
-        }
-        axios({
-             method : "post",
-                url : "/join",
-             data : data
-         }).then((res)=>{
-                if (res.success) {
-                  // 서버에서 가입 성공응답이 오면 login페이지로 이동
-                  location.href = "/login";
-                } else {
-                  alert(res.msg);
-                }
-              })
-              .catch(err => {
-                console.error("회원가입 중 에러 발생");
-              });
-          }
+let form = document.getElementById("join_form"); 
+let data = { 
+    user_email : form.emailID.value + form.emailDomain.value,
+    user_pw : form.user_pw.value , 
+    user_name : form.user_name.value 
+};
+    axios({
+        method : "post",
+        url : "join",
+        data : data
+    }).then((req) => {return req.data;})
+    .then((data)=>{
+        alert("회원가입에 성공했습니다");
+        document.location.href="login";
+    });
+}
+        //  }).then((res)=>{
+        //         if (res.success) {
+        //           // 서버에서 가입 성공응답이 오면 login페이지로 이동
+        //           location.href = "/login";
+        //         } else {
+        //           console.log(res.msg);
+        //         }
+        //       })
+        //       .catch(err => {
+        //         console.error("회원가입 중 에러 발생");
+        //       });
+        //   }
 
 
 
