@@ -2,9 +2,13 @@
 
 const express = require("express");
 const map = require("../controller/Cmap");
+const map2 = require("../controller/Cmap2");
 const router = express.Router();
 
 router.get("/", map.index);
 router.post("/zwshop", map.zwShopList);
+
+router.get("/ygn", map2.ygnIndex);
+router.post("/ygn", map2.ygnShopList);
 
 module.exports = router;

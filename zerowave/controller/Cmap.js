@@ -14,10 +14,10 @@ exports.zwShopList = async(req,res) => {
 
     var zwshopMap = await zwMap.findAll({
         raw: true,
-        where: { 
-            lat : { [Op.between]: [currentLocate.top, currentLocate.bottom]},
-            lon : { [Op.between]: [currentLocate.left, currentLocate.right]}
-        }
+        // where: { 
+        //     lat : { [Op.between]: [currentLocate.top, currentLocate.bottom]},
+        //     lon : { [Op.between]: [currentLocate.left, currentLocate.right]}
+        // }
     });
     
     console.log("현재위치:", currentLocate);
