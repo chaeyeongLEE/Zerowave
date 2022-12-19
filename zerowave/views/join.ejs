@@ -13,11 +13,11 @@
         <div class="item">
             <div class="log"><h1>Join</h1></div>
 
-            <form action="" class="join_form">
+            <form action="" id="join_form">
                 <input type="text" placeholder="이름" class="in" name="user_name">
                 <div>
-                    <input type="text" placeholder="아이디" class="inId" name="user_email" >
-                    <input type="text" placeholder="이메일" class="inEmail" id="domain-txt" name="user_email" >
+                    <input type="text" placeholder="아이디" class="inId" name="emailID" >
+                    <input type="text" placeholder="이메일" class="inEmail" id="domain-txt" name="emailDomain" >
                     <select id="domain-list">
                         <option value="type">직접 입력</option>
                         <option value="@naver.com">@naver.com</option>
@@ -28,9 +28,8 @@
                     </select>
                 </div>
                 
-                <input type="password" placeholder="비밀번호" class="in" id="user_pw1" name="user_pw" >
-                <input type="password" placeholder="비밀번호 확인" class="in"
-                id="user_pw2" name="user_pw">
+                <input type="password" placeholder="비밀번호" class="in" id="user_pw1" name="user_pw">
+                <input type="password" placeholder="비밀번호 확인" class="in" id="user_pw2">
                 <div class="mismatch-message hide">두 비밀번호가 일치하지 않습니다.</div>
 
                 <div class="birth_form">
@@ -47,7 +46,7 @@
                           <option disabled selected>일</option>
                         </select>
                     </div>
-                    <input class="in" type="submit" id="btn" value="회원가입"   onclick="join()"><br>
+                    <input class="in" type="button" id="btn" value="회원가입" onclick="join()"><br>
             </form>
 
         </div>
