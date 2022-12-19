@@ -142,20 +142,20 @@ section {
   width: 1400px;
 }
 
-h1{
+h1 {
   font-size: 36px;
   font-weight: 600;
   margin-top: 260px;
 }
 
-h2{
+h2 {
   font-size: 25px;
   font-weight: 500;
   margin-top: 20px;
   margin-left: 5px;
 }
 
-h4{
+h4 {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 10px;
@@ -163,22 +163,22 @@ h4{
 
 #contents {
   display: flex;
- width: 1400px;;
- flex-wrap: wrap;
- margin-top: 70px;
+  width: 1400px;
+  flex-wrap: wrap;
+  margin-top: 70px;
 }
 
-.content{
-width: calc(100%/3 - 58px);
-margin:0 10px;
-border: 1px solid #7FA17F;
-border-radius: 10px;
-padding: 15px;
-display: flex;
-margin-bottom: 74px;
+.content {
+  width: calc(100% / 3 - 58px);
+  margin: 0 10px;
+  border: 1px solid #00ed5d;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  margin-bottom: 74px;
 }
 
-.content img{
+.content img {
   width: 100px;
   height: 100px;
   margin-right: 50px;
@@ -190,8 +190,7 @@ margin-bottom: 74px;
   line-height: 18px;
 }
 
-button{
+button {
   border: none;
   background-color: transparent;
 }
-

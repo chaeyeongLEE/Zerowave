@@ -4,12 +4,13 @@ nav {
   position: fixed;
   top: 70px;
   font-family: 'Noto Sans KR', sans-serif;
+  z-index: 100;
 }
 nav section {
   display: flex;
   width: 1400px;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
   height: 48px !important;
 }
 
@@ -40,7 +41,7 @@ nav section > div:last-child {
 }
 
 nav a {
-  color:#7fa17f;
+  color: #00ed5d;
   font-weight: 600;
   font-size: 20px;
   display: flex;
@@ -48,45 +49,40 @@ nav a {
   width: 400px;
 }
 
-nav a img{
+nav a img {
   display: inline-block;
 }
 
-
-nav a:hover{
-  color: #FFEEB4;
-  font-size: 20px;
+nav a:hover {
+  color: #0475ff;
+  font-size: 22px;
 }
 
-#mainLogo:hover{
-  color:#7fa17f;
-} 
+#mainLogo:hover {
+  color: #00ed5d;
+}
 
 .selectedLink {
-  color: #FFEEB4;
-  font-size: 20px;
+  color: #0475ff;
+  font-size: 22px;
 }
 
-
-button:hover{
+button:hover {
   cursor: pointer;
 }
 
-
-#logoutBtn{
+#logoutBtn {
   border: none;
   background-color: transparent;
-  color:#7fa17f;
+  color: #00ed5d;
   font-weight: 600;
   font-size: 20px;
 }
 
-.transparent{
-  display: none;
-
-nav a {
-    color: white;
-    font-weight: 600;
-    font-size: 18px;
+#logoutBtn:hover {
+  color: #0475ff;
 }
+
+.transparent {
+  display: none;
 }
