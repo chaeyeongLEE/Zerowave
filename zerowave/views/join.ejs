@@ -14,7 +14,7 @@
             <div class="log"><h1>Join</h1></div>
 
             <form action="" class="join_form">
-                <input  type="text" placeholder="이름" class="in" name="user_name">
+                <input type="text" placeholder="이름" class="in" name="user_name">
                 <div>
                     <input type="text" placeholder="아이디" class="inId" name="user_email" >
                     <input type="text" placeholder="이메일" class="inEmail" id="domain-txt" name="user_email" >
@@ -33,20 +33,21 @@
                 id="user_pw2" name="user_pw">
                 <div class="mismatch-message hide">두 비밀번호가 일치하지 않습니다.</div>
 
-
-                <p class="birth">생년월일</p>
-                <div class="info" id="info_birth">
-                    <select class="box" id="birth-year">
-                      <option disabled selected>출생 연도</option>
-                    </select>
-                    <select class="box" id="birth-month">
-                      <option disabled selected>월</option>
-                    </select>
-                    <select class="box" id="birth-day">
-                      <option disabled selected>일</option>
-                    </select>
-                </div>
-                <input type="submit" id="btn" value="회원가입" onclick="join()"><br>
+                <div class="birth_form">
+                    <!-- <p class="birth">생년월일</p> -->
+                    </div>
+                    <div class="info" id="info_birth">
+                        <select class="box" id="birth-year">
+                          <option disabled selected>출생 연도</option>
+                        </select>
+                        <select class="box" id="birth-month">
+                          <option disabled selected>월</option>
+                        </select>
+                     <select class="box" id="birth-day">
+                          <option disabled selected>일</option>
+                        </select>
+                    </div>
+                    <input class="in" type="submit" id="btn" value="회원가입"   onclick="join()"><br>
             </form>
 
         </div>

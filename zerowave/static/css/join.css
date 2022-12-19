@@ -4,12 +4,14 @@
     font-family: 'Noto Sans KR', sans-serif; 
     padding: 0;
 }
-.log{
-    text-align: center;
-}
 
+h1{
+    font-weight: 700;
+    font-size: 40px;
+    color: #0475FF;
+}
 body {
-    background-color: #EEEFF1;
+    background-color: #FFFFFF ;
 }
 .wrapper {
           display: flex;
@@ -17,18 +19,19 @@ body {
         }
 .item {
         margin: auto;
-        width: 300px;
-        background-color: #EEEFF1;
+        width: 500px;
         border-radius: 5px;
         padding: 300px;
+        text-align: center;
 }
 .join_form {
          height: 350px;
-         width: 350px;
-         border: 1px solid;
-         padding: 20px;
          border-radius: 1px;
-         border-color: #9B9B9B;
+         border-radius: 1px;
+         text-align: center;
+          /* border: 1px ; */
+         /* padding: 20px; */
+         position: relative;
 }
 
 .test{
@@ -37,47 +40,48 @@ body {
 
 .in {
     width: 350px;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 10px;
+    height: 60px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid black;
+
 }
 .inId{ 
-    width: 110px;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 10px;
+    width: 130px;
+    height: 60px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid black;
 }       
 .inEmail{
-    width: 75px;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 10px;
+    width: 70px;
+    height: 60px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid black;
 }
 #domain-txt{
-    width: 95PX;
-    padding: 10px;
+    width: 100px;
 }
 #domain-list{
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
+    width: 110px;
+    height: 61.5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid black;
 }
 
+
 #btn {
-    background-color: #1BBC9B;
+    background-color: #0475FF;
     color: white;
     width: 350px;
-    border-radius: 5px;
-    border: none;
-    padding: 10px;
-    margin-top: 15px;
+    padding: 12px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
@@ -85,7 +89,9 @@ form {
     font-size: 14px;
 }
 .birth {
-     margin: 0px;
+     color: #7D7D7D;
+     position: absolute;
+     left: 10%;
 }
 
 option {
@@ -94,20 +100,20 @@ option {
             
 #birth-year{
     border-radius: 5px;
-    width: 140px;
+    width: 150px;
     height: 37px;
     border: none;
 }
 
 #birth-month{
     border-radius: 5px;
-    width: 90px;
+    width: 96px;
     height: 37px;
     border: none;
 }
 #birth-day{
     border-radius: 5px;
-    width: 90px;
+    width: 97px;
     height: 37px;
     border: none;
 }
@@ -115,3 +121,4 @@ option {
 .hide {
     display: none;
   }
+
