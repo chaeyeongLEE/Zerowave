@@ -1,22 +1,23 @@
 const { User } = require("../model/index");
-
 const bcrypt = require("bcryptjs");
 
+exports.join = (req, res) => { res.render("join"); };
 
+exports.postJoin = async(req, res) => {
 
-exports.join = (req, res) => {
-
-  res.render("join");
-};
-
-
-
-
-exports.postJoin = (req, res) => {
- 
-    res.redirect("/zerowave/join");
+  let data = {
+    user_email : req.body.user_email,
+    user_pw : req.body.user_pw, 
+    user_name : req.body.user_name
   }
 
+console.log(data);
+
+   let result = await User.create(data);
+   console.log(result);
+   res.send(true);
+ 
+  };
 
 //
 exports.login = (req, res) => {
