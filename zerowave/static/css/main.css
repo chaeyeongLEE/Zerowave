@@ -1,296 +1,408 @@
 /* ---------------CSS 초기화 ---------------------*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /*-------------------------------------------*/
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Noto Sans KR', sans-serif;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Sans KR', sans-serif;
 }
-section{
-    height: 1070px;
-    width: 1400px;
-}
-
-h1{
-    font-size: 48px;
-    font-weight: 600;
+section {
+  height: 1070px;
+  width: 1400px;
 }
 
-h2{
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 30px;
+h1 {
+  font-size: 48px;
+  font-weight: 600;
 }
 
-h3{
-    font-size: 32px;
-    font-weight: 600;
+h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
-h4{
-    font-size: 20px;
-    font-weight: 500;
+h3 {
+  font-size: 32px;
+  font-weight: 600;
 }
 
-p{
-    font-size: 18px;
-    line-height: 30px;
+h4 {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-a{
-    text-decoration: none;
-    color: black;
+p {
+  font-size: 18px;
+  line-height: 30px;
 }
 
-
-body>section{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+a {
+  text-decoration: none;
+  color: black;
 }
 
-body>section img{
-    border-radius: 18px;
+body > section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+body > section img {
+  border-radius: 18px;
 }
 
 /*----------------첫번째 Main--------------------*/
 
-body>section:nth-child(2) img{
-    width: 590px;
-    height: 400px;
-    margin-right: 91px;
+body > section:nth-child(2) img {
+  width: 590px;
+  height: 400px;
+  margin-right: 91px;
 }
 
-
-body>section:nth-child(2) h4{
-    color: #7C9E7D;
+body > section:nth-child(2) h4 {
+  color: #00ed5d;
 }
 
-body>section:nth-child(2) p{
-    width: 490px;
-    margin-top: 64px;
+body > section:nth-child(2) p {
+  width: 490px;
+  margin-top: 64px;
 }
-
 
 /*----------------두번째 Main--------------------*/
 
-
-body>section:nth-child(3) img{
-    width: 440px;
-    height: 630px;
-    margin-left: 91px;
+body > section:nth-child(3) img {
+  width: 440px;
+  height: 630px;
+  margin-left: 91px;
 }
-body>section:nth-child(3) h3{
-    margin-bottom: 72px;
+body > section:nth-child(3) h3 {
+  margin-bottom: 72px;
 }
 
-
-body>section:nth-child(3) p{
-    width: 758px;
-    margin-bottom: 40px;
+body > section:nth-child(3) p {
+  width: 758px;
+  margin-bottom: 40px;
 }
 
 /*----------------세번째 Main--------------------*/
 
-
-body>section:nth-child(4) img{
-    width: 440px;
-    height: 630px;
-    margin-right: 116px;
+body > section:nth-child(4) img {
+  width: 440px;
+  height: 630px;
+  margin-right: 116px;
 }
 
-body>section:nth-child(4) h1{
-    margin-bottom: 72px;
-    color: #7C9E7D;
-    margin-top: 10px;
+body > section:nth-child(4) h1 {
+  margin-bottom: 72px;
+  color: #00ed5d;
+  margin-top: 10px;
 }
 
-
-body>section:nth-child(4) p{
-    width: 758px;
-    margin-bottom: 40px;
+body > section:nth-child(4) p {
+  width: 758px;
+  margin-bottom: 40px;
 }
-
 
 /*----------------네번째 Main--------------------*/
 
-
-body>section:nth-child(5){
-    flex-direction: column;
-    justify-content:flex-start;
-    margin-top: 84px;
+body > section:nth-child(5) {
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 84px;
 }
 
-body>section:nth-child(5) h4{
-    color: #7C9E7D;
-    margin-top: 32px;
+body > section:nth-child(5) h4 {
+  color: #00ed5d;
+  margin-top: 32px;
 }
 
-
-
-#zwFuncInfo{
-    display: flex;
-    margin-top: 124px;
-    align-items: center;
-    justify-content: center;
-    width: 1400px;
+#zwFuncInfo {
+  display: flex;
+  margin-top: 124px;
+  align-items: center;
+  justify-content: center;
+  width: 1400px;
 }
 
-#zwFuncInfo>div:first-child{
-    margin-right: 218px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#zwFuncInfo > div:first-child {
+  margin-right: 218px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-#zwFuncInfo>div:nth-child(1) h3{
-    text-align: center;
-    margin-top: 54px;
-    margin-bottom: 46px;
+#zwFuncInfo > div:nth-child(1) h3 {
+  text-align: center;
+  margin-top: 54px;
+  margin-bottom: 46px;
 }
 
-#zwFuncInfo>div:nth-child(1) p{
-    width: 306px;
-    text-align: center;
-    margin-bottom: 15px;
+#zwFuncInfo > div:nth-child(1) p {
+  width: 306px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-#zwFuncInfo img{
-    display: flex;
-    width: 290px;
+#zwFuncInfo img {
+  display: flex;
+  width: 290px;
 }
 
-#zwFuncInfo>div:nth-child(2){
-    width: 735px;
-    margin-top: 85px;
+#zwFuncInfo > div:nth-child(2) {
+  width: 735px;
+  margin-top: 85px;
 }
 
-#zwFuncInfo>div:nth-child(2) p{
-    width: 710px;
-    margin-top: 41px;
-    margin-bottom: 110px;
-    margin-left: 88px;
+#zwFuncInfo > div:nth-child(2) p {
+  width: 710px;
+  margin-top: 41px;
+  margin-bottom: 110px;
+  margin-left: 88px;
 }
-
 
 /*---------------- Footer --------------------*/
 
-
-footer{
-    border-top: 1px solid black;
-    height: 220px;
-    width: 1400px;
+footer {
+  border-top: 1px solid black;
+  height: 220px;
+  width: 1400px;
 }
 
-
 .ocean {
-    height: 200px; /* change the height of the waves here */
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow-x: hidden;
-  }
-  
-  .wave {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%237FA17F'/%3E%3C/svg%3E");
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    animation: wave 10s -3s linear infinite;
-    transform: translate3d(0, 0, 0);
-    opacity: 0.8;
-  }
-  
-  .wave:nth-of-type(2) {
-    bottom: 0;
-    animation: wave 18s linear reverse infinite;
-    opacity: 0.5;
-  }
-  
-  .wave:nth-of-type(3) {
-    bottom: 0;
-    animation: wave 20s -1s linear infinite;
-    opacity: 0.5;
-  }
-  
-  @keyframes wave {
-      0% {transform: translateX(0);}
-      50% {transform: translateX(-25%);}
-      100% {transform: translateX(-50%);}
-  }
+  height: 200px; /* change the height of the waves here */
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+  z-index: 2;
+}
 
-  .moveTopBtn {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 1rem;
-    right: 1rem;
-    width: 4rem;
-    height: 4rem;
-    cursor: pointer;
-    font-size: 40px;
-   }
+.wave {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%230475ff'/%3E%3C/svg%3E");
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+}
 
-   .item{
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    height: auto;
-   }
+.wave:nth-of-type(2) {
+  bottom: 0;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.5;
+}
 
-   .item img{
-    width: 500px;
-    display: inline-block;
-   }
+.wave:nth-of-type(3) {
+  bottom: 0;
+  animation: wave 20s -1s linear infinite;
+  opacity: 0.5;
+}
 
-   .item img:hover{
-    width: 550px;
-   }
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.moveTopBtn {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 1rem;
+  right: 1rem;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  font-size: 40px;
+  z-index: 50;
+}
+
+.item {
+  position: absolute;
+  height: auto;
+  z-index: 0;
+  animation: float;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.item img {
+  width: 400px;
+  display: inline-block;
+}
+
+.item img:hover {
+  width: 450px;
+}
+
+.item._1 {
+  top: 182px;
+  left: 15px;
+  transform: rotate(332deg) translate(0, 0);
+}
+.item._2 {
+  top: 100px;
+  right: 43px;
+  transform: rotate(30deg) translate(0, 0);
+}
+.item._3 {
+  top: 650px;
+  left: 100px;
+  transform: rotate(332deg) translate(0, 0);
+}
+.item._4 {
+  top: 619px;
+  right: 150px;
+  width: 350px;
+  transform: rotate(332deg) translate(0, 0);
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
