@@ -8,13 +8,15 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/static/css/nav.css" />
     <link rel="stylesheet" href="/static/css/join.css">
-    
+
+    <link rel="stylesheet" href="/static/css/nav.css">
 </head>
 <body>  
      <nav id="nav">
       <%-include('./nav.ejs', {islogin: islogin})%>
     </nav>
     <div class="wrapper">
+        <nav id="nav"><%-include('./nav.ejs', {type: '', islogin: islogin})%></nav>
         <div class="item">
             <div class="log"><h1>Join</h1></div>
 
