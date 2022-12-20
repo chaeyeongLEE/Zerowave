@@ -10,21 +10,26 @@ exports.postJoin = async(req, res) => {
     user_name : req.body.user_name
   };
   console.log(data);
-  let result = await User.create(data);
+  await User.create(data);
+  // 세션 저장
+  req.session.user = req.body.user_email;
   res.send(true);
+  // 회원가입 -> 로그인 성공된 상태로 보이게
+  // 이메일, 비번 검사 -> 세션 저장
+
+   
 };
-
-
 exports.login = (req, res) => { res.render("login") };
 
 exports.postLogin = async (req, res) => {
   // const enteredEmail = req.body.email;
   // const enteredPassword = req.body.password;
 
-  let existingUser = await User.findOne({
-    where: { email: req.body.email }});
+  let result = await User.findOne({
+    where: { user_email: req.body.email }});
 
-  console.log(result);
+    
+  req.session.user = req.body.email;
   if(result) res.send(true);
   else res.send(false);
 
@@ -55,9 +60,6 @@ exports.postLogin = async (req, res) => {
   //   });
   //   return;
   // }
-
-  res.redirect("/zerowave");
-
 };
 
 

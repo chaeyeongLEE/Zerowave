@@ -1,5 +1,5 @@
-//생년월일 함수
-    const domainListEl = document.querySelector('#domain-list')
+    //이메일선택시 반영되게   
+   const domainListEl = document.querySelector('#domain-list')
     const domainInputEl = document.querySelector('#domain-txt')
     domainListEl.addEventListener('change', (event) => {
     if(event.target.value !== "type") {
@@ -10,6 +10,8 @@
     domainInputEl.disabled = false
     }
 });        
+
+//생년월일 함수
     const birthYearEl = document.querySelector('#birth-year')
     isYearOptionExisted = false;
     birthYearEl.addEventListener('focus', function () {
@@ -51,34 +53,22 @@
 });
 
 function join(){
-let form = document.getElementById("join_form"); 
-let data = { 
+    let form = document.getElementById("join_form"); 
+    let data = { 
     user_email : form.emailID.value + form.emailDomain.value,
     user_pw : form.user_pw.value , 
     user_name : form.user_name.value 
-};
+    };
     axios({
         method : "post",
-        url : "join",
+        url : "/zerowave/join",
         data : data
     }).then((req) => {return req.data;})
     .then((data)=>{
         alert("회원가입에 성공했습니다");
-        document.location.href="login";
+        location.href="/zerowave";     
     });
 }
-        //  }).then((res)=>{
-        //         if (res.success) {
-        //           // 서버에서 가입 성공응답이 오면 login페이지로 이동
-        //           location.href = "/login";
-        //         } else {
-        //           console.log(res.msg);
-        //         }
-        //       })
-        //       .catch(err => {
-        //         console.error("회원가입 중 에러 발생");
-        //       });
-        //   }
 
 
 
