@@ -7,7 +7,7 @@
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 
 /*--menu wrap은 메뉴 백그라운드(투명배경)*/
-#menu_wrap {position:absolute; height: 900px;top:100px; bottom:250; width:250px; margin:170px 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 9999;font-size:12px;border-radius: 10px;}
+#menu_wrap {position:absolute; height: 900px;top:100px; bottom:250; width:300px; margin:110px 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 9999;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 
 
