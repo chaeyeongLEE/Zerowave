@@ -12,7 +12,7 @@ exports.map = (req, res) => {
 
 
 exports.mainC = (req, res) => {
-  // req.params.type
+  //req.params.type
   req.result["type"] = req.params.type;
   res.render(req.params.type, req.result);
 };
