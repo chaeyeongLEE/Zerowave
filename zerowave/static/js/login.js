@@ -10,7 +10,11 @@ function login(){
                     url : "/zerowave/login",
                  data : data
              }).then((res)=>{
-                 location.href = "/zerowave";
+                if(res.data) {
+                    alert("로그인 성공!");
+                    location.href = "/zerowave";
+                } else { alert("다시 한번만 시도해주세요.")}
+                 
              })
     }
     

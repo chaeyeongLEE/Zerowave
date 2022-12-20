@@ -33,10 +33,8 @@ exports.postLogin = async (req, res) => {
     where: { user_email: enteredEmail },
   });
 
-  console.log(typeof (result));
-
   const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
-  console.log(samePassword);
+
   if (samePassword) {
     req.session.user = req.body.email;
     res.send(true);
