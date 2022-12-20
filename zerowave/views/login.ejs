@@ -12,12 +12,12 @@
     <div class="wrapper">
       <div class="item">
         <div class="log"><h1>Login</h1></div>
-        <form class="login_form" action="../views/main.ejs" method="post">
+        <form class="login_form" id="login_form">
           
           <input type="text" placeholder="이메일" class="in" name="user_email">
 
           <input type="password" placeholder="비밀번호" class="in" name="user_pw">
-          <input class="in" type="submit" id="btn" value="로그인" onclick="login()"><br>
+          <button class="in" type="button" id="btn" value="로그인" onclick="login()">로그인</button><br>
         </form>
         <input class="test" type="checkbox">
         <label for="check" >로그인 상태 유지</label>
