@@ -18,6 +18,7 @@ router.post("/join", Cuser.postJoin);
 
 router.get("/login",Cuser.login);
 router.post("/login",Cuser.postLogin);
+router.post("/logout",Cuser.postLogout);
 
 router.post("/mypage", Cuser.mypage);
 router.patch("/mypage", Cuser.mypage_edit);

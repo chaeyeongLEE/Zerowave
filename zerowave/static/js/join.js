@@ -52,6 +52,8 @@
     }
 });
 
+
+
 function join(){
     let form = document.getElementById("join_form"); 
     let data = { 
@@ -64,7 +66,8 @@ function join(){
         url : "/zerowave/join",
         data : data
     }).then((req) => {return req.data;})
-    .then((data)=>{
+    .then((res)=>{
+        console.log(res);
         alert("회원가입에 성공했습니다");
         location.href="/zerowave";     
     });
