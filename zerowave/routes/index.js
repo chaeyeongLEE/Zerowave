@@ -11,6 +11,7 @@ router.use('*', (req,res,next) => {
 
   next();
 });
+
 router.get('/',  controller.main);
 
 router.get("/join", Cuser.join);
@@ -20,7 +21,7 @@ router.get("/login",Cuser.login);
 router.post("/login",Cuser.postLogin);
 router.post("/logout",Cuser.postLogout);
 
-router.post("/mypage", Cuser.mypage);
+router.get("/mypage", Cuser.mypage);
 router.patch("/mypage", Cuser.mypage_edit);
 router.delete("/mypage", Cuser.mypage_delete);
 
@@ -28,6 +29,6 @@ router.delete("/mypage", Cuser.mypage_delete);
 //router.get('/', controller.map);
 
 
-router.get('/main/:type', controller.mainC);
+// router.get('/main/:type', controller.mainC);
 
 module.exports = router;

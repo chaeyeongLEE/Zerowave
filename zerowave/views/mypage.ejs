@@ -28,7 +28,7 @@
   <body>
     
     <nav id="nav">
-      <%-include('./nav.ejs', {islogin: islogin})%>
+      <%-include('./nav.ejs')  {islogin: islogin} %>
     </nav>
     <section>
       <h1><span id="userName"></span>님 안녕하세요</h1>
@@ -36,7 +36,7 @@
       <div id="contents">
       </div>
     </section>
-    <button id="withdrawalBtn">회원탈퇴</button>
+    <button id="withdrawalBtn" type="button" onclick="deleteAccount()">회원탈퇴</button>
     <script src="/static/js/mypage.js">
     </script>
   </body>
