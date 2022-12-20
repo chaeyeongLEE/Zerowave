@@ -52,10 +52,13 @@ exports.postLogout = (req,res) =>{
 };
 
 
-exports.mypage = async (req, res) => {
-  let result = await User.findOne({ where: { email: req.body.email } });
-  if (result) res.render("mypage", { data: result });
-  else res.redirect("/zerowave");
+exports.mypage = (req, res) => {
+  // if(req.session.user) {
+  //   res.render("mypage", { email: req.session.user });
+  // }
+  // else res.redirect("/zerowave");
+
+  res.render("mypage")
 };
 
 exports.mypage_edit = async (req, res) => {

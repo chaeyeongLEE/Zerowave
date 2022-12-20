@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Form</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/static/css/nav.css" />
     <link rel="stylesheet" href="/static/css/join.css">
+
     <link rel="stylesheet" href="/static/css/nav.css">
 </head>
 <body>  
+     <nav id="nav">
+      <%-include('./nav.ejs', {islogin: islogin})%>
+    </nav>
     <div class="wrapper">
         <nav id="nav"><%-include('./nav.ejs', {type: '', islogin: islogin})%></nav>
         <div class="item">
