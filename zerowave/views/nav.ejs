@@ -15,12 +15,12 @@
 </section>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    let login = "<%=islogin%>"; 
+    let islogin = "<%=islogin%>"; 
     const logoutBtn = document.getElementById('logoutBtn');
     const loginLink = document.getElementById('loginLink');
     const mypageLink = document.getElementById('mypageLink');
     const joinBtn = document.getElementById('joinBtn');
-    if(login === "true"){
+    if(islogin === "true"){
       logoutBtn.classList.remove('transparent');
       mypageLink.classList.remove('transparent');
       loginLink.classList.add('transparent');
