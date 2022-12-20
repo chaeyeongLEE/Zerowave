@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="/static/css/nav.css" />
     <link rel="stylesheet" href="/static/css/map.css" />
-    <link rel="stylesheet" href="/static/css/main.css" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -68,7 +68,7 @@ var markers = [];
         let neLat, neLng,swLat,swLng;
         kakao.maps.event.addListener(map, "zoom_changed", function() {
              neLat = this.getBounds().getNorthEast().getLat();
-            neLng = this.getBounds().getNorthEast().getLng();
+             neLng = this.getBounds().getNorthEast().getLng();
              swLat = this.getBounds().getSouthWest().getLat();
              swLng = this.getBounds().getSouthWest().getLng();
             console.log(neLat, neLng, swLat, swLng);
@@ -76,7 +76,8 @@ var markers = [];
         });    
 
 
-        
+    // 키워드로 장소를 검색합니다
+    searchPlaces();
 
 
         var infowindow = new kakao.maps.InfoWindow({zIndex:1});
@@ -93,41 +94,45 @@ var markers = [];
             var spotList = res.data; 
             console.log (spotList);
 
-            function displayPlaces(places) {
-
-                var listEl = document.getElementById('placesList'), 
-                menuEl = document.getElementById('menu_wrap'),
-                fragment = document.createDocumentFragment(), 
-                listStr = '';
-
-                removeAllChildNods(listEl);
-                removeMarker();
-
-                
-                for ( var i = 0; i < places.length; i++ ) {
-                    var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
-                    let marker = addMarker(placePosition, i);
-
-                    let itemEl = getListItem(i, places[i]); 
-                    
-                    (function(marker, title) { 
-                        kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
-                        kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
-                        //itemEl.onmouseover =  function () { displayInfowindow(marker, title); };
-                       // itemEl.onmouseout =  function () { infowindow.close(); };
-                    })(marker, places[i].spot_name);
-
-                    fragment.appendChild(itemEl);
-                }
-                listEl.appendChild(fragment);
-                menuEl.scrollTop = 0;
-            
-            }
             displayPlaces(spotList);
             displayPagination(pagination);
         });
     }
+
+
     getLi();
+
+    function displayPlaces(places) {
+
+var listEl = document.getElementById('placesList'), 
+menuEl = document.getElementById('menu_wrap'),
+fragment = document.createDocumentFragment(), 
+
+listStr = '';
+
+removeAllChildNods(listEl);
+removeMarker();
+
+
+for ( var i = 0; i < places.length; i++ ) {
+    var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
+    let marker = addMarker(placePosition, i);
+
+    let itemEl = getListItem(i, places[i]); 
+    
+    (function(marker, title) { 
+        kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
+        kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
+        //itemEl.onmouseover =  function () { displayInfowindow(marker, title); };
+       // itemEl.onmouseout =  function () { infowindow.close(); };
+    })(marker, places[i].spot_name);
+
+    fragment.appendChild(itemEl);
+}
+listEl.appendChild(fragment);
+menuEl.scrollTop = 0;
+
+}
 
         function getListItem(index, places) {
                 var el = document.createElement('li'),
@@ -170,12 +175,13 @@ var markers = [];
                     }
                     markers = [];
         }
-
+                // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
         function displayPagination(pagination) {
                 var paginationEl = document.getElementById('pagination'),
-                fragment = document.createDocumentFragment(),
-                i; 
-                
+                    fragment = document.createDocumentFragment(),
+                    i; 
+
+                // 기존에 추가된 페이지번호를 삭제합니다
                 while (paginationEl.hasChildNodes()) {
                     paginationEl.removeChild (paginationEl.lastChild);
                 }
