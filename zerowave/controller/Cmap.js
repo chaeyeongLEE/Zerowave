@@ -5,12 +5,12 @@ exports.index = (req,res) => { res.render("map"); }
 
 exports.zwShopList = async(req,res) => {
 
-    var currentLocate = {
-        top: req.body.latlonData.swLat,
-        left: req.body.latlonData.swLon,
-        bottom: req.body.latlonData.neLat,
-        right: req.body.latlonData.neLon   
-    };
+    // var currentLocate = {
+    //     top: req.body.latlonData.swLat,
+    //     left: req.body.latlonData.swLon,
+    //     bottom: req.body.latlonData.neLat,
+    //     right: req.body.latlonData.neLon   
+    // };
 
     var zwshopMap = await zwMap.findAll({
         raw: true,
@@ -20,7 +20,7 @@ exports.zwShopList = async(req,res) => {
         // }
     });
     
-    console.log("현재위치:", currentLocate);
+    
 
     res.send(zwshopMap); 
 }
