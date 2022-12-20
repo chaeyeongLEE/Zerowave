@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="/static/css/nav.css" />
     <link rel="stylesheet" href="/static/css/map.css" />
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -59,14 +59,15 @@
 <script>
 
 // 마커를 담을 배열입니다
-var markers = [];
+    var markers = [];
     let mapContainer = document.getElementById("map");
     let initPosition = new kakao.maps.LatLng( 37.53367689999959, 126.95917989999991);
-        let options = { center: initPosition, level: 6 };
-        let map = new kakao.maps.Map(mapContainer, options);
+    let options = { center: initPosition, level: 6 };
+    let map = new kakao.maps.Map(mapContainer, options);
       
-        let neLat, neLng,swLat,swLng;
-        kakao.maps.event.addListener(map, "zoom_changed", function() {
+    let neLat, neLng,swLat,swLng;
+
+    kakao.maps.event.addListener(map, "zoom_changed", function() {
              neLat = this.getBounds().getNorthEast().getLat();
              neLng = this.getBounds().getNorthEast().getLng();
              swLat = this.getBounds().getSouthWest().getLat();
@@ -80,10 +81,11 @@ var markers = [];
     searchPlaces();
 
 
-        var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 
-        function getLi() {
+    
+    function getLi() {
         axios({ 
             method: "post", 
             url: "map/zwshop",
@@ -103,6 +105,7 @@ var markers = [];
     getLi();
 
     function displayPlaces(places) {
+
 
 var listEl = document.getElementById('placesList'), 
 menuEl = document.getElementById('menu_wrap'),
@@ -137,24 +140,58 @@ menuEl.scrollTop = 0;
         function getListItem(index, places) {
                 var el = document.createElement('li'),
                 itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
+
+        var listEl = document.getElementById('placesList'), 
+        menuEl = document.getElementById('menu_wrap'),
+        fragment = document.createDocumentFragment(), 
+        listStr = '';
+
+        removeAllChildNods(listEl);
+        removeMarker();
+
+
+        for ( var i = 0; i < places.length; i++ ) {
+            var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
+            let marker = addMarker(placePosition, i);
+
+            let itemEl = getListItem(i, places[i]); 
+    
+        (function(marker, title) { 
+                kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
+                kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
+                //itemEl.onmouseover =  function () { displayInfowindow(marker, title); };
+            // itemEl.onmouseout =  function () { infowindow.close(); };
+            })(marker, places[i].spot_name);
+
+            fragment.appendChild(itemEl);   
+        }
+        listEl.appendChild(fragment);
+        menuEl.scrollTop = 0;
+
+        }
+
+    function getListItem(index, places) {
+        var el = document.createElement('li'),
+            itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
+
                 '<div class="info">' +'   <h5>' + places.spot_name + '</h5>';
 
                     if (places.address) {
                         itemStr += '    <span>' + places.address + '</span>' +
                     '   <span class="jibun gray">' +  places.address  + '</span>';
                 } 
-                else {
-                    itemStr += '    <span>' +  places.spot_name  + '</span>'; }
-                    itemStr += '  <span class="tel">' + places.spot_name  + '</span>' + '</div>';
+                    else {
+                        itemStr += '    <span>' +  places.spot_name  + '</span>'; }
+                        itemStr += '  <span class="tel">' + places.spot_name  + '</span>' + '</div>';
 
-                el.innerHTML = itemStr;
-                el.className = 'item';
+                        el.innerHTML = itemStr;
+                        el.className = 'item';
 
-                return el;
-            }
+                    return el;
+                }   
             
 
-        function addMarker(position, idx, title) {
+    function addMarker(position, idx, title) {
                 
                 // imageSize = new kakao.maps.Size(36, 37), 
                 // imgOptions =  { 
@@ -167,16 +204,22 @@ menuEl.scrollTop = 0;
                     markers.push(marker);
 
                     return marker;
-                }
+    }
                 
-        function removeMarker() {
+    function removeMarker() {
                     for ( var i = 0; i < markers.length; i++ ) {
                         markers[i].setMap(null);
                     }
                     markers = [];
+
         }
                 // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
         function displayPagination(pagination) {
+
+    }
+
+    function displayPagination(pagination) {
+
                 var paginationEl = document.getElementById('pagination'),
                     fragment = document.createDocumentFragment(),
                     i; 
@@ -202,15 +245,15 @@ menuEl.scrollTop = 0;
                         fragment.appendChild(el);
                     }
                     paginationEl.appendChild(fragment);
-        }
+    }
                 
-        function displayInfowindow(marker, title) { 
+    function displayInfowindow(marker, title) { 
                 var content = '<div style="padding:5px;z-index:1;">' + title + '</div>'; 
                 infowindow.setContent(content); 
                 infowindow.open(map, marker);
         }
 
-        function removeAllChildNods(el) {   
+    function removeAllChildNods(el) {   
                 while (el.hasChildNodes()) {
                     el.removeChild (el.lastChild);
                 }

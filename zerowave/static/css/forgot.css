@@ -1,0 +1,52 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Noto Sans KR', sans-serif; 
+     padding: 0;
+}
+h1{
+    font-weight: 700;
+    font-size: 12px;
+    color: #051619;
+}
+/* .forgot_form{
+    text-align: left;
+} */
+.password_description {
+    font-weight: 700;
+    font-size: 18px;
+    color: #051619;
+}
+#find_email{
+    margin: auto;
+    width: 550px;
+    height: 40px;
+}
+
+span{
+    font-size: 12px;
+    color: #051619;
+}
+.forgot_form{
+    margin: auto;
+    width: 500px;
+    border-radius: 5px;
+    padding: 300px;
+}
+.password_send{
+    display: inline-block;
+    min-width: 104px;
+    text-align: center;
+    padding: 10px 1.5rem 11px;
+    cursor: pointer;
+    position: relative;
+    background: #051619;
+    border: 1px solid #051619;
+    color: #fff;
+}
+.emailaddress{
+    margin-top: 20px;
+    margin-bottom: 30px;    
+}
+

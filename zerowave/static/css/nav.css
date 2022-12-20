@@ -58,6 +58,10 @@ nav a:hover {
   font-size: 22px;
 }
 
+#mypageLink{
+  width: 75px;
+}
+
 #mainLogo:hover {
   color: #00ed5d;
 }

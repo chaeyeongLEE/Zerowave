@@ -4,26 +4,45 @@
         <span>제로웨이브</span>
     </a>
     <div>
-        <a href="/zerowave/main/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
+        <a href="/zerowave/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
     </div>
     <div>
-        <a href="/zerowave/main/login" id="loginLink" class="navlink <% type == 'login' &&  __append('selectedLink')%> transparent">Login</a>
-        <a href="/zerowave/main/join" class="navlink  <% type == 'join' &&  __append('selectedLink')%>" >Join</a>
-        <a href="/zerowave/main/mypage" class="navlink <% type == 'mypage' && __append('selectedLink')%>">Mypage</a>
-        <button id="logoutBtn" class="">Logout</button>
+        <a href="/zerowave/login" id="loginLink" class="navlink <% type == 'login' &&  __append('selectedLink')%> transparent">Login</a>
+        <a href="/zerowave/join" id="joinBtn" class="navlink  <% type == 'join' &&  __append('selectedLink')%>" >Join</a>
+        <a href="/zerowave/mypage" id="mypageLink" class="navlink <% type == 'mypage' && __append('selectedLink')%> transparent">Mypage</a>
+        <button id="logoutBtn" class="" onclick="logout()">Logout</button>
     </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    let login = "<%=islogin%>"; 
+    let islogin = "<%=islogin%>"; 
     const logoutBtn = document.getElementById('logoutBtn');
     const loginLink = document.getElementById('loginLink');
-    if(login === "true"){
+    const mypageLink = document.getElementById('mypageLink');
+    const joinBtn = document.getElementById('joinBtn');
+    if(islogin === "true"){
       logoutBtn.classList.remove('transparent');
+      mypageLink.classList.remove('transparent');
       loginLink.classList.add('transparent');
+      joinBtn.classList.add('transparent');
     }else{
         logoutBtn.classList.add('transparent');
-        loginLink.classList.remove('transparent');;
+        mypageLink.classList.add('transparent');
+        loginLink.classList.remove('transparent');
+        joinBtn.classList.remove('transparent');
     }
+
+    function logout(){
+    axios({
+        method: "post",
+        url: "/zerowave/logout",
+        data:{
+
+        }
+    }).then(()=>{
+        location.href = '/zerowave';
+    })
+}
 
 </script>
 
