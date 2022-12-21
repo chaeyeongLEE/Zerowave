@@ -4,7 +4,7 @@ function login(){
                     pw : form.user_pw.value  }
         if(!form.user_email.value || !form.user_pw.value){
             alert("값을 입력해주세요.");
-
+        }
             axios({
                  method : "post",
                     url : "/zerowave/login",
@@ -26,7 +26,7 @@ function login(){
      
             document.form.submit(); //유효성 검사가 통과되면 서버로 전송.
             
-}}
+};
     
 //아이디 저장
 
