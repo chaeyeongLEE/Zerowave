@@ -1,7 +1,11 @@
 function login(){
+    var chk = document.querySelector("input[name=idsave]").checked;
+
         let form = document.querySelector("#login_form"); 
-        let data = { email : form.user_email.value , 
-                    pw : form.user_pw.value  }
+        let data = { email : form.user_email.value, 
+                    pw : form.user_pw.value,
+                    idsave : chk
+                }
         if(!form.user_email.value || !form.user_pw.value){
             alert("값을 입력해주세요.");
         }
@@ -17,37 +21,28 @@ function login(){
                 } else { alert("다시 한번만 시도해주세요.")}
                  
              })
-
-            // if (document.form.idsave.checked == true) { // 아이디 저장을 체크 하였을때
-            //     setCookie("id", document.form.userid.value, 7); //쿠키이름을 id로 아이디입력필드값을 7일동안 저장
-            // } else { // 아이디 저장을 체크 하지 않았을때
-            //     setCookie("id", document.form.userid.value, 0); //날짜를 0으로 저장하여 쿠키삭제
-            // }
-     
-            // document.form.submit(); //유효성 검사가 통과되면 서버로 전송.
-            
 };
     
 //아이디 저장
 
-$("#userId").val(Cookies.get('key'));      
-    if($("#userId").val() != ""){
-        $("#idSaveCheck").attr("checked", true);
-    }
+// $("#userId").val(Cookies.get('key'));      
+//     if($("#userId").val() != ""){
+//         $("#idSaveCheck").attr("checked", true);
+//     }
     
-$("#idSaveCheck").change(function(){
-    if($("#idSaveCheck").is(":checked")){
-        Cookies.set('key', $("#userId").val(), { expires: 7 });
-    }else{
-          Cookies.remove('key');
-    }
-});
+// $("#idSaveCheck").change(function(){
+//     if($("#idSaveCheck").is(":checked")){
+//         Cookies.set('key', $("#userId").val(), { expires: 7 });
+//     }else{
+//           Cookies.remove('key');
+//     }
+// });
      
-$("#userId").keyup(function(){
-    if($("#idSaveCheck").is(":checked")){
-        Cookies.set('key', $("#userId").val(), { expires: 7 });
-    }
-});
+// $("#userId").keyup(function(){
+//     if($("#idSaveCheck").is(":checked")){
+//         Cookies.set('key', $("#userId").val(), { expires: 7 });
+//     }
+// });
 
 
 
