@@ -3,46 +3,81 @@
         <img src="/static/img/mainLogo.png">
         <span>제로웨이브</span>
     </a>
-    <div>
-        <a href="/zerowave/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
+    <div class="category">
+        <button type="button" class="categoryBtn"><i class="fa-solid fa-bars"></i></button>
+        <ul id="categoryUl" class="transparent">
+            <li>
+                    <a href="/zerowave/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
+            </li>
+            <li>
+                <a href="/zerowave/login" class="navlink loginLink <% type == 'login' &&  __append('selectedLink')%> transparent">Login</a>
+            </li>
+            <li>
+                <a href="/zerowave/join" class="navlink  joinBtn <% type == 'join' &&  __append('selectedLink')%>" >Join</a>
+            </li>
+            <li>
+                <a href="/zerowave/mypage" class="navlink mypageLink <% type == 'mypage' && __append('selectedLink')%> transparent">Mypage</a>
+            </li>
+            <li>
+                <button class="logoutBtn" onclick="logout()">Logout</button>
+            </li>
+        </ul>
     </div>
-    <div>
-        <a href="/zerowave/login" id="loginLink" class="navlink <% type == 'login' &&  __append('selectedLink')%> transparent">Login</a>
-        <a href="/zerowave/join" id="joinBtn" class="navlink  <% type == 'join' &&  __append('selectedLink')%>" >Join</a>
-        <a href="/zerowave/mypage" id="mypageLink" class="navlink <% type == 'mypage' && __append('selectedLink')%> transparent">Mypage</a>
-        <button id="logoutBtn" class="" onclick="logout()">Logout</button>
+    <div class="categoryBar">
+        <div>
+            <a href="/zerowave/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
+        </div>
+        <div>
+            <a href="/zerowave/login"  class="navlink loginLink <% type == 'login' &&  __append('selectedLink')%> transparent">Login</a>
+            <a href="/zerowave/join"  class="navlink  joinBtn <% type == 'join' &&  __append('selectedLink')%>" >Join</a>
+            <a href="/zerowave/mypage"  class="navlink mypageLink <% type == 'mypage' && __append('selectedLink')%> transparent">Mypage</a>
+            <button class="logoutBtn" onclick="logout()">Logout</button>
+        </div>
     </div>
 </section>
+<script src="https://kit.fontawesome.com/bfc07fa97f.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     let islogin = "<%=islogin%>"; 
-    const logoutBtn = document.getElementById('logoutBtn');
-    const loginLink = document.getElementById('loginLink');
-    const mypageLink = document.getElementById('mypageLink');
-    const joinBtn = document.getElementById('joinBtn');
+    const logoutBtn = $('.logoutBtn');
+    const loginLink = $('.loginLink');
+    const mypageLink = $('.mypageLink');
+    const joinBtn = $('.joinBtn');
+    console.log(islogin);
     if(islogin === "true"){
-      logoutBtn.classList.remove('transparent');
-      mypageLink.classList.remove('transparent');
-      loginLink.classList.add('transparent');
-      joinBtn.classList.add('transparent');
+      logoutBtn.removeClass('transparent');
+      mypageLink.removeClass('transparent');
+      loginLink.addClass('transparent');
+      joinBtn.addClass('transparent');
     }else{
-        logoutBtn.classList.add('transparent');
-        mypageLink.classList.add('transparent');
-        loginLink.classList.remove('transparent');
-        joinBtn.classList.remove('transparent');
+        logoutBtn.addClass('transparent');
+        mypageLink.addClass('transparent');
+        loginLink.removeClass('transparent');
+        joinBtn.removeClass('transparent');
     }
 
     function logout(){
     axios({
         method: "post",
         url: "/zerowave/logout",
-        data:{
-
-        }
-    }).then(()=>{
-        location.href = '/zerowave';
+    }).then((res) =>{
+        if(res.data) {
+                alert("로그아웃 성공!");
+                location.href = "/zerowave";
+        } else { alert("다시 한번만 시도해주세요.")}
     })
-}
+
+    }
+
+
+    const menuBtn = document.querySelector('.categoryBtn');
+    const categoryUl = document.getElementById('categoryUl');
+    menuBtn.addEventListener('click', toggleMenu);
+
+    function toggleMenu() {
+       categoryUl.classList.toggle('transparent');
+    }
 
 </script>
 
