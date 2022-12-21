@@ -20,14 +20,14 @@
 }
 
 
-ul{
+#categoryUl{
   display: flex;
   width: 100px;
   flex-direction: column;
   justify-content: center;
 }
 
-li{
+#categoryUl li{
   margin: 10px 0 !important;
 }
 
