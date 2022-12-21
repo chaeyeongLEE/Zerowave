@@ -1,6 +1,6 @@
       //이름은 나중에 받기
-      let nameIdx = '조혜빈';
-      $('#userName').text(nameIdx);
+      // let nameIdx = '조혜빈';
+      // $('#userName').text(nameIdx);
 
       const contents = {
         "0":{
