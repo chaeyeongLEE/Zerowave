@@ -26,7 +26,7 @@ function login(){
      
             document.form.submit(); //유효성 검사가 통과되면 서버로 전송.
             
-}
+}}
     
 //아이디 저장
 
