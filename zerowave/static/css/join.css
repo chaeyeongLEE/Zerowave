@@ -11,10 +11,11 @@ h1{
     color: #0475FF;
 }
 body {
-    background-color: #FFFFFF ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .wrapper {
-          display: flex;
           min-height: 100vh;
         }
 .item {
@@ -27,10 +28,7 @@ body {
 .join_form {
          height: 350px;
          border-radius: 1px;
-         border-radius: 1px;
          text-align: center;
-          /* border: 1px ; */
-         /* padding: 20px; */
          position: relative;
 }
 
@@ -122,3 +120,7 @@ option {
     display: none;
   }
 
+a {
+  text-decoration: none;
+
+}

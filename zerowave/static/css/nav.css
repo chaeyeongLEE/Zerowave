@@ -1,3 +1,36 @@
+@media screen and (min-width: 700px){
+  .category{
+    display: none;
+  }
+}
+
+.category{
+  z-index: 100;
+}
+
+.categoryBar a{
+  width: 100px;
+}
+
+.categoryBtn{
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  color: #00ed5d;
+}
+
+
+ul{
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li{
+  margin: 10px 0 !important;
+}
+
 nav {
   display: flex;
   justify-content: center;
@@ -11,7 +44,7 @@ nav section {
   width: 1400px;
   align-items: center;
   justify-content: space-between;
-  height: 48px !important;
+  height: auto !important;
 }
 
 nav img {
@@ -46,7 +79,7 @@ nav a {
   font-size: 20px;
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 150px;
 }
 
 nav a img {
@@ -75,7 +108,7 @@ button:hover {
   cursor: pointer;
 }
 
-#logoutBtn {
+.logoutBtn {
   border: none;
   background-color: transparent;
   color: #00ed5d;
@@ -83,10 +116,43 @@ button:hover {
   font-size: 20px;
 }
 
-#logoutBtn:hover {
+.logoutBtn:hover {
   color: #0475ff;
 }
 
 .transparent {
   display: none;
+}
+
+
+/*모바일사이즈*/
+@media screen and (max-width: 700px){
+  .categoryBar{
+    display: none;
+  }
+
+
+  nav section{
+    width: 80vw;
+    position: relative;
+  }
+
+  .category{
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw !important;
+    height: auto;
+  }
+
+  .category a{
+    font-size: 18px;
+  }
+
+  nav a{
+    width: 170px;
+  }
 }
