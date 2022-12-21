@@ -79,17 +79,20 @@ exports.mypage = (req, res) => {
   } else res.redirect("/zerowave");
 };
 
-exports.mypage_edit = async (req, res) => {
-  let data = {
-    pw: req.body.pw,
-    name: req.body.name,
-  };
+// exports.mypage_edit = async (req, res) => {
+//   let data = {
+//     pw: req.body.pw,
+//     name: req.body.name,
+//   };
 
-  let result = await User.update(data, { where: { email: req.body.email } });
-  res.redirect("/zerowave/mypage");
-};
+//   let result = await User.update(data, { where: { email: req.body.email } });
+//   res.redirect("/zerowave/mypage");
+// };
 
 exports.mypage_delete = async (req, res) => {
-  let result = await User.destroy({ where: { email: req.body.email } });
-  res.redirect("/zerowave");
+  let result = await User.destroy({ where: { user_email: req.session.user.email } });
+  req.session.destroy(function (err) {
+    if (err) throw err;
+  });
+  res.send("회원 탈퇴 처리가 완료되었습니다.")
 };

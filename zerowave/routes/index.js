@@ -22,7 +22,7 @@ router.post("/login",Cuser.postLogin);
 router.post("/logout",Cuser.postLogout);
 
 router.post("/mypage", Cuser.mypage);
-router.patch("/mypage", Cuser.mypage_edit);
+//router.patch("/mypage", Cuser.mypage_edit);
 router.delete("/mypage", Cuser.mypage_delete);
 
 
