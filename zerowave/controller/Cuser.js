@@ -16,7 +16,10 @@ exports.postJoin = async (req, res) => {
   console.log(data);
   await User.create(data);
   // 세션 저장
-  req.session.user = req.body.user_email;
+  req.session.user = {
+    email:  req.body.user_email,
+    name: req.body.user_name,
+    password: req.body.user_pw}
   res.send(true);
   // 회원가입 -> 로그인 성공된 상태로 보이게
   // 이메일, 비번 검사 -> 세션 저장
@@ -30,13 +33,19 @@ exports.postLogin = async (req, res) => {
   const enteredPassword = req.body.pw;
 
   let result = await User.findOne({
+    raw: true,
     where: { user_email: enteredEmail },
   });
+  
+  console.log(result.user_name);
 
   const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
 
   if (samePassword) {
-    req.session.user = req.body.email;
+    req.session.user = {
+      email:  enteredEmail,
+      name: result.user_name,
+      password: enteredPassword}
     res.send(true);
   } else res.send(false);
 };
@@ -53,12 +62,11 @@ exports.postLogout = (req,res) =>{
 
 
 exports.mypage = (req, res) => {
-  // if(req.session.user) {
-  //   res.render("mypage", { email: req.session.user });
-  // }
-  // else res.redirect("/zerowave");
+  if(req.session.user) {
+    res.render("mypage" );
+  }
+  else res.redirect("/zerowave");
 
-  res.render("mypage")
 };
 
 exports.mypage_edit = async (req, res) => {

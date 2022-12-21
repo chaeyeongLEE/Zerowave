@@ -31,7 +31,11 @@
       <%-include('./nav.ejs', {type: '', islogin: islogin})%>
     </nav>
     <section>
-      <h1><span id="userName"></span>님 안녕하세요</h1>
+      <h1><span id="userName">
+        <%=sessionUser.name%>
+      </span>님 안녕하세요!</h1>
+      <br>
+      <h3><%=sessionUser.email%></h3>
       <h2>내가 기록한 Maps</h2>
       <div id="contents">
       </div>

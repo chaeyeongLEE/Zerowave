@@ -6,7 +6,7 @@ const router = express.Router();
 const port = 8000;
 
 router.use('*', (req,res,next) => {
-  if ( req.session.user ) req.result = {islogin: true};
+  if ( req.session.user ) req.result = {islogin: true, sessionUser: req.session.user};
   else req.result = {islogin: false};
 
   next();
