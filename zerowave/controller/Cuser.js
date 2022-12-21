@@ -47,7 +47,7 @@ exports.postLogout = (req,res) =>{
   console.log("logout");
   req.session.destroy(function(err){
       if(err) throw err;
-      res.send("로그아웃 성공");
+      res.send(true);
   }) 
 };
 
