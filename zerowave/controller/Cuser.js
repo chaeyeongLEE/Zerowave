@@ -39,19 +39,31 @@ exports.postJoin = async (req, res) => {
 };
 
 exports.login = (req, res) => {
-  res.render("login");
+  var userEmail ="";
+  if(req.cookies['loginId'] !== undefined){
+    console.log("로그인 정보 있음");
+    userEmail = req.cookies['loginId'];
+  }
+  res.render("login", {userEmail: userEmail});
 };
 
 exports.postLogin = async (req, res) => {
   const enteredEmail = req.body.email;
   const enteredPassword = req.body.pw;
+  const idsave = req.body.idsave;
+
+  if(idsave === true){
+    res.cookie('loginID', enteredEmail);
+    console.log(req.cookies);
+  }  
+  
 
   let result = await User.findOne({
     raw: true,
     where: { user_email: enteredEmail },
   });
 
-  console.log(result.user_name);
+ // console.log(result.user_name);
 
   const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
 
@@ -63,6 +75,7 @@ exports.postLogin = async (req, res) => {
     };
     res.send(true);
   } else res.send(false);
+
 };
 
 exports.postLogout = (req, res) => {
