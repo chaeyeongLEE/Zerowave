@@ -6,24 +6,38 @@ exports.join = (req, res) => {
 };
 
 exports.postJoin = async (req, res) => {
-  const hashedPassword = await bcrypt.hash(req.body.user_pw, 12);
+  const enteredEmail = req.body.user_email;
+  const enteredPassword = req.body.user_pw;
+  const enteredName = req.body.user_name;
+  const enteredConfirmPassword = req.body.user_pw2;
 
-  let data = {
-    user_email: req.body.user_email,
-    user_pw: hashedPassword,
-    user_name: req.body.user_name,
-  };
-  console.log(data);
-  await User.create(data);
-  // 세션 저장
-  req.session.user = {
-    email:  req.body.user_email,
-    name: req.body.user_name,
-    password: req.body.user_pw}
-  res.send(true);
-  // 회원가입 -> 로그인 성공된 상태로 보이게
-  // 이메일, 비번 검사 -> 세션 저장
+  const hashedPassword = await bcrypt.hash(enteredPassword, 12);
+
+  const existingUserEmail = await User.findOne({
+    raw: true,
+    where: { user_email: enteredEmail },
+  });
+
+  if (existingUserEmail) {
+    res.send({ check: true, msg: "동일한 이메일이 이미 사용중입니다." });
+  } else {
+    req.session.user = {
+      email: enteredEmail,
+      name: enteredName,
+      password: enteredPassword,
+    };
+
+    let data = {
+      user_email: enteredEmail,
+      user_pw: hashedPassword,
+      user_name: enteredName,
+    };
+
+    await User.create(data);
+    res.send({ check: false, msg: "회원가입에 성공했습니다." });
+  }
 };
+
 exports.login = (req, res) => {
   res.render("login");
 };
@@ -36,37 +50,33 @@ exports.postLogin = async (req, res) => {
     raw: true,
     where: { user_email: enteredEmail },
   });
-  
+
   console.log(result.user_name);
 
   const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
 
   if (samePassword) {
     req.session.user = {
-      email:  enteredEmail,
+      email: enteredEmail,
       name: result.user_name,
-      password: enteredPassword}
+      password: enteredPassword,
+    };
     res.send(true);
   } else res.send(false);
 };
 
-
-
-exports.postLogout = (req,res) =>{
+exports.postLogout = (req, res) => {
   console.log("logout");
-  req.session.destroy(function(err){
-      if(err) throw err;
-      res.send(true);
-  }) 
+  req.session.destroy(function (err) {
+    if (err) throw err;
+    res.send("로그아웃 성공");
+  });
 };
 
-
 exports.mypage = (req, res) => {
-  if(req.session.user) {
-    res.render("mypage" );
-  }
-  else res.redirect("/zerowave");
-
+  if (req.session.user) {
+    res.render("mypage");
+  } else res.redirect("/zerowave");
 };
 
 exports.mypage_edit = async (req, res) => {

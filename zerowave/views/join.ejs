@@ -19,11 +19,11 @@
         <div class="item">
             <div class="log"><h1>Join</h1></div>
 
-            <form action="" id="join_form">
-                <input type="text" placeholder="이름" class="in" name="user_name">
+            <form id="join_form">
+                <input type="text" placeholder="이름" class="in" name="user_name" required>
                 <div>
-                    <input type="text" placeholder="아이디" class="inId" name="emailID" >
-                    <input type="text" placeholder="이메일" class="inEmail" id="domain-txt" name="emailDomain" >
+                    <input type="text" placeholder="아이디" class="inId" name="emailID" required >
+                    <input type="text" placeholder="이메일" class="inEmail" id="domain-txt" name="emailDomain" required>
                     <select id="domain-list">
                         <option value="type">직접 입력</option>
                         <option value="@naver.com">@naver.com</option>
@@ -33,9 +33,8 @@
                         <option value="@kakao.com">@kakao.com</option>
                     </select>
                 </div>
-                
-                <input type="password" placeholder="비밀번호" class="in" id="user_pw1" name="user_pw">
-                <input type="password" placeholder="비밀번호 확인" class="in" id="user_pw2">
+                <input type="password" placeholder="비밀번호" class="in" id="user_pw1" name="user_pw" required>
+                <input type="password" placeholder="비밀번호 확인" class="in" id="user_pw2" name="user_pw2" required>
                 <div class="mismatch-message hide">두 비밀번호가 일치하지 않습니다.</div>
 
                 <div class="birth_form">
