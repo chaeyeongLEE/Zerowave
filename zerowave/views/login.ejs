@@ -20,15 +20,16 @@
           <input type="text" placeholder="이메일" class="in" name="user_email" id="userId" required>
           <input type="password" placeholder="비밀번호" class="in" name="user_pw" required>
           <button class="in" type="button" id="btn" value="로그인" onclick="login()">로그인</button><br>
+        <div id="idsave">
         <label for="idSaveCheck">
           <input name="idsave" id="idSaveCheck" type="checkbox">아이디 저장
         </label>
+        </div>
       </form>
         <a href="forgot" >비밀번호를 잊으셨나요?</a>
       </div>
     </div>
 
     <script src="/static/js/login.js"></script>
-    <!-- <script src="${contextPath}/resources/js/js.cookie.js"></script> -->
   </body>
 </html>
