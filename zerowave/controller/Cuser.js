@@ -2,6 +2,7 @@ const { User } = require("../model/index");
 const bcrypt = require("bcryptjs");
 const { options } = require("../routes");
 const { response } = require("express");
+const e = require("express");
 const option = { httpOnly: true, maxAge: 864000 };
 
 // 회원가입 POST
@@ -49,19 +50,23 @@ exports.postLogin = async (req, res) => {
     where: { user_email: enteredEmail },
   });
 
-  const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
+  if (!result) {
+    res.send({check:false, msg: "해당 이메일을 사용하는 사용자가 존재하지 않습니다."})
+  } else {
+    const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
 
-  if (samePassword) {
-    req.session.user = {
-      email: enteredEmail,
-      name: result.user_name,
-      password: enteredPassword,
-    };
-    if (idsave === true) {
-      res.cookie("loginID", enteredEmail, options);
-    }
-    res.send(true);
-  } else res.send(false);
+    if (samePassword) {
+      req.session.user = {
+        email: enteredEmail,
+        name: result.user_name,
+        password: enteredPassword,
+      };
+      if (idsave === true) {
+        res.cookie("loginID", enteredEmail, options);
+      }
+      res.send({check:true, msg: "로그인에 성공하셨습니다!"});
+    } else res.send({check: false, msg: "다시 한번만 시도해주세요."});
+  }
 };
 
 // 로그아웃 POST

@@ -23,6 +23,8 @@ exports.zwShopList = async(req,res) => {
              lon : { [Op.between]: [currentLocate.left, currentLocate.right]}
          }
     });
+    res.send(zwshopMap); 
+}
 
 
     
@@ -30,5 +32,3 @@ exports.selectMap = (req,res)=>{
     let mapName = req.body.mapName;
 }
     
-    res.send(zwshopMap); 
-}
