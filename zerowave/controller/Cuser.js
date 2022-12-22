@@ -51,7 +51,7 @@ exports.postLogin = async (req, res) => {
   });
 
   if (!result) {
-    res.send({check:false, msg: "해당 이메일을 사용하는 사용자가 존재하지 않습니다."})
+    res.send({check:false, msg: "이메일 또는 비밀번호를 잘못 입력했습니다."})
   } else {
     const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
 
@@ -65,7 +65,7 @@ exports.postLogin = async (req, res) => {
         res.cookie("loginID", enteredEmail, options);
       }
       res.send({check:true, msg: "로그인에 성공하셨습니다!"});
-    } else res.send({check: false, msg: "다시 한번만 시도해주세요."});
+    } else res.send({check: false, msg: "이메일 또는 비밀번호를 잘못 입력했습니다."});
   }
 };
 
