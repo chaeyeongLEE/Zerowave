@@ -24,9 +24,15 @@
   justify-content: center;
 }
 
+#categoryUl li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #categoryUl li a{
-  text-align: center;
-  width: 100px;
+  width: auto;
+  margin: 10px 0;
 }
 
 #categoryUl button{
@@ -69,6 +75,9 @@ nav section div {
 
 .categoryBar div a{
   width: 150px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px;
 }
 
 nav section > div:nth-child(2) {
@@ -128,6 +137,12 @@ button:hover {
   display: none !important;
 }
 
+@media screen and (max-width: 1600px) {
+  nav section {
+    width: 100vw;
+  }
+}
+
 
 /*모바일사이즈*/
 @media screen and (max-width: 1200px){
@@ -143,12 +158,12 @@ button:hover {
 
   .category{
     position: absolute;
-    top: 0;
-    left: 50vw;
+    top: -30px;
+    right: -70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50vw !important;
+    width: 100px !important;
     height: auto;
   }
 

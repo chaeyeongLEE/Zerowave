@@ -1,7 +1,7 @@
 const { zwMap } = require("../model"); // db 불러오는 코드
 const { Op } = require("sequelize"); // 시퀄라이즈 조작어
 
-exports.index = (req,res) => { res.render("map"); }
+//exports.index = (req,res) => { res.render("map"); }
 
 exports.zwShopList = async(req,res) => {
 
