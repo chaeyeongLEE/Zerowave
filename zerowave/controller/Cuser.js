@@ -1,9 +1,9 @@
 const { User } = require("../model/index");
 const bcrypt = require("bcryptjs");
+const { options } = require("../routes");
+const option = { httpOnly: true, maxAge: 864000};
 
-exports.join = (req, res) => {
-  res.render("join");
-};
+// 회원가입 POST
 
 exports.postJoin = async (req, res) => {
   const enteredEmail = req.body.user_email;
@@ -38,32 +38,18 @@ exports.postJoin = async (req, res) => {
   }
 };
 
-exports.login = (req, res) => {
-  var userEmail ="";
-  if(req.cookies['loginId'] !== undefined){
-    console.log("로그인 정보 있음");
-    userEmail = req.cookies['loginId'];
-  }
-  res.render("login", {userEmail: userEmail});
-};
+
+// 로그인 POST
 
 exports.postLogin = async (req, res) => {
   const enteredEmail = req.body.email;
   const enteredPassword = req.body.pw;
   const idsave = req.body.idsave;
 
-  if(idsave === true){
-    res.cookie('loginID', enteredEmail);
-    console.log(req.cookies);
-  }  
-  
-
   let result = await User.findOne({
     raw: true,
     where: { user_email: enteredEmail },
   });
-
- // console.log(result.user_name);
 
   const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
 
@@ -73,11 +59,14 @@ exports.postLogin = async (req, res) => {
       name: result.user_name,
       password: enteredPassword,
     };
+    if(idsave === true){
+      res.cookie('loginID', enteredEmail, options);
+    }  
     res.send(true);
   } else res.send(false);
-
 };
 
+// 로그아웃 POST
 exports.postLogout = (req, res) => {
   console.log("logout");
   req.session.destroy(function (err) {
@@ -86,6 +75,7 @@ exports.postLogout = (req, res) => {
   });
 };
 
+// 마이페이지 POST
 exports.mypage = (req, res) => {
   if (req.session.user) {
     res.render("mypage");
@@ -102,6 +92,7 @@ exports.mypage = (req, res) => {
 //   res.redirect("/zerowave/mypage");
 // };
 
+// 마이페이지 내 회원 탈퇴
 exports.mypage_delete = async (req, res) => {
   let result = await User.destroy({ where: { user_email: req.session.user.email } });
   req.session.destroy(function (err) {
