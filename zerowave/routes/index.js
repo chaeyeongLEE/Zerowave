@@ -25,9 +25,10 @@ router.post("/mypage", Cuser.mypage);
 //router.patch("/mypage", Cuser.mypage_edit);
 router.delete("/mypage", Cuser.mypage_delete);
 
+router.post("/mypage-user", Cuser.passwordCheck);
+
 
 //router.get('/', controller.map);
-
 
 
 router.get('/:type', controller.mainC);

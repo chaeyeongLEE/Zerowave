@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Mypage</title>
+    <title>Edit My Profile</title>
     <!-- <script type="text/javascript">
       $(document).ready(function () {
         // 넣을 헤더의 id
@@ -26,23 +26,21 @@
       });
     </script> -->
   </head>
-  <body>
+  <body> 
     <nav id="nav">
       <%-include('./nav.ejs', {type: '', islogin: islogin})%>
     </nav>
     <section>
-      <h1><span id="userName">
-        <%=sessionUser.name%>
-      </span>님 안녕하세요!</h1>
-      <br>
-      <h3><%=sessionUser.email%></h3>
-      <h2>내가 기록한 Maps</h2>
-      <div id="contents">
-      </div>
+        <p>현재 비밀번호를 입력해주세요.</p>
+       <form id="password-check">
+        <label for="password">현재 비밀번호</label>
+        <input type="password" id="password" name="password">
+        <button type="button" onclick="checkPassword()">확인</button>
+       </form>
     </section>
-    <a href="/zerowave/mypage-user" class="<% type == 'mypage-user' &&  __append('selectedLink')%>">정보수정</a>
-    <button id="withdrawalBtn" type="button">회원탈퇴</button>
-    <script src="/static/js/mypage.js">
+    <a href="/zerowave/mypage">마이페이지</a>
+    <a href="/zerowave/mypage-edit" class="<% type == 'mypage-edit' &&  __append('selectedLink')%>">정보수정</a>
+    <script src="/static/js/mypage-user.js">
     </script>
   </body>
 </html>

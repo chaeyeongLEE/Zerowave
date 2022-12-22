@@ -82,14 +82,27 @@ exports.mypage = (req, res) => {
     res.render("mypage");
   } else res.redirect("/zerowave");
 };
-// exports.mypage_edit = async (req, res) => {
-//   let data = {
-//     pw: req.body.pw,
-//     name: req.body.name,
-//   };
-//   let result = await User.update(data, { where: { email: req.body.email } });
-//   res.redirect("/zerowave/mypage");
-// };
+
+
+exports.passwordCheck =(req,res)=> {  
+  console.log(req.body);
+  console.log(req.body.data);
+  console.log(req.session.user.password);
+
+  if(req.body.enteredPW == req.session.user.password) {
+  
+    res.redirect('/zerowave/mypage-edit');
+  } else res.send("비밀번호가 같지 않습니다.")
+  
+};
+
+
+exports.mypage_edit = (req, res) => {
+  if (req.session.user) {
+    res.render("mypage_edit");
+  } else res.redirect("/zerowave/mypage");
+};
+
 exports.mypage_delete = async (req, res) => {
   let result = await User.destroy({ where: { user_email: req.session.user.email } });
   req.session.destroy(function (err) {
