@@ -15,9 +15,9 @@ function login(){
                  data : data
              }).then(
                 (res)=>{
-                if(res.data) {
-                    alert("로그인 성공!");
+                if(res.data.check == true) {
+                    alert(res.data.msg);
                     location.href = "/zerowave";
-                } else { alert("다시 한번만 시도해주세요.")}
+                } else { alert(res.data.msg);}
             })
         };
