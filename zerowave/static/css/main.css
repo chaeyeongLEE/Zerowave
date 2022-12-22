@@ -352,6 +352,7 @@ footer {
   cursor: pointer;
   font-size: 40px;
   z-index: 50;
+  color: #00ed5d;
 }
 
 .item {
@@ -405,6 +406,32 @@ footer {
   100% {
     transform: translate(0, 0);
   }
+}
+
+/*1200보다 크고 1600px보다 작을때 */
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+  .item img {
+    width: 300px;
+    display: inline-block;
+  }
+  
+  .item img:hover {
+    width: 350px;
+  }
+
+  
+body > section:nth-child(2) img {
+  width: 500px;
+  height: 350px;
+  margin-right: 91px;
+}
+
+  
+}
+
+/*700보다 크고 1200px보다 작을때 */
+@media screen and (min-width: 700px) and (max-width: 1200px){
+  
 }
 
 
