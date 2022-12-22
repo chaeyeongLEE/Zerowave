@@ -7,19 +7,33 @@
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 
 /*--menu wrap은 메뉴 백그라운드(투명배경)*/
-#menu_wrap {position:absolute; height: 900px;top:100px; bottom:250; width:300px; margin:110px 30px 10px;padding:5px;overflow-y:auto;background:rgba(234, 234, 234, 0.765);z-index: 9999;font-size:12px;border-radius: 10px;}
+#menu_wrap {position:absolute; height: 656px;top:20px; bottom:250; width:300px; margin:89px 54px;padding:5px;overflow-y:auto;background:rgba(234, 234, 234, 0.765);z-index: 9999;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 
 
-#menu_wrap hr {display: block; height: 3px;border: 0; border-top: 1px solid #5F5F5F;margin:5px 0;}
+#menu_wrap hr {display: block; border: 0; margin:3px 0;}
 #menu_wrap .option{text-align: center;}
 #menu_wrap .option p {margin:10px 0;}  
 #menu_wrap .option button {margin-left:5px; margin-top: 5px;}
 
 
 /*---MAP---*/
-#map{margin:200px 10px; padding:600px;border-radius: 15px; width:1000PX;  }
+#map{margin:255px 24px; padding:0px;border-radius: 15px; width:95vw; height: 75vh; }
 /* 위의 margin : 150px은 위와의 여백을 얼마나 둘것인가 가운데는 지도를 왼쪽으로부터 얼마나 거리를 둘지를 의미.*/
+/*
+1600보다 작을때
+@media screen and (max-width:1600px) {
+  #map{margin:200px 10px; padding:600px;border-radius: 15px; width:800PX; }
+}
+1200보다 작을때
+@media screen and (max-width:1200px) {
+  #map{margin:200px 10px; padding:600px;border-radius: 15px; width:600PX; }
+}
+700보다 작을때
+@media screen and (max-width:700px) {
+  #map{margin:200px 10px; padding:600px;border-radius: 15px; width:500PX; }
+}
+*/
 
 .keyword {margin:10px 15px;}  
 .option button {position: relative;}
@@ -73,16 +87,15 @@
 #placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
 #placesList .item span {display: block; margin-top:4px;}
 #placesList .item h5, #placesList .item .info {text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
-#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .item .info{padding:13px 0 18px 52px;}
 
 #placesList .info .gray {color:#3f3d3d; }
-#placesList .info .jibun {padding-left:15px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .jibun {padding-left:23px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
 
 
 #placesList .item .markerbg {float:left;position:absolute;width:52px; height:70px; margin: 9px 2px; background:url(https://cdn-icons-png.flaticon.com/512/921/921490.png)no-repeat; background-size: 43px; }
 #placesList .item .marker_1 {background-position: 0 4px;}
 
-
-#pagination {margin:10px auto; text-align: center;}
-#pagination a {display:inline-block; margin-right:10px;}
-#pagination .on {font-weight: bold; cursor: default; color:#777;}
+.bubble{
+  width: 150px; padding:10px; z-index:1; color: black; text-align: center;
+}

@@ -13,8 +13,7 @@
 
     <link rel="stylesheet" href="/static/css/nav.css" />
     <link rel="stylesheet" href="/static/css/map.css" />
-    <link rel="stylesheet" href="/static/css/nav.css" />
-   
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,20 +34,19 @@
 <div class="map_wrap">
     <div id="map"></div>
     <div id="menu_wrap" class="bg_white">
-
+    <div id="clickLatlng"></div>    
          <div class= "option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
                     <input type="text" value="" id="keyword" size="25"> 
                     <button type="submit">검색</button> 
-                    <button onclick="getLi()">본래 위치로 이동</button>
                 </form>
             </div>    
             <div class="dropdown">
                 <button class="dropbtn">Map</button>
                 <div class="dropdown-content">
-                  <a href="#">제로웨이스트</a>
-                  <a href="/zerowave/map/ygn">용기내</a>
+                  <button class="mapBtn" value="zero">제로웨이스트</button>
+                  <button class="mapBtn" value="ygn">용기내</button>
                 </div>
             </div> 
             <hr>
@@ -60,16 +58,20 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d2772601590f0ed140826adec58e8a1&libraries=services"></script>
 <script>
 
-// 마커를 담을 배열입니다
     var markers = [];
     let mapContainer = document.getElementById("map");
     let initPosition = new kakao.maps.LatLng( 37.53367689999959, 126.95917989999991);
     let options = { center: initPosition, level: 6 };
     let map = new kakao.maps.Map(mapContainer, options); //지도생성
     
-    
     let neLat, neLng,swLat,swLng;
 
+    $('.mapBtn').click(changeMap);
+
+    function changeMap(e){
+        let mapName = e.target.value;
+        getMapLi(mapName);
+    }
     kakao.maps.event.addListener(map, "zoom_changed", function() {
              neLat = this.getBounds().getNorthEast().getLat();
              neLng = this.getBounds().getNorthEast().getLng();
@@ -79,14 +81,38 @@
             getLi();
         });    
 
+    kakao.maps.event.addListener(map, "bounds_changed", function() {
+            neLat = this.getBounds().getNorthEast().getLat();
+            neLng = this.getBounds().getNorthEast().getLng();
+            swLat = this.getBounds().getSouthWest().getLat();
+            swLng = this.getBounds().getSouthWest().getLng();
+        console.log(neLat, neLng, swLat, swLng);
+        getLi();
+    }); 
+        
 
-    // 키워드로 장소를 검색합니다
+    // 인포윈도우
     // searchPlaces();
 
     // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
-    
+
+    function getMapLi(mapName){
+        axios({ 
+            method: "post", 
+            url: "map/selectMap",
+            data: {
+                mapName : mapName
+            }
+        }).then(function(res){
+            var spotList = res.data; 
+            console.log (spotList);
+
+            displayPlaces(spotList);
+
+        });
+    }
     function getLi() {
         axios({ 
             method: "post", 
@@ -105,7 +131,8 @@
     getLi();
 
 
-    //검색 결과 목록과 마커 표출
+    //검색 결과 목록과 마커 표시, 표출
+    
     function displayPlaces(places) {
         var listEl = document.getElementById('placesList'), 
         menuEl = document.getElementById('menu_wrap'),
@@ -115,33 +142,36 @@
         removeAllChildNods(listEl); // 검색 결과 목록에 추가된 항목들을 제거합니다
         removeMarker();       // 지도에 표시되고 있는 마커를 제거합니다
 
-
         for ( var i = 0; i < places.length; i++ ) {
+        var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
+        let marker = addMarker(placePosition, i);
 
-            //마커를 생성하고 지도에 표시
-            var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
-            let marker = addMarker(placePosition, i);
+        let itemEl = getListItem(i, places[i]);  // 검색 결과 항목 Element를 생성합니다
 
-            let itemEl = getListItem(i, places[i]);  // 검색 결과 항목 Element를 생성합니다
+            // 마커와 검색결과 항목에 mouseover 했을때
+            // 해당 장소에 인포윈도우에 장소명을 표시합니다
+            // mouseout 했을 때는 인포윈도우를 닫습니다
+        (function(marker, title) { 
+            kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
+            kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
             
-
-              // 마커와 검색결과 항목에 mouseover 했을때
-              // 해당 장소에 인포윈도우에 장소명을 표시합니다
-              // mouseout 했을 때는 인포윈도우를 닫습니다
-            (function(marker, title) { 
-                kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
-                kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
-                itemEl.onmouseover =  function () { displayInfowindow(marker, title); };
-                itemEl.onmouseout =  function () { infowindow.close(); };
+            itemEl.addEventListener("click", function (e) {displayInfowindow(marker, title);
+            props.setAddress(places[i]);
+            map.panTo(placePosition);
+              });
             })(marker, places[i].spot_name);
 
             fragment.appendChild(itemEl);
-        }
-        listEl.appendChild(fragment);
-        menuEl.scrollTop = 0;
+          }
 
-}
-    
+          listEl?.appendChild(fragment);
+          menuEl.scrollTop = 0;
+
+          // map.panTo(bounds);
+        }
+
+
+           
 
     function getListItem(index, places) {
         var el = document.createElement('li'),
@@ -180,7 +210,9 @@
 
                     return marker;
     }
-                
+
+ 
+
     function removeMarker() {
                     for ( var i = 0; i < markers.length; i++ ) {
                         markers[i].setMap(null);
@@ -194,8 +226,8 @@
 
     
     function displayInfowindow(marker, title) { 
-                var content = '<div style="padding:4px;  z-index:1; color: green; text-align: center;">' + title + '</div>'; 
-              
+                var content = '<div class="bubble">' + title + '</div>'; 
+
                 infowindow.setContent(content); 
                 infowindow.open(map, marker);
     }

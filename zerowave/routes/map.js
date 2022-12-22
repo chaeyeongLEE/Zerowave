@@ -15,6 +15,8 @@ router.use('*', (req,res,next) => {
 //router.get("/", map.index);
 router.post("/zwshop", map.zwShopList);
 
+router.post("/selectMap",map.selectMap );
+
 router.get("/ygn", map2.ygnIndex);
 router.post("/ygn", map2.ygnShopList);
 
