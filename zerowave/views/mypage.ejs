@@ -36,12 +36,13 @@
       </span>님 안녕하세요!</h1>
       <br>
       <h3><%=sessionUser.email%></h3>
+      <a href="/zerowave/mypage-user" class="<% type == 'mypage-user' &&  __append('selectedLink')%>">회원정보수정</a>
+      <button id="withdrawalBtn" type="button">회원탈퇴</button>
       <h2>내가 기록한 Maps</h2>
       <div id="contents">
       </div>
     </section>
-    <a href="/zerowave/mypage-user" class="<% type == 'mypage-user' &&  __append('selectedLink')%>">정보수정</a>
-    <button id="withdrawalBtn" type="button">회원탈퇴</button>
+
     <script src="/static/js/mypage.js">
     </script>
   </body>
