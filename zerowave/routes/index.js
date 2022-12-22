@@ -20,10 +20,10 @@ router.post("/login",Cuser.postLogin);
 router.post("/logout",Cuser.postLogout);
 
 router.post("/mypage", Cuser.mypage);
-//router.patch("/mypage", Cuser.mypage_edit);
 router.delete("/mypage", Cuser.mypage_delete);
 
 router.post("/mypage-user", Cuser.passwordCheck);
+router.patch("/mypage-edit", Cuser.mypage_edit);
 
 router.get('/:type', controller.mainC);
 

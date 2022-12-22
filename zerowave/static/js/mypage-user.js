@@ -1,13 +1,17 @@
 function checkPassword() {
-  let form = document.getElementById("password-check");
+  var form = document.getElementById("password-check");
 
   let enteredPW = form.password.value;
 
   axios({
-    method: "post",
-    url: "mypage-user",
-    data: enteredPW,
+    method: "POST",
+    url: "/zerowave/mypage-user",
+    data: {enteredPW}
   }).then((res) => {
-    alert(res.data);
+    if(res.data == true) {
+        location.href='/zerowave/mypage-edit'
+    } else {
+        alert("비밀번호가 맞지 않습니다.")
+    }
   });
 }

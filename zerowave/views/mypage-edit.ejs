@@ -36,18 +36,18 @@
         <%=sessionUser.name%>
       </span>님의 프로필</h1>
       <br>
-    <form id="edit_form">
+    <form id="edit-form">
       <label for="email">이메일</label>
       <input type="text" value="<%=sessionUser.email%>" id="email" name="email" readonly>    
       <br>
       <label for="pw1">새 비밀번호</label>
-      <input type="password"  id="pw1" name="pw1">
+      <input type="password"  id="pw1" name="pw1" required>
       <br>
       <label for="pw2">새 비밀번호 확인</label>
-      <input type="password" id="pw2" name="pw2">
+      <input type="password" id="pw2" name="pw2" required>
       <br>
       <label for="name">이름</label>
-      <input type="text" value="<%=sessionUser.name%>" id="name" name="name">
+      <input type="text" value="<%=sessionUser.name%>" id="name" name="name" required>
     </form>
     </section>
     <button id="editBtn" type="button" onclick="editProfile()">수정</button>
