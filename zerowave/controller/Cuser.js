@@ -1,18 +1,22 @@
 const { User } = require("../model/index");
 const bcrypt = require("bcryptjs");
-exports.join = (req, res) => {
-  res.render("join");
-};
+const { options } = require("../routes");
+const option = { httpOnly: true, maxAge: 864000};
+
+// 회원가입 POST
 exports.postJoin = async (req, res) => {
   const enteredEmail = req.body.user_email;
   const enteredPassword = req.body.user_pw;
   const enteredName = req.body.user_name;
   const enteredConfirmPassword = req.body.user_pw2;
+  
   const hashedPassword = await bcrypt.hash(enteredPassword, 12);
+  
   const existingUserEmail = await User.findOne({
     raw: true,
     where: { user_email: enteredEmail },
   });
+  
   if (existingUserEmail) {
     res.send({ check: true, msg: "동일한 이메일이 이미 사용중입니다." });
   } else {
@@ -21,55 +25,45 @@ exports.postJoin = async (req, res) => {
       name: enteredName,
       password: enteredPassword,
     };
+    
     let data = {
       user_email: enteredEmail,
       user_pw: hashedPassword,
       user_name: enteredName,
     };
+    
     await User.create(data);
     res.send({ check: false, msg: "회원가입에 성공했습니다." });
   }
 };
 
-exports.login = (req, res) => { 
-  var userEmail ="";
-if(req.cookies['loginId'] !== undefined){
-  console.log("로그인 정보 있음");
-  userEmail = req.cookies['loginId'];
-}
-res.render("login", {userEmail: userEmail});
-};
-
+// 로그인 POST
 exports.postLogin = async (req, res) => {
 const enteredEmail = req.body.email;
 const enteredPassword = req.body.pw;
 const idsave = req.body.idsave;
 
-if(idsave === true){
-  res.cookie('loginID', enteredEmail);
-  console.log(req.cookies);
-}  
-
-
 let result = await User.findOne({
-  raw: true,
-  where: { user_email: enteredEmail },
-});
+    raw: true,
+    where: { user_email: enteredEmail },
+  });
 
-   // console.log(result.user_name);
+const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
 
-   const samePassword = await bcrypt.compare(enteredPassword, result.user_pw);
-   if (samePassword) {
+if (samePassword) {
     req.session.user = {
       email: enteredEmail,
       name: result.user_name,
       password: enteredPassword,
     };
+    if(idsave === true){
+      res.cookie('loginID', enteredEmail, options);
+    }  
     res.send(true);
   } else res.send(false);
-
 };
 
+// 로그아웃 POST
 exports.postLogout = (req, res) => {
   console.log("logout");
   req.session.destroy(function (err) {
@@ -77,6 +71,8 @@ exports.postLogout = (req, res) => {
     res.send("로그아웃 성공");
   });
 };
+
+// 마이페이지 POST
 exports.mypage = (req, res) => {
   if (req.session.user) {
     res.render("mypage");
@@ -90,6 +86,8 @@ exports.mypage = (req, res) => {
 //   let result = await User.update(data, { where: { email: req.body.email } });
 //   res.redirect("/zerowave/mypage");
 // };
+
+// 마이페이지 내 회원 탈퇴
 exports.mypage_delete = async (req, res) => {
   let result = await User.destroy({ where: { user_email: req.session.user.email } });
   req.session.destroy(function (err) {

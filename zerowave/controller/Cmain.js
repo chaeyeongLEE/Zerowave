@@ -1,18 +1,19 @@
 const main = require('../model/index');
 
-exports.main = (req, res) => {
-  // if (req.session.user) res.render("main", {isLogin: true});
-  // else res.render("main", {isLogin : false});
-  res.render('main', req.result);
- };
+exports.main = (req, res) => { res.render('main', req.result); }; // main 페이지 
 
-exports.map = (req, res) => {
-  res.render('map');
-};
-
+// 로그인, 회원가입 GET
 
 exports.mainC = (req, res) => {
-  //req.params.type
   req.result["type"] = req.params.type;
-  res.render(req.params.type, req.result);
+  if ( req.params.type == 'login' ) login(req,res);
+  else res.render(req.params.type, req.result);;
 };
+
+const login = (req, res) => {
+  console.log(req.cookies);
+  req.result["email"] = req.cookies['loginID'];
+  console.log( req.result );
+  res.render('login', req.result);
+}
+
