@@ -124,6 +124,7 @@ table {
   border-spacing: 0;
 }
 
+/*-------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
@@ -147,8 +148,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.wrapper {
-}
+
 
 .item {
   margin: auto;
@@ -186,8 +186,8 @@ a {
   color: #9b9b9b;
   font-size: 12px;
   text-decoration: none;
-
 }
+
 form {
   font-size: 15px;
 }
@@ -205,9 +205,6 @@ form {
   
   }
   body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100vw;
   }
   .wrapper {
@@ -217,32 +214,13 @@ form {
   }
   
   .item {
-    margin: auto;
     width: 100%;
-    border-radius: 5px;
     padding: 0;
-    text-align: center;
-  }
-  
-  .idSaveCheck {
-    width: 10px;
   }
   
   .in {
     width: 280px;
     height: 50px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
-  }
-  
-  #btn {
-    background-color: #0475FF;
-    color: white;
-  }
+  } 
 
-  form {
-    font-size: 15px;
-  }
 }

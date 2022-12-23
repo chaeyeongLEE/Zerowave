@@ -11,7 +11,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/static/css/nav.css" />
-    <link rel="stylesheet" href="/static/css/mypage.css" />
+    <link rel="stylesheet" href="/static/css/mypage-edit.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,39 +19,36 @@
       rel="stylesheet"
     />
     <title>Edit My Profile</title>
-    <!-- <script type="text/javascript">
-      $(document).ready(function () {
-        // 넣을 헤더의 id
-        $('#nav').load('/static/html/nav.html'); // 원하는 파일 경로를 삽입하면 된다
-      });
-    </script> -->
   </head>
   <body>
-    
+  
     <nav id="nav">
       <%-include('./nav.ejs', {type: '', islogin: islogin})%>
     </nav>
-    <section>
-      <h1><span id="userName">
-        <%=sessionUser.name%>
-      </span>님의 프로필</h1>
-      <br>
-    <form id="edit-form">
-      <label for="email">이메일</label>
-      <input type="text" value="<%=sessionUser.email%>" id="email" name="email" readonly>    
-      <br>
-      <label for="pw1">새 비밀번호</label>
-      <input type="password"  id="pw1" name="pw1" required>
-      <br>
-      <label for="pw2">새 비밀번호 확인</label>
-      <input type="password" id="pw2" name="pw2" required>
-      <br>
-      <label for="name">이름</label>
-      <input type="text" value="<%=sessionUser.name%>" id="name" name="name" required>
-    </form>
-    </section>
-    <button id="editBtn" type="button" onclick="editProfile()">수정</button>
-    <a href="/zerowave/mypage">취소</a>
+    
+    <div class="wrapper">
+      <div class="item"> 
+        <h1><span id="userName">
+            <%=sessionUser.name%>
+          </span>님의 프로필</h1>
+          <br>
+        <form id="edit-form">
+          <label for="email">이메일 : </label>
+          <input type="text" value="<%=sessionUser.email%>" id="email" name="email"  placeholder="이메일" class="in_email" readonly>    
+          <br>
+          <label for="pw1">새 비밀번호 : </label>
+          <input type="password"  id="pw1" name="pw1" placeholder="새 비밀번호" class="in_pw1" required>
+          <br>
+          <label for="pw2">새 비밀번호 확인 : </label>
+          <input type="password" id="pw2" name="pw2" placeholder="새 비밀번호 확인" class="in_pw2" required>
+          <br>
+          <label for="name">이름 : </label>
+          <input type="text" value="<%=sessionUser.name%>" id="name" name="name" placeholder="이름" class="in_name" required><br>
+          <button id="editBtn" type="button" onclick="editProfile()">수정</button>
+          <a href="/zerowave/mypage">취소</a>
+        </form>
+    </div>
+  </div>
 
     <script src="/static/js/mypage-edit.js">
     </script>
