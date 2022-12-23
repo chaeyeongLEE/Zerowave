@@ -87,7 +87,7 @@
     let options = { center: initPosition, level: 6 };
     let map = new kakao.maps.Map(mapContainer, options); //지도생성
     
-    let neLat, neLng,swLat,swLng;
+    let neLat,neLng,swLat,swLng;
 
     $('.mapBtn').click(changeMap);
 
@@ -139,9 +139,9 @@
     function getLi() {
         axios({ 
             method: "post", 
-            url: "map/zwshop",
+            url: "map/shopList",
             data: {
-                neLat, neLng,swLat,swLng
+                neLat,neLng,swLat,swLng
             }
         }).then(function(res){
             var spotList = res.data; 
