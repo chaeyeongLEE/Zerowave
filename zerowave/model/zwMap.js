@@ -28,7 +28,12 @@ const zwMap = (Sequelize, DataTypes)=>{
             lon: {
                 type: DataTypes.DOUBLE,
                 allowNull: false
-            }
+            },
+
+            user_id: {
+              type: DataTypes.STRING(45),
+              allowNull: false
+          }
         },
 
         {
