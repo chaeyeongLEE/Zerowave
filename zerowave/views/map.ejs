@@ -43,10 +43,11 @@
                     <button type="submit">검색</button> 
                 </form>
             </div>    
+
             <div class="dropdown">
-                <button class="dropbtn mapBtn" value="default">Map</button>
+                <button class="dropbtn-mapBtn" value="default">Map</button>
                 <div class="dropdown-content">
-                  <button class="mapBtn" value="zero">제로웨이스트</button>
+                  <button class="mapBtn" value="zero">제로웨이스트</button><hr>
                   <button class="mapBtn" value="ygn">용기내</button>
                 </div>
             </div> 
@@ -203,7 +204,7 @@
 
         for ( var i = 0; i < places.length; i++ ) {
             console.log(typeof([places[i].x]));
-        var placePosition = new kakao.maps.LatLng(places[i].x, places[i].y);
+        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
         let marker = addMarker(placePosition, i);
 
         let itemEl = getListItem(i, places[i]);  // 검색 결과 항목 Element를 생성합니다
