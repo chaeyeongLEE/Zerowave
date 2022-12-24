@@ -160,6 +160,8 @@ p {
     border-left: none;
     border-right: none;
     border-bottom: 1.5px solid black;
+    outline: none;
+
 }
 #btn {
     width: 60px;
