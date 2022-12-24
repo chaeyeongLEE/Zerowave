@@ -12,7 +12,7 @@ router.use('*', (req,res,next) => {
     next();
   });
 
-//router.get("/", map.index);
+//router.get("/", map.index);s
 router.post("/selectMap",map.selectMap );
 
 router.get("/ygn", map2.ygnIndex);
