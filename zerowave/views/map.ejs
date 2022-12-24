@@ -86,22 +86,27 @@
     let initPosition = new kakao.maps.LatLng( 37.53367689999959, 126.95917989999991);
     let options = { center: initPosition, level: 6 };
     let map = new kakao.maps.Map(mapContainer, options); //지도생성
+    let mapName = "default";
     
     let neLat,neLng,swLat,swLng;
 
     $('.mapBtn').click(changeMap);
 
     function changeMap(e){
-        let mapName = e.target.value;
-        getMapLi(mapName);
+        mapName = e.target.value;
+        console.log(mapName);
+        neLat = map.getBounds().getNorthEast().getLat();
+        neLng = map.getBounds().getNorthEast().getLng();
+        swLat = map.getBounds().getSouthWest().getLat();
+        swLng = map.getBounds().getSouthWest().getLng();
+        getMapLi(mapName,neLat,neLng,swLat,swLng);
     }
     kakao.maps.event.addListener(map, "zoom_changed", function() {
              neLat = this.getBounds().getNorthEast().getLat();
              neLng = this.getBounds().getNorthEast().getLng();
              swLat = this.getBounds().getSouthWest().getLat();
              swLng = this.getBounds().getSouthWest().getLng();
-            console.log(neLat, neLng, swLat, swLng);
-            getLi();
+            getMapLi(mapName,neLat,neLng,swLat,swLng);
         });    
 
     kakao.maps.event.addListener(map, "bounds_changed", function() {
@@ -109,8 +114,7 @@
             neLng = this.getBounds().getNorthEast().getLng();
             swLat = this.getBounds().getSouthWest().getLat();
             swLng = this.getBounds().getSouthWest().getLng();
-        console.log(neLat, neLng, swLat, swLng);
-        getLi();
+        getMapLi(mapName,neLat,neLng,swLat,swLng);
     }); 
         
 
@@ -121,37 +125,23 @@
     var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 
-    function getMapLi(mapName){
+    function getMapLi(mapName,neLat,neLng,swLat,swLng){
         axios({ 
             method: "post", 
             url: "map/selectMap",
             data: {
-                mapName : mapName
+                mapName,
+                neLat,
+                neLng,
+                swLat,
+                swLng
             }
         }).then(function(res){
             var spotList = res.data; 
-            console.log (spotList);
-
             displayPlaces(spotList);
 
         });
     }
-    function getLi() {
-        axios({ 
-            method: "post", 
-            url: "map/shopList",
-            data: {
-                neLat,neLng,swLat,swLng
-            }
-        }).then(function(res){
-            var spotList = res.data; 
-            console.log (spotList);
-
-            displayPlaces(spotList);
-
-        });
-    }
-    getLi();
 
 
     //검색 결과 목록과 마커 표시, 표출
