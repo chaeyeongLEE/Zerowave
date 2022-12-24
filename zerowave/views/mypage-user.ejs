@@ -11,39 +11,35 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/static/css/nav.css" />
-    <link rel="stylesheet" href="/static/css/mypage.css" />
+    <link rel="stylesheet" href="/static/css/mypage-user.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Mypage</title>
-    <!-- <script type="text/javascript">
-      $(document).ready(function () {
-        // 넣을 헤더의 id
-        $('#nav').load('/static/html/nav.html'); // 원하는 파일 경로를 삽입하면 된다
-      });
-    </script> -->
+    <title>Edit My Profile</title>
   </head>
-  <body>
+  <body> 
     <nav id="nav">
       <%-include('./nav.ejs', {type: '', islogin: islogin})%>
     </nav>
-    <section>
-      <h1><span id="userName">
-        <%=sessionUser.name%>
-      </span>님 안녕하세요!</h1>
-      <br>
-      <h3><%=sessionUser.email%></h3>
-      <a href="/zerowave/mypage-user" class="<% type == 'mypage-user' &&  __append('selectedLink')%>">회원정보수정</a>
-      <button id="withdrawalBtn" type="button">회원탈퇴</button>
-      <h2>내가 기록한 Maps</h2>
-      <div id="contents">
+  <div class="wrapper">
+    <div class="item"> 
+      <h1>비밀번호 변경</h1>
+      <p>현재 비밀번호를 입력해주세요.</p>
+      <form id="password-check">
+          <!-- <label for="password">현재 비밀번호</label> -->
+          <input class="in" type="password" id="password" name="password" placeholder="현재 비밀번호">
+          <button type="button" id="btn" onclick="checkPassword()">확인</button>
+      </form>
+      <div class="alink">
+        <a href="/zerowave/mypage">마이페이지</a>
       </div>
-    </section>
-
-    <script src="/static/js/mypage.js">
+    </div>
+  </div>
+      
+    <script src="/static/js/mypage-user.js">
     </script>
   </body>
 </html>

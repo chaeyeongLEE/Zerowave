@@ -17,7 +17,6 @@ db.Sequelize = Sequelize;
 module.exports = db;
 
 db.User = require("./User")(sequelize, Sequelize);
-
 db.zwMap = require("./zwMap")(sequelize, Sequelize);
 db.ygnMap = require("./ygnMap")(sequelize, Sequelize);
 

@@ -14,21 +14,16 @@ router.use('*', (req,res,next) => {
 
 router.get('/',  controller.main);
 
-//router.get("/join", Cuser.join);
 router.post("/join", Cuser.postJoin);
 
-//router.get("/login",Cuser.login);
 router.post("/login",Cuser.postLogin);
 router.post("/logout",Cuser.postLogout);
 
 router.post("/mypage", Cuser.mypage);
-//router.patch("/mypage", Cuser.mypage_edit);
 router.delete("/mypage", Cuser.mypage_delete);
 
-
-//router.get('/', controller.map);
-
-
+router.post("/mypage-user", Cuser.passwordCheck);
+router.patch("/mypage-edit", Cuser.mypage_edit);
 
 router.get('/:type', controller.mainC);
 

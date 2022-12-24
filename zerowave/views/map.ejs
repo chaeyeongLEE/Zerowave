@@ -28,7 +28,7 @@
 
 <body>
     <nav id="nav">
-        <%-include('./nav.ejs', {type: '', islogin:'false' })%>
+        <%-include('./nav.ejs', {type: '', islogin:islogin })%>
     </nav>
     
 <div class="map_wrap">
@@ -53,6 +53,29 @@
     <ul id="placesList"></ul>
     <div id="pagination"></div>    
     </div>    
+     <!-- <div id="menu_wrap_bar" class="bg_white">
+        <button type="button" class="categoryBtn"><i class="fa-solid fa-bars"></i></button>
+        <div class="categoryUl">
+        <div id="clickLatlng"></div>    
+             <div class= "option_bar">
+                <div>
+                    <form onsubmit="searchPlaces(); return false;">
+                        <input type="text" value="" id="keyword" size="25"> 
+                        <button type="submit">검색</button> 
+                    </form>
+                </div>    
+                <div class="dropdown_bar">
+                    <button class="dropbtn">Map</button>
+                    <div class="dropdown-content">
+                      <button class="mapBtn" value="zero">제로웨이스트</button>
+                      <button class="mapBtn" value="ygn">용기내</button>
+                    </div>
+                </div> 
+                <hr>
+        <ul id="placesList_bar"></ul>
+        <div id="pagination_bar"></div>    
+        </div>  
+    </div>    -->
 </div>
 
 <div class="map_wrap_bar">
@@ -87,22 +110,27 @@
     let initPosition = new kakao.maps.LatLng( 37.53367689999959, 126.95917989999991);
     let options = { center: initPosition, level: 6 };
     let map = new kakao.maps.Map(mapContainer, options); //지도생성
+    let mapName = "default";
     
-    let neLat, neLng,swLat,swLng;
+    let neLat,neLng,swLat,swLng;
 
     $('.mapBtn').click(changeMap);
 
     function changeMap(e){
-        let mapName = e.target.value;
-        getMapLi(mapName);
+        mapName = e.target.value;
+        console.log(mapName);
+        neLat = map.getBounds().getNorthEast().getLat();
+        neLng = map.getBounds().getNorthEast().getLng();
+        swLat = map.getBounds().getSouthWest().getLat();
+        swLng = map.getBounds().getSouthWest().getLng();
+        getMapLi(mapName,neLat,neLng,swLat,swLng);
     }
     kakao.maps.event.addListener(map, "zoom_changed", function() {
              neLat = this.getBounds().getNorthEast().getLat();
              neLng = this.getBounds().getNorthEast().getLng();
              swLat = this.getBounds().getSouthWest().getLat();
              swLng = this.getBounds().getSouthWest().getLng();
-            console.log(neLat, neLng, swLat, swLng);
-            getLi();
+            getMapLi(mapName,neLat,neLng,swLat,swLng);
         });    
 
     kakao.maps.event.addListener(map, "bounds_changed", function() {
@@ -110,8 +138,7 @@
             neLng = this.getBounds().getNorthEast().getLng();
             swLat = this.getBounds().getSouthWest().getLat();
             swLng = this.getBounds().getSouthWest().getLng();
-        console.log(neLat, neLng, swLat, swLng);
-        getLi();
+        getMapLi(mapName,neLat,neLng,swLat,swLng);
     }); 
         
 
@@ -122,37 +149,23 @@
     var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 
-    function getMapLi(mapName){
+    function getMapLi(mapName,neLat,neLng,swLat,swLng){
         axios({ 
             method: "post", 
             url: "map/selectMap",
             data: {
-                mapName : mapName
+                mapName,
+                neLat,
+                neLng,
+                swLat,
+                swLng
             }
         }).then(function(res){
             var spotList = res.data; 
-            console.log (spotList);
-
             displayPlaces(spotList);
 
         });
     }
-    function getLi() {
-        axios({ 
-            method: "post", 
-            url: "map/zwshop",
-            data: {
-                neLat, neLng,swLat,swLng
-            }
-        }).then(function(res){
-            var spotList = res.data; 
-            console.log (spotList);
-
-            displayPlaces(spotList);
-
-        });
-    }
-    getLi();
 
 
     //검색 결과 목록과 마커 표시, 표출

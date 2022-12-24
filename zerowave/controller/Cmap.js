@@ -1,34 +1,49 @@
-const { zwMap } = require("../model"); // db 불러오는 코드
-const { Op } = require("sequelize"); // 시퀄라이즈 조작어
+const { zwMap } = require("../model"); // Model require
+const { ygnMap } = require("../model"); 
+const { Op } = require("sequelize"); // sequelize 조작어
 
-exports.index = (req,res) => { res.render("map"); }
 
-exports.zwShopList = async(req,res) => {
 
-    console.log(req.body);
+// View 선택 값 조회
 
-    var currentLocate = {
-        top: req.body.swLat,
-        left: req.body.swLng,
-        bottom: req.body.neLat,
-        right: req.body.neLng   
+exports.selectMap = async(req, res) => {
+
+    var currentLocate = { 
+        top: req.body.swLat, bottom: req.body.neLat,
+        left: req.body.swLng, right: req.body.neLng
     };
 
-    console.log(currentLocate);
-
-    var zwshopMap = await zwMap.findAll({
-        raw: true,
-         where: { 
-             lat : { [Op.between]: [currentLocate.top, currentLocate.bottom]},
-             lon : { [Op.between]: [currentLocate.left, currentLocate.right]}
-         }
-    });
-
-
+    let selectedVal = req.body.mapName;
+    if(selectedVal == "default"){
+        Promise.all([
+            zwMap.findAll({ raw: true, where: {
+                lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
+                lon: { [Op.between]: [currentLocate.left, currentLocate.right]}
+            }}),
     
-exports.selectMap = (req,res)=>{
-    let mapName = req.body.mapName;
-}
-    
-    res.send(zwshopMap); 
+            ygnMap.findAll({ raw: true, where: {
+                lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
+                lon: { [Op.between]: [currentLocate.left, currentLocate.right]}
+            }})
+        
+        ]).then((result) => {
+            let [zw, ygn] = result;
+            let allList = [ ...zw, ...ygn ];
+            res.send(allList);
+        })
+    }
+    else if (selectedVal == "zero") {
+        var zwmapList = await zwMap.findAll ({ raw: true, where: {
+            lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
+            lon: { [Op.between]: [currentLocate.left, currentLocate.right]}
+        }})
+        res.send(zwmapList);
+    }
+
+    else if(selectedVal == "ygn") {
+        var ygnList = await ygnMap.findAll ({ raw: true , where: {
+            lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
+            lon: { [Op.between]: [currentLocate.left, currentLocate.right]}}})
+        res.send(ygnList);
+    };
 }

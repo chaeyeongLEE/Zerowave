@@ -1,4 +1,4 @@
-@media screen and (min-width: 700px){
+@media screen and (min-width: 1200px){
   .category{
     display: none;
   }
@@ -8,9 +8,6 @@
   z-index: 100;
 }
 
-.categoryBar a{
-  width: 100px;
-}
 
 .categoryBtn{
   border: none;
@@ -28,8 +25,21 @@
 }
 
 #categoryUl li{
-  margin: 10px 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+#categoryUl li a{
+  width: auto;
+  margin: 10px 0;
+}
+
+#categoryUl button{
+  font-size: 18px;
+  width: 100px;
+}
+
 
 nav {
   display: flex;
@@ -43,13 +53,17 @@ nav section {
   display: flex;
   width: 1400px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: auto !important;
 }
 
-nav img {
-  width: 40px;
-  margin-right: 15px;
+#mainLogo {
+  margin: 0;
+}
+
+#mainLogo img{
+  width: 105px;
+  margin: 0 75px;
 }
 
 nav section div {
@@ -59,27 +73,29 @@ nav section div {
   align-items: center;
 }
 
-nav section > div:nth-child(2) {
-  width: 1600px;
-  margin-right: 27px;
+.categoryBar div a{
+  width: 150px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px;
 }
 
-nav section > div:nth-child(2) a {
-  margin-left: 30px;
+nav section > div:nth-child(2) {
+  width: 1600px;
 }
 
 nav section > div:last-child {
-  width: 308px;
-  justify-content: space-around;
+  width: 1050px;
+  justify-content: space-between;
 }
 
 nav a {
   color: #00ed5d;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 30px;
   display: flex;
   align-items: center;
-  width: 150px;
+  text-align: center;
 }
 
 nav a img {
@@ -88,16 +104,12 @@ nav a img {
 
 nav a:hover {
   color: #0475ff;
-  font-size: 22px;
 }
 
 #mypageLink{
   width: 75px;
 }
 
-#mainLogo:hover {
-  color: #00ed5d;
-}
 
 .selectedLink {
   color: #0475ff;
@@ -113,7 +125,8 @@ button:hover {
   background-color: transparent;
   color: #00ed5d;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 30px;
+  width: 180px;
 }
 
 .logoutBtn:hover {
@@ -121,12 +134,18 @@ button:hover {
 }
 
 .transparent {
-  display: none;
+  display: none !important;
+}
+
+@media screen and (max-width: 1600px) {
+  nav section {
+    width: 100vw;
+  }
 }
 
 
 /*모바일사이즈*/
-@media screen and (max-width: 700px){
+@media screen and (max-width: 1200px){
   .categoryBar{
     display: none;
   }
@@ -139,12 +158,12 @@ button:hover {
 
   .category{
     position: absolute;
-    top: 0;
-    left: 50vw;
+    top: -30px;
+    right: -70px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50vw !important;
+    width: 100px !important;
     height: auto;
   }
 

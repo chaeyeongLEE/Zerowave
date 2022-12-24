@@ -133,7 +133,7 @@ body {
 }
 section {
   height: 1070px;
-  width: 1400px;
+  width: 1200px;
 }
 
 h1 {
@@ -352,6 +352,7 @@ footer {
   cursor: pointer;
   font-size: 40px;
   z-index: 50;
+  color: #00ed5d;
 }
 
 .item {
@@ -405,6 +406,176 @@ footer {
   100% {
     transform: translate(0, 0);
   }
+}
+
+/*1600px보다 작을때 */
+@media screen and (max-width: 1600px) {
+  section{
+    width: 100%;
+  }
+  nav{
+    width: 100%;
+  }
+
+  .item img {
+    width: 300px;
+    display: inline-block;
+  }
+  
+  .item img:hover {
+    width: 350px;
+  }
+
+  
+body > section:nth-child(2) img {
+  width: 500px;
+  height: 350px;
+  margin-right: 91px;
+}
+
+/*----------------두번째 Main--------------------*/
+
+body > section:nth-child(3) img {
+  width: 350px;
+  height: 500px;
+  margin-left: 91px;
+}
+body > section:nth-child(3) h3 {
+  margin-bottom: 72px;
+}
+
+body > section:nth-child(3) p {
+  width: 600px;
+  margin-bottom: 40px;
+}
+
+/*----------------세번째 Main--------------------*/
+
+body > section:nth-child(4) img {
+  width: 350px;
+  height: 500px;
+}
+
+body > section:nth-child(4) p {
+width: 35vw;
+margin-bottom: 40px;
+}
+
+/*----------------네번째 Main--------------------*/
+
+body > section:nth-child(5) {
+flex-direction: column;
+text-align: center;
+}
+
+body > section:nth-child(5) h3 {
+margin-top: 32px;
+padding: 0 40px;
+line-height: 35px;
+}
+
+
+body > section:nth-child(5) h4 {
+margin-top: 40px;
+padding: 0 40px;
+line-height: 30px;
+}
+
+#zwFuncInfo {
+flex-direction: column;
+width: 80vw;
+margin-top: 50px;
+}
+
+#zwFuncInfo > div:first-child {
+margin-right: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#zwFuncInfo > div:nth-child(1) h3 {
+text-align: center;
+margin-top: 54px;
+margin-bottom: 46px;
+}
+
+#zwFuncInfo > div:nth-child(1) p {
+width: 306px;
+text-align: center;
+margin-bottom: 15px;
+}
+
+#zwFuncInfo img {
+display: flex;
+width: 200px;
+}
+
+#zwFuncInfo > div:nth-child(2) {
+display: none;
+}
+
+
+footer {
+width: 70vw;
+}
+
+  
+}
+
+/*1200px보다 작을때 */
+@media screen and (max-width: 1200px){
+ /*----------------첫번째 Main--------------------*/
+    body > section:nth-child(2){
+      flex-direction: column;
+    }
+
+    body > section:nth-child(2) img{
+      margin: 0;
+      width: 600px;
+      height: auto;
+    }
+
+    body > section:nth-child(2) div{
+      margin-top: 30px;
+    }
+
+    body > section:nth-child(2) p {
+    width:600px;
+    margin-top: 32px;
+    text-align: center;
+    }
+
+    /*----------------두번째 Main--------------------*/
+
+    body > section:nth-child(3) img {
+      width: 250px;
+      height: auto;
+      margin-left: 30px;
+    }
+    body > section:nth-child(3) h3 {
+      margin-bottom: 72px;
+    }
+
+    body > section:nth-child(3) p {
+      width: 50vw;
+      margin-bottom: 40px;
+    }
+
+  /*----------------세번째 Main--------------------*/
+    body > section:nth-child(4) img {
+      width: 300px;
+      height: auto;
+      margin-right: 50px;
+    }
+    
+    .ocean{
+      height: 120px;
+    }
+
+    .item{
+      display: none;
+    }
 }
 
 
@@ -600,12 +771,9 @@ body > section:nth-child(5) h4 {
   display: none;
 }
 
-.ocean {
-  display: none;
+.ocean{
+  height: 72px;
 }
 
-footer {
-  width: 100vw
-}
   
 }

@@ -5,9 +5,14 @@ const map = require("../controller/Cmap");
 const map2 = require("../controller/Cmap2");
 const router = express.Router();
 
-router.get("/", map.index);
-router.post("/zwshop", map.zwShopList);
+router.use('*', (req,res,next) => {
+    if ( req.session.user ) req.result = {islogin: true, sessionUser: req.session.user};
+    else req.result = {islogin: false};
+  
+    next();
+  });
 
+//router.get("/", map.index);
 router.post("/selectMap",map.selectMap );
 
 router.get("/ygn", map2.ygnIndex);

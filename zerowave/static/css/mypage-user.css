@@ -124,58 +124,57 @@ table {
   border-spacing: 0;
 }
 
+/*-------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
-* {
-    font-family: 'Noto Sans KR', sans-serif; 
-     padding: 0;
-}
-h1{
-    font-weight: 700;
-    font-size: 12px;
-    color: #051619;
-}
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.password_description {
-    font-weight: 700;
-    font-size: 18px;
-    color: #051619;
-}
-#find_email{
-    margin: auto;
-    width: 550px;
-    height: 40px;
-}
-
-span{
-    font-size: 12px;
-    color: #051619;
-}
-.forgot_form{
+  }
+ 
+.item {
     margin: auto;
     width: 500px;
-    border-radius: 5px;
     padding: 300px;
-}
-.password_send{
-    display: inline-block;
-    min-width: 104px;
     text-align: center;
-    padding: 10px 1.5rem 11px;
-    cursor: pointer;
-    position: relative;
-    background: #0475FF;
-    border: 1px solid #0475FF;
-    color: #fff;
+} 
+
+h1 {
+    font-weight: 600;
+    font-size: 25px;
+    padding: 30px;
+    color: #0475FF;
+  }
+
+
+p {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px;
 }
-.emailaddress{
-    margin-top: 20px;
-    margin-bottom: 30px;    
+.in {
+    width: 200px;
+    height: 40px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid black;
+}
+#btn {
+    width: 60px;
+    height: 40px;
+    background-color: #0475FF;
+    color: white;
+    border-style: solid;
+    border-color: #0475FF;
 }
 
+
+.alink {
+    padding: 200px;
+}
+
+a {
+    text-decoration: none;
+  }

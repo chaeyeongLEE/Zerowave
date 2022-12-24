@@ -1,11 +1,10 @@
 <section>
-    <a href="/zerowave" id="mainLogo">
-        <img src="/static/img/mainLogo.png">
-        <span>제로웨이브</span>
-    </a>
     <div class="category">
         <button type="button" class="categoryBtn"><i class="fa-solid fa-bars"></i></button>
         <ul id="categoryUl" class="transparent">
+            <li>
+                <a href="/zerowave" class="navlink">Zerowave</a>
+            </li>
             <li>
                     <a href="/zerowave/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
             </li>
@@ -26,7 +25,11 @@
     <div class="categoryBar">
         <div>
             <a href="/zerowave/map" class="navlink <% type == 'map' &&  __append('selectedLink')%>">Map</a>
+            <a href="/zerowave" class="navlink">Zerowave</a>
         </div>
+        <a href="/zerowave" id="mainLogo">
+            <img src="/static/img/mainLogo.png">
+        </a>
         <div>
             <a href="/zerowave/login"  class="navlink loginLink <% type == 'login' &&  __append('selectedLink')%> transparent">Login</a>
             <a href="/zerowave/join"  class="navlink  joinBtn <% type == 'join' &&  __append('selectedLink')%>" >Join</a>

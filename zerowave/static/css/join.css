@@ -1,3 +1,131 @@
+/* ---------------CSS 초기화 ---------------------*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*-------------------------------------------*/
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 * {
@@ -16,13 +144,14 @@ body {
     align-items: center;
 }
 .wrapper {
-          min-height: 100vh;
+          height: 100vh;
+          display: flex;
+          align-items: center;
         }
 .item {
         margin: auto;
         width: 500px;
         border-radius: 5px;
-        padding: 300px;
         text-align: center;
 }
 .join_form {
@@ -122,5 +251,51 @@ option {
 
 a {
   text-decoration: none;
+
+}
+
+/*모바일사이즈*/
+@media screen and (max-width: 700px){
+  h1 {
+    align-items: center;
+  }
+  .in {
+    width: 280px;
+    height: 50px;
+  
+}
+.inId{ 
+    width: 80px;
+    height: 50px;
+}       
+.inEmail{
+    width: 40px;
+    height: 50px;
+}
+#domain-txt{
+  width: 90px;
+}
+
+#domain-list{
+    width: 100px;
+    height: 50px;
+}
+
+
+#btn {
+    width: 280px;
+}
+            
+#birth-year{
+    width: 130px;
+}
+
+#birth-month{
+    width: 70px;
+    height: 37px;
+}
+#birth-day{
+    width: 70px;
+}
 
 }
