@@ -135,7 +135,7 @@ table {
 
 h1 {
   font-weight: 700;
-  font-size: 40px;
+  font-size: 43px;
   color: #0475ff;
 }
 body {
@@ -144,7 +144,7 @@ body {
   align-items: center;
 }
 .wrapper {
-  height: 100vh;
+  margin-top: 300px;
   display: flex;
   align-items: center;
 }
@@ -211,14 +211,14 @@ body {
   color: white;
   width: 350px;
   padding: 12px;
-  margin-top: 20px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 form {
   font-size: 14px;
 }
-.birth {
+/* .birth {
   color: #7d7d7d;
   position: absolute;
   left: 10%;
@@ -246,7 +246,7 @@ option {
   width: 97px;
   height: 37px;
   border: none;
-}
+} */
 
 .hide {
   display: none;
@@ -279,14 +279,18 @@ a {
 
   #domain-list {
     width: 100px;
-    height: 50px;
+    height: 51.5px;
   }
 
   #btn {
     width: 280px;
   }
 
-  #birth-year {
+  .wrapper {
+    margin-top: 250px;
+  }
+
+  /* #birth-year {
     width: 130px;
   }
 
@@ -296,5 +300,5 @@ a {
   }
   #birth-day {
     width: 70px;
-  }
+  } */
 }
