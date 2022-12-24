@@ -209,7 +209,7 @@
         removeMarker();       // 지도에 표시되고 있는 마커를 제거합니다
 
         for ( var i = 0; i < places.length; i++ ) {
-            console.log(typeof([places[i].x]));
+
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
         let marker = addMarker(placePosition, i);
 
