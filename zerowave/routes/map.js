@@ -13,7 +13,6 @@ router.use('*', (req,res,next) => {
   });
 
 //router.get("/", map.index);
-router.post("/shopList", map.allList);
 router.post("/selectMap",map.selectMap );
 
 router.get("/ygn", map2.ygnIndex);
