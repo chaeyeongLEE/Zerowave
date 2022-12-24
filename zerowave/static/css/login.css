@@ -161,10 +161,6 @@ body {
   text-align: center;
 }
 
-.idSaveCheck {
-  width: 10px;
-}
-
 .in {
   width: 350px;
   height: 60px;
@@ -196,19 +192,7 @@ form {
     font-weight: 600;
     font-size: 40px;
   }
-  body {
-    width: 100vw;
-  }
-  .wrapper {
-    width: 100%;
-    margin-top: 240px;
-    height: 100%;
-  }
 
-  .item {
-    width: 100%;
-    padding: 0;
-  }
 
   .in {
     width: 280px;

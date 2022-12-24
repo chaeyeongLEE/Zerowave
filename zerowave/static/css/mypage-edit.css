@@ -136,7 +136,6 @@ body {
     margin: auto;
     width: 500px;
     padding: 400px;
-   
 } 
 
 h1 {
@@ -151,6 +150,8 @@ h1 {
   border-left: none;
   border-right: none;
   border-bottom: 1.5px solid black;
+  outline: none;
+
 }
 
 .in_pw1 {
@@ -160,6 +161,8 @@ h1 {
     border-left: none;
     border-right: none;
     border-bottom: 1.5px solid black;
+    outline: none;
+
   }
    
 .in_pw2 {
@@ -169,6 +172,8 @@ h1 {
     border-left: none;
     border-right: none;
     border-bottom: 1.5px solid black;
+    outline: none;
+
   }
    
 .in_name {
@@ -178,6 +183,7 @@ h1 {
     border-left: none;
     border-right: none;
     border-bottom: 1.5px solid black;
+    outline: none;
   }
 
   #editBtn {
@@ -189,10 +195,41 @@ h1 {
 }
 
 .edit_cancel {
-  margin-top: 10px;
+  margin-top: 3px;
 }
 
 a {
     text-decoration: none;
   }
   
+
+  /*모바일사이즈*/
+@media screen and (max-width: 700px) {
+  .item {
+    margin-top: 100px;
+    width: 300px;
+    padding: 200px;
+} 
+.in_email {
+  width: 290px;
+  margin-bottom: 5px;
+}
+.in_pw1 {
+  width: 290px;
+  margin-bottom: 5px;
+}
+.in_pw2 {
+  width: 290px;
+  margin-bottom: 5px;
+}
+.in_name {
+  width: 290px;
+}
+.edit_cancel {
+  margin: 0;
+}
+label {
+  font-size: 14px;
+}
+
+}
