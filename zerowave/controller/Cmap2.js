@@ -1,7 +1,7 @@
 const { ygnMap } = require("../model");
 
 exports.ygnIndex = (req, res) => {
-  res.render("map2");
+  res.render("map2", req.result);
 };
 
 exports.ygnShopList = async (req, res) => {

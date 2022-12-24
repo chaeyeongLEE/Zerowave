@@ -1,7 +1,5 @@
 const { zwMap } = require("../model"); // Model require
-const { ygnMap } = require("../model"); 
 const { Op } = require("sequelize"); // sequelize 조작어
-
 
 
 // View 선택 값 조회
@@ -15,25 +13,15 @@ exports.selectMap = async(req, res) => {
 
     let selectedVal = req.body.mapName;
     if(selectedVal == "default"){
-        Promise.all([
-            zwMap.findAll({ raw: true, where: {
-                lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
-                lon: { [Op.between]: [currentLocate.left, currentLocate.right]}
-            }}),
-    
-            ygnMap.findAll({ raw: true, where: {
-                lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
-                lon: { [Op.between]: [currentLocate.left, currentLocate.right]}
-            }})
-        
-        ]).then((result) => {
-            let [zw, ygn] = result;
-            let allList = [ ...zw, ...ygn ];
-            res.send(allList);
-        })
+        var allList = await zwMap.findAll ({ raw: true, where: {
+            lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
+            lon: { [Op.between]: [currentLocate.left, currentLocate.right]}
+        }})
+        res.send(allList);
     }
     else if (selectedVal == "zero") {
         var zwmapList = await zwMap.findAll ({ raw: true, where: {
+            filter : 0,
             lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
             lon: { [Op.between]: [currentLocate.left, currentLocate.right]}
         }})
@@ -41,7 +29,8 @@ exports.selectMap = async(req, res) => {
     }
 
     else if(selectedVal == "ygn") {
-        var ygnList = await ygnMap.findAll ({ raw: true , where: {
+        var ygnList = await zwMap.findAll ({ raw: true , where: {
+            filter : 1,
             lat: { [Op.between]: [currentLocate.top, currentLocate.bottom]},
             lon: { [Op.between]: [currentLocate.left, currentLocate.right]}}})
         res.send(ygnList);

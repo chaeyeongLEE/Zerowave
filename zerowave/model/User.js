@@ -2,15 +2,10 @@ const User = (Sequelize, DataTypes) => {
   return Sequelize.define(
     "user",
     {
-      user_id: {
-        type: DataTypes.INTEGER(11),
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-      },
       user_email: {
         type: DataTypes.STRING(255),
         allowNull: false,
+        primaryKey: true,
       },
       user_pw: {
         type: DataTypes.STRING(255),
