@@ -43,10 +43,11 @@
                     <button type="submit">검색</button> 
                 </form>
             </div>    
+
             <div class="dropdown">
-                <button class="dropbtn mapBtn" value="default">Map</button>
+                <button class="dropbtn-mapBtn" value="default">Map</button>
                 <div class="dropdown-content">
-                  <button class="mapBtn" value="zero">제로웨이스트</button>
+                  <button class="mapBtn" value="zero">제로웨이스트</button><hr>
                   <button class="mapBtn" value="ygn">용기내</button>
                 </div>
             </div> 
@@ -71,6 +72,7 @@
     let map = new kakao.maps.Map(mapContainer, options); //지도생성
     let mapName = "default";
     var ps = new kakao.maps.services.Places();  
+    let searchIdx = false;
     
     let neLat,neLng,swLat,swLng;
 
@@ -104,26 +106,32 @@
     function changeMap(e){
         mapName = e.target.value;
         console.log(mapName);
+        searchIdx = false;
         neLat = map.getBounds().getNorthEast().getLat();
         neLng = map.getBounds().getNorthEast().getLng();
         swLat = map.getBounds().getSouthWest().getLat();
         swLng = map.getBounds().getSouthWest().getLng();
         getMapLi(mapName,neLat,neLng,swLat,swLng);
     }
+    
     kakao.maps.event.addListener(map, "zoom_changed", function() {
-             neLat = this.getBounds().getNorthEast().getLat();
+        if(!searchIdx){
+            neLat = this.getBounds().getNorthEast().getLat();
              neLng = this.getBounds().getNorthEast().getLng();
              swLat = this.getBounds().getSouthWest().getLat();
              swLng = this.getBounds().getSouthWest().getLng();
             getMapLi(mapName,neLat,neLng,swLat,swLng);
+        }
         });    
 
     kakao.maps.event.addListener(map, "bounds_changed", function() {
+        if(!searchIdx){
             neLat = this.getBounds().getNorthEast().getLat();
             neLng = this.getBounds().getNorthEast().getLng();
             swLat = this.getBounds().getSouthWest().getLat();
             swLng = this.getBounds().getSouthWest().getLng();
         getMapLi(mapName,neLat,neLng,swLat,swLng);
+        }
     }); 
         
 
@@ -201,6 +209,7 @@
         removeMarker();       // 지도에 표시되고 있는 마커를 제거합니다
 
         for ( var i = 0; i < places.length; i++ ) {
+
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
         let marker = addMarker(placePosition, i);
 
@@ -209,8 +218,10 @@
 
             kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
             kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
-            
-            itemEl.addEventListener("click", function (e) {displayInfowindow(marker, title);
+            console.log(places[i].x);
+            console.log(itemEl);
+            itemEl.addEventListener("click", function (e) {
+            displayInfowindow(marker, title );
             props.setAddress(places[i]);
             map.panTo(placePosition);
               });
@@ -228,7 +239,7 @@
 function searchPlaces() {
 
     var keyword = document.getElementById('keyword').value;
-
+    searchIdx = true;
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         alert('키워드를 입력해주세요!');
         return false;
@@ -324,10 +335,31 @@ function addMarker(position, idx) {
 
     
     function displayInfowindow(marker, title) { 
-                var content = '<div class="bubble">' + title + '</div>'; 
-
+        if(searchIdx){
+            var content = `<div class="bubble">${title}<button class="addplace" onclick="addclickplus(${marker} )">+</button></div>`; 
+        }else{
+            var content = '<div class="bubble">' + title + '</div>'; 
+        }
+               
                 infowindow.setContent(content); 
                 infowindow.open(map, marker);
+    }
+
+    function addclickplus(marker){
+        console.log(marker);
+        /*
+        axios({ 
+            method: "post", 
+            url: "map/selectMap",
+            data: {
+                x,y
+            }
+        }).then(function(res){
+            var spotList = res.data; 
+            displayPlaces(spotList);
+
+        });
+        */
     }
 
     function removeAllChildNods(el) {   

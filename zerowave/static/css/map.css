@@ -172,21 +172,7 @@ a {
 
 /*---MAP---*/
 #map{margin:255px 24px 0 24px; padding:0px;border-radius: 15px; width:95vw; height: 80vh; }
-/* 위의 margin : 150px은 위와의 여백을 얼마나 둘것인가 가운데는 지도를 왼쪽으로부터 얼마나 거리를 둘지를 의미.*/
-/*
-1600보다 작을때
-@media screen and (max-width:1600px) {
-  #map{margin:200px 10px; padding:600px;border-radius: 15px; width:800PX; }
-}
-1200보다 작을때
-@media screen and (max-width:1200px) {
-  #map{margin:200px 10px; padding:600px;border-radius: 15px; width:600PX; }
-}
-700보다 작을때
-@media screen and (max-width:700px) {
-  #map{margin:200px 10px; padding:600px;border-radius: 15px; width:500PX; }
-}
-*/
+
 
 .keyword {margin:10px 15px;}  
 .option button {position: relative;}
@@ -194,19 +180,19 @@ a {
 
 
 /*--------------- 토글 map 목록-------------------*/
- .dropbtn {
-    background-color:rgba(234, 234, 234, 0.765);
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn-mapBtn{
+    background-color:rgba(124, 155, 106, 0.765);
     min-width: 210px;
     height: 40px;
     font-size: 16px;
-    border: none;
     border-radius: 15px;
+    border: none;
     margin-left: 15px;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
   }
   
   .dropdown-content {
@@ -220,17 +206,20 @@ a {
     margin-left: 5px;
   }
   
-  .dropdown-content a {
+  .mapBtn{
     color: black;
-    padding: 12px 16px;
+    padding: 8px 8px;
     text-decoration: none;
     display: block;
     text-align: center;
+    border: none;
+    width: 210px;
+    border-radius: 15px;
   }
-  
-  .dropdown-content a:hover {background-color: #ddd;}
+
+  .mapBtn:hover {color:#3e7340;}
   .dropdown:hover .dropdown-content {display: block;}
-  .dropdown:hover .dropbtn {background-color: #3e7340;}
+  .dropdown:hover .dropbtn-mapBtn {background-color: #3e7340;}
 
 /*--------------- 페이지 목록-------------------*/
 
