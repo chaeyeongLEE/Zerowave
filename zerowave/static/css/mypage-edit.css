@@ -185,10 +185,13 @@ h1 {
     height: 40px;
     background-color: #0475FF;
     color: white;
-    border-style: solid;
-    border-color: #0475FF;
+    border: none;
 }
-  
+
+.edit_cancel {
+  margin-top: 10px;
+}
+
 a {
     text-decoration: none;
   }

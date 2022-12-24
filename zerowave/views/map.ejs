@@ -72,6 +72,7 @@
     let map = new kakao.maps.Map(mapContainer, options); //지도생성
     let mapName = "default";
     var ps = new kakao.maps.services.Places();  
+    let searchIdx = false;
     
     let neLat,neLng,swLat,swLng;
 
@@ -105,26 +106,32 @@
     function changeMap(e){
         mapName = e.target.value;
         console.log(mapName);
+        searchIdx = false;
         neLat = map.getBounds().getNorthEast().getLat();
         neLng = map.getBounds().getNorthEast().getLng();
         swLat = map.getBounds().getSouthWest().getLat();
         swLng = map.getBounds().getSouthWest().getLng();
         getMapLi(mapName,neLat,neLng,swLat,swLng);
     }
+    
     kakao.maps.event.addListener(map, "zoom_changed", function() {
-             neLat = this.getBounds().getNorthEast().getLat();
+        if(!searchIdx){
+            neLat = this.getBounds().getNorthEast().getLat();
              neLng = this.getBounds().getNorthEast().getLng();
              swLat = this.getBounds().getSouthWest().getLat();
              swLng = this.getBounds().getSouthWest().getLng();
             getMapLi(mapName,neLat,neLng,swLat,swLng);
+        }
         });    
 
     kakao.maps.event.addListener(map, "bounds_changed", function() {
+        if(!searchIdx){
             neLat = this.getBounds().getNorthEast().getLat();
             neLng = this.getBounds().getNorthEast().getLng();
             swLat = this.getBounds().getSouthWest().getLat();
             swLng = this.getBounds().getSouthWest().getLng();
         getMapLi(mapName,neLat,neLng,swLat,swLng);
+        }
     }); 
         
 
@@ -167,10 +174,9 @@
 
         for ( var i = 0; i < places.length; i++ ) {
         var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
-        console.log(typeof([places[i].lat]));
         let marker = addMarker(placePosition, i);
 
-        let itemEl = getListItem(i, places[i]);  // 검색 결과 항목 Element를 생성합니다
+        let itemEl = getListItem(i, places[i], "notSearch");  // 검색 결과 항목 Element를 생성합니다
             // 마커와 검색결과 항목에 mouseover 했을때
             // 해당 장소에 인포윈도우에 장소명을 표시합니다
             // mouseout 했을 때는 인포윈도우를 닫습니다
@@ -207,14 +213,15 @@
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
         let marker = addMarker(placePosition, i);
 
-        let itemEl = getListItem(i, places[i]);  // 검색 결과 항목 Element를 생성합니다
-            console.log(places[i]);
+        let itemEl = getListItem(i, places[i], "search");  // 검색 결과 항목 Element를 생성합니다
         (function(marker, title) { 
 
             kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
             kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
-            
-            itemEl.addEventListener("click", function (e) {displayInfowindow(marker, title);
+            console.log(places[i].x);
+            console.log(itemEl);
+            itemEl.addEventListener("click", function (e) {
+            displayInfowindow(marker, title );
             props.setAddress(places[i]);
             map.panTo(placePosition);
               });
@@ -232,7 +239,7 @@
 function searchPlaces() {
 
     var keyword = document.getElementById('keyword').value;
-
+    searchIdx = true;
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         alert('키워드를 입력해주세요!');
         return false;
@@ -265,40 +272,50 @@ function placesSearchCB(data, status, pagination) {
 }
         
 
-    function getListItem(index, places) {
+function getListItem(index,places,type){
+        let spot;
+        let address;
+        if(type == "search"){
+            spot = places.place_name;
+            address = places.address_name;
+        }else if(type = "notSearch"){
+            spot = places.spot_name;
+            address =  places.address;
+        }
         var el = document.createElement('li'),
             itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
 
-                '<div class="info">' +'   <h5>' + places.spot_name + '</h5>';
+                '<div class="info">' +'   <h5>' + spot + '</h5>';
 
-                    if (places.address) {
+                    if (address) {
                         
                         itemStr += 
                         //'    <span>' + places.address + '</span>' +
-                    '<span class="jibun gray">' +  places.address  + '</span>';
+                    '<span class="jibun gray">' + address  + '</span>';
                 } 
                     else {
-                        itemStr += '    <span>' +  places.spot_name  + '</span>'; }
+                        itemStr += '    <span>' +  spot  + '</span>'; }
                         //itemStr += '  <span class="tel">' + places.spot_name  + '</span>' + '</div>';
 
                         el.innerHTML = itemStr;
                         el.className = 'item';
 
                     return el;
-                }   
+    }
             
 
-    function addMarker(position, idx, title) {
+
+function addMarker(position, idx) {
                 
                 // Size = new kakao.maps.Size(36, 37), 
                 // imgOptions =  { 
                 //     spriteSize : new kakao.maps.Size(36, 691), 
                 //     spriteOrigin : new kakao.maps.Point(0, (idx*46)+10),
                 //     offset: new kakao.maps.Point(13, 37) }, 
-                //     markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions), 
-                    marker = new kakao.maps.Marker({ position: position});
-                    marker.setMap(map);
-                    markers.push(marker);
+                //     markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),     
+                marker = new kakao.maps.Marker({ position: position});
+                marker.setMap(map);
+                markers.push(marker);
 
                     return marker;
     }
@@ -318,10 +335,31 @@ function placesSearchCB(data, status, pagination) {
 
     
     function displayInfowindow(marker, title) { 
-                var content = '<div class="bubble">' + title + '</div>'; 
-
+        if(searchIdx){
+            var content = `<div class="bubble">${title}<button class="addplace" onclick="addclickplus(${marker} )">+</button></div>`; 
+        }else{
+            var content = '<div class="bubble">' + title + '</div>'; 
+        }
+               
                 infowindow.setContent(content); 
                 infowindow.open(map, marker);
+    }
+
+    function addclickplus(marker){
+        console.log(marker);
+        /*
+        axios({ 
+            method: "post", 
+            url: "map/selectMap",
+            data: {
+                x,y
+            }
+        }).then(function(res){
+            var spotList = res.data; 
+            displayPlaces(spotList);
+
+        });
+        */
     }
 
     function removeAllChildNods(el) {   

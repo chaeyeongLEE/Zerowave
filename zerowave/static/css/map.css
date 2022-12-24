@@ -213,6 +213,8 @@ a {
     display: block;
     text-align: center;
     border: none;
+    width: 210px;
+    border-radius: 15px;
   }
 
   .mapBtn:hover {color:#3e7340;}
