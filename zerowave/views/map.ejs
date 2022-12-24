@@ -31,6 +31,7 @@
         <%-include('./nav.ejs', {type: '', islogin:islogin })%>
     </nav>
     
+    <button id="openList" class="transparent" type="button" onclick="toggleList()">openList</button>
 <div class="map_wrap">
     <div id="map"></div>
     <div id="menu_wrap" class="bg_white">
@@ -43,64 +44,22 @@
                 </form>
             </div>    
             <div class="dropdown">
-                <button class="dropbtn">Map</button>
+                <button class="dropbtn mapBtn" value="default">Map</button>
                 <div class="dropdown-content">
                   <button class="mapBtn" value="zero">제로웨이스트</button>
                   <button class="mapBtn" value="ygn">용기내</button>
                 </div>
             </div> 
+         </div>
             <hr>
     <ul id="placesList"></ul>
     <div id="pagination"></div>    
     </div>    
-     <!-- <div id="menu_wrap_bar" class="bg_white">
-        <button type="button" class="categoryBtn"><i class="fa-solid fa-bars"></i></button>
-        <div class="categoryUl">
-        <div id="clickLatlng"></div>    
-             <div class= "option_bar">
-                <div>
-                    <form onsubmit="searchPlaces(); return false;">
-                        <input type="text" value="" id="keyword" size="25"> 
-                        <button type="submit">검색</button> 
-                    </form>
-                </div>    
-                <div class="dropdown_bar">
-                    <button class="dropbtn">Map</button>
-                    <div class="dropdown-content">
-                      <button class="mapBtn" value="zero">제로웨이스트</button>
-                      <button class="mapBtn" value="ygn">용기내</button>
-                    </div>
-                </div> 
-                <hr>
-        <ul id="placesList_bar"></ul>
-        <div id="pagination_bar"></div>    
-        </div>  
-    </div>    -->
+   
+  
 </div>
 
-<div class="map_wrap_bar">
-    <div id="map"></div>
-    <div id="menu_wrap" class="bg_white">
-    <div id="clickLatlng"></div>    
-         <div class= "option">
-            <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    <input type="text" value="" id="keyword" size="25"> 
-                    <button type="submit">검색</button> 
-                </form>
-            </div>    
-            <div class="dropdown">
-                <button class="dropbtn">Map</button>
-                <div class="dropdown-content">
-                  <button class="mapBtn" value="zero">제로웨이스트</button>
-                  <button class="mapBtn" value="ygn">용기내</button>
-                </div>
-            </div> 
-            <hr>
-    <ul id="placesList"></ul>
-    <div id="pagination"></div>    
-    </div>    
-</div>
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8d2772601590f0ed140826adec58e8a1&libraries=services"></script>
 <script>
@@ -111,11 +70,37 @@
     let options = { center: initPosition, level: 6 };
     let map = new kakao.maps.Map(mapContainer, options); //지도생성
     let mapName = "default";
+    var ps = new kakao.maps.services.Places();  
     
     let neLat,neLng,swLat,swLng;
 
-    $('.mapBtn').click(changeMap);
+    
+    $(window).resize(() => {
+        chkSize();
+    })
 
+    function chkSize(){
+    if(window.outerWidth <=1200){
+            console.log('2');
+        $('#menu_wrap').addClass('transparent');
+        $('#openList').removeClass('transparent');
+    }
+
+    if(window.outerWidth >1200){
+        $('#menu_wrap').removeClass('transparent');
+        $('#openList').addClass('transparent');
+    }
+    }
+
+    chkSize();
+    function toggleList(){
+        $('#menu_wrap').toggleClass('transparent');
+    }
+    $('.mapBtn').click(changeMap);
+   
+
+
+ 
     function changeMap(e){
         mapName = e.target.value;
         console.log(mapName);
@@ -181,10 +166,10 @@
 
         for ( var i = 0; i < places.length; i++ ) {
         var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
+        console.log(typeof([places[i].lat]));
         let marker = addMarker(placePosition, i);
 
         let itemEl = getListItem(i, places[i]);  // 검색 결과 항목 Element를 생성합니다
-
             // 마커와 검색결과 항목에 mouseover 했을때
             // 해당 장소에 인포윈도우에 장소명을 표시합니다
             // mouseout 했을 때는 인포윈도우를 닫습니다
@@ -207,8 +192,77 @@
           // map.panTo(bounds);
         }
 
+    function displaySearchPlaces(places){
+        var listEl = document.getElementById('placesList'), 
+        menuEl = document.getElementById('menu_wrap'),
+        fragment = document.createDocumentFragment(), 
+        listStr = '';
 
-           
+        removeAllChildNods(listEl); // 검색 결과 목록에 추가된 항목들을 제거합니다
+        removeMarker();       // 지도에 표시되고 있는 마커를 제거합니다
+
+        for ( var i = 0; i < places.length; i++ ) {
+            console.log(typeof([places[i].x]));
+        var placePosition = new kakao.maps.LatLng(places[i].x, places[i].y);
+        let marker = addMarker(placePosition, i);
+
+        let itemEl = getListItem(i, places[i]);  // 검색 결과 항목 Element를 생성합니다
+            console.log(places[i]);
+        (function(marker, title) { 
+
+            kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title); });
+            kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
+            
+            itemEl.addEventListener("click", function (e) {displayInfowindow(marker, title);
+            props.setAddress(places[i]);
+            map.panTo(placePosition);
+              });
+            })(marker, places[i].place_name);
+
+            fragment.appendChild(itemEl);
+          }
+
+          listEl?.appendChild(fragment);
+          menuEl.scrollTop = 0;
+    }
+
+
+// 키워드 검색을 요청하는 함수입니다
+function searchPlaces() {
+
+    var keyword = document.getElementById('keyword').value;
+
+    if (!keyword.replace(/^\s+|\s+$/g, '')) {
+        alert('키워드를 입력해주세요!');
+        return false;
+    }
+
+    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+    ps.keywordSearch( keyword, placesSearchCB); 
+}
+
+// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+function placesSearchCB(data, status, pagination) {
+    if (status === kakao.maps.services.Status.OK) {
+
+        // 정상적으로 검색이 완료됐으면
+        // 검색 목록과 마커를 표출합니다
+        displaySearchPlaces(data);
+
+
+    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+
+        alert('검색 결과가 존재하지 않습니다.');
+        return;
+
+    } else if (status === kakao.maps.services.Status.ERROR) {
+
+        alert('검색 결과 중 오류가 발생했습니다.');
+        return;
+
+    }
+}
+        
 
     function getListItem(index, places) {
         var el = document.createElement('li'),
@@ -276,7 +330,8 @@
         }
 
             
-        
+     
+    
     
 </script>
 </body>

@@ -1,4 +1,140 @@
-/*데스크탑버전, 최소화면의 넓이가 1200px, 모바일버전값들을 가려야함*/
+/* ---------------CSS 초기화 ---------------------*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+/*-------------------------------------------*/
+/*데스크탑버전, 최소화면의 넓이가 1200px, 모바일버전값들을 가려야함
 @media screen and ((min-width: 1200px)){
   #menu_wrap_bar{
     display: none;
@@ -16,7 +152,7 @@
     display: none;
   }
 }
-
+*/
 /* --map wrap은 지도 위 공간--*/
 
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
@@ -24,7 +160,7 @@
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 
 /*--menu wrap은 메뉴 백그라운드(투명배경)*/
-#menu_wrap {position:absolute; height: 55vh;top:10px; bottom:250; width:300px; margin:89px 54px;padding:5px;overflow-y:auto;background:rgba(234, 234, 234, 0.765);z-index: 9999;font-size:12px;border-radius: 10px;}
+#menu_wrap {position:absolute; height: 55vh; bottom:0; width:300px; margin:89px 54px;padding:5px;overflow-y:auto;background:rgba(234, 234, 234, 0.765);z-index: 9999;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 
 
@@ -35,7 +171,7 @@
 
 
 /*---MAP---*/
-#map{margin:255px 24px; padding:0px;border-radius: 15px; width:95vw; height: 80vh; }
+#map{margin:255px 24px 0 24px; padding:0px;border-radius: 15px; width:95vw; height: 80vh; }
 /* 위의 margin : 150px은 위와의 여백을 얼마나 둘것인가 가운데는 지도를 왼쪽으로부터 얼마나 거리를 둘지를 의미.*/
 /*
 1600보다 작을때
@@ -59,10 +195,7 @@
 
 /*--------------- 토글 map 목록-------------------*/
  .dropbtn {
-    background-color:
-    
-
-    
+    background-color:rgba(234, 234, 234, 0.765);
     min-width: 210px;
     height: 40px;
     font-size: 16px;
@@ -119,58 +252,21 @@
   width: 150px; padding:10px; z-index:1; color: black; text-align: center;
 }
 
-/*모바일 버전
+.transparent{
+  display: none;
+
+}
+
   @media screen and ((max-width: 1200px)){
     #menu_wrap{
-      display: none;
+      position : absolute;
+      bottom:10px;
     }
-    .option{
-      display: none;
+    #openList{
+      position : absolute;
+      bottom: 10px;
+      left: 20px;
+      z-index: 100;
     }
-    .dropdown{
-      display: none;
-    }
-    #placeList{
-      display: none;
-    }
-    #pagination{
-      display: none;
-    }
-   
+    
   }
-  .categoryBtn{
-    border: flex;
- 
-    font-size: 25px;
-    color: rebeccapurple;
-  }
-  
-  
-  .categoryUl{
-    display: flex;
-    width: 100px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .categoryUl button{
-    font-size: 18px;
-    width: 100px;
-  }
-  #menu_wrap_bar {position: absolute;
-    top: 300px;
-    right: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px !important;
-    height: auto;}
-.bg_white {background:#fff;}
-
-
-#menu_wrap_bar hr {display: block; border: 0; margin:3px 0;}
-#menu_wrap_bar .option{text-align: center;}
-#menu_wrap_bar .option p {margin:10px 0;}  
-#menu_wrap_bar .option button {margin-left:5px; margin-top: 5px;}
-*/
