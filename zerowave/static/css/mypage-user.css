@@ -166,13 +166,11 @@ p {
     height: 40px;
     background-color: #0475FF;
     color: white;
-    border-style: solid;
-    border-color: #0475FF;
+    border: none;
 }
 
-
 .alink {
-    padding: 200px;
+    padding: 20px;
 }
 
 a {

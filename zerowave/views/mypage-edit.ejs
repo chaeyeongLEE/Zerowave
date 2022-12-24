@@ -44,8 +44,10 @@
           <br>
           <label for="name">이름 : </label>
           <input type="text" value="<%=sessionUser.name%>" id="name" name="name" placeholder="이름" class="in_name" required><br>
-          <button id="editBtn" type="button" onclick="editProfile()">수정</button>
-          <a href="/zerowave/mypage">취소</a>
+          <div class="edit_cancel">
+            <button id="editBtn" type="button" onclick="editProfile()">수정</button>
+            <a href="/zerowave/mypage">취소</a>
+          </div>
         </form>
     </div>
   </div>

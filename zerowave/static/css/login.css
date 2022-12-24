@@ -116,7 +116,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -126,22 +126,21 @@ table {
 
 /*-------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   padding: 0;
 }
 
-.log{
+.log {
   margin: 10px;
-
 }
 
 h1 {
   font-weight: 700;
   font-size: 40px;
-  color: #0475FF;
+  color: #0475ff;
 }
 body {
   display: flex;
@@ -149,18 +148,16 @@ body {
   align-items: center;
 }
 
-
 .item {
   margin: auto;
   width: 500px;
-  border-radius: 5px;
   padding: 300px;
   text-align: center;
 }
 .login_form {
   height: 200px;
   border-radius: 1px;
-  border-color: #0475FF;
+  border-color: #0475ff;
   text-align: center;
 }
 
@@ -175,10 +172,11 @@ body {
   border-left: none;
   border-right: none;
   border-bottom: 1.5px solid black;
+  outline: none;
 }
 
 #btn {
-  background-color: #0475FF;
+  background-color: #0475ff;
   color: white;
 }
 
@@ -191,18 +189,12 @@ a {
 form {
   font-size: 15px;
 }
-/* 
-#idsave{
-  
-} */
-
 
 /*모바일사이즈*/
-@media screen and (max-width: 700px){ 
+@media screen and (max-width: 700px) {
   h1 {
     font-weight: 600;
     font-size: 40px;
-  
   }
   body {
     width: 100vw;
@@ -212,15 +204,14 @@ form {
     margin-top: 100px;
     height: 100%;
   }
-  
+
   .item {
     width: 100%;
     padding: 0;
   }
-  
+
   .in {
     width: 280px;
     height: 50px;
-  } 
-
+  }
 }

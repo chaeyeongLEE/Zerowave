@@ -116,7 +116,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -126,176 +126,175 @@ table {
 
 /*-------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 * {
-    font-family: 'Noto Sans KR', sans-serif; 
-    padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  padding: 0;
 }
 
-h1{
-    font-weight: 700;
-    font-size: 40px;
-    color: #0475FF;
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+  color: #0475ff;
 }
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .wrapper {
-          height: 100vh;
-          display: flex;
-          align-items: center;
-        }
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
 .item {
-        margin: auto;
-        width: 500px;
-        border-radius: 5px;
-        text-align: center;
+  margin: auto;
+  width: 500px;
+  border-radius: 5px;
+  text-align: center;
 }
 .join_form {
-         height: 350px;
-         border-radius: 1px;
-         text-align: center;
-         position: relative;
+  height: 350px;
+  border-radius: 1px;
+  text-align: center;
+  position: relative;
 }
 
-.test{
-    width: 10px;
+.test {
+  width: 10px;
 }
 
 .in {
-    width: 350px;
-    height: 60px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
-
+  width: 350px;
+  height: 60px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid black;
+  outline: none;
 }
-.inId{ 
-    width: 130px;
-    height: 60px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
-}       
-.inEmail{
-    width: 70px;
-    height: 60px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
+.inId {
+  width: 130px;
+  height: 60px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid black;
+  outline: none;
 }
-#domain-txt{
-    width: 100px;
+.inEmail {
+  width: 70px;
+  height: 60px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid black;
+  outline: none;
+  background-color: white;
 }
-#domain-list{
-    width: 110px;
-    height: 61.5px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
+#domain-txt {
+  width: 100px;
 }
-
+#domain-list {
+  width: 110px;
+  height: 61.5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid black;
+  outline: none;
+}
 
 #btn {
-    background-color: #0475FF;
-    color: white;
-    width: 350px;
-    padding: 12px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  background-color: #0475ff;
+  color: white;
+  width: 350px;
+  padding: 12px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 form {
-    font-size: 14px;
+  font-size: 14px;
 }
 .birth {
-     color: #7D7D7D;
-     position: absolute;
-     left: 10%;
+  color: #7d7d7d;
+  position: absolute;
+  left: 10%;
 }
 
 option {
-        font-size: 16px;
-            }
-            
-#birth-year{
-    border-radius: 5px;
-    width: 150px;
-    height: 37px;
-    border: none;
+  font-size: 16px;
 }
 
-#birth-month{
-    border-radius: 5px;
-    width: 96px;
-    height: 37px;
-    border: none;
+#birth-year {
+  border-radius: 5px;
+  width: 150px;
+  height: 37px;
+  border: none;
 }
-#birth-day{
-    border-radius: 5px;
-    width: 97px;
-    height: 37px;
-    border: none;
+
+#birth-month {
+  border-radius: 5px;
+  width: 96px;
+  height: 37px;
+  border: none;
+}
+#birth-day {
+  border-radius: 5px;
+  width: 97px;
+  height: 37px;
+  border: none;
 }
 
 .hide {
-    display: none;
-  }
+  display: none;
+}
 
 a {
   text-decoration: none;
-
 }
 
 /*모바일사이즈*/
-@media screen and (max-width: 700px){
+@media screen and (max-width: 700px) {
   h1 {
     align-items: center;
   }
   .in {
     width: 280px;
     height: 50px;
-  
-}
-.inId{ 
+  }
+  .inId {
     width: 80px;
     height: 50px;
-}       
-.inEmail{
+  }
+  .inEmail {
     width: 40px;
     height: 50px;
-}
-#domain-txt{
-  width: 90px;
-}
+  }
+  #domain-txt {
+    width: 90px;
+  }
 
-#domain-list{
+  #domain-list {
     width: 100px;
     height: 50px;
-}
+  }
 
-
-#btn {
+  #btn {
     width: 280px;
-}
-            
-#birth-year{
-    width: 130px;
-}
+  }
 
-#birth-month{
+  #birth-year {
+    width: 130px;
+  }
+
+  #birth-month {
     width: 70px;
     height: 37px;
-}
-#birth-day{
+  }
+  #birth-day {
     width: 70px;
-}
-
+  }
 }
