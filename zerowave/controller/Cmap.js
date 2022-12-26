@@ -1,5 +1,6 @@
 const { zwMap } = require("../model"); // Model require
 const { myList } = require("../model"); // Model require
+const { favorite } = require("../model"); // Model require
 const { Op } = require("sequelize"); // sequelize 조작어
 
 // View 선택 값 조회
