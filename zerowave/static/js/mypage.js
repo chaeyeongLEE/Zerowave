@@ -80,10 +80,13 @@ function test() {
     for (i=0; i < Data.length; i++) {
       $("#contents").append(`
       <div class="content">
-      <h3 id="myList-spotName">${Data[i]['zwMap.spot_name']}</h3>
-      <span></span>
-      <p id="myList-address">${Data[i]['zwMap.address']}</p>
-      <span></span>
-      <p id="myList-memo">${Data[i].memo}</p></div>`)
+        <pre>
+        <h4>${Data[i]['zwMap.spot_name']}</h4>
+
+        <p>${Data[i]['zwMap.address']}</p>
+        
+        <p>${Data[i].memo}</p>
+      </pre>
+      </div>`)
 }})
 };
