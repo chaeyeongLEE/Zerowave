@@ -69,6 +69,7 @@ $("#withdrawalBtn").click(function () {
   }
 });
 
+window.onload=test();
 
 function test() {
   axios({
@@ -77,11 +78,12 @@ function test() {
   }).then((res)=> {
     const Data = res.data;
     for (i=0; i < Data.length; i++) {
-
-      $("#contents").append(`<h3 id="myList-spotName">${Data[i]['zwMap.spot_name']}</h3>
-      <br>
+      $("#contents").append(`
+      <div class="content">
+      <h3 id="myList-spotName">${Data[i]['zwMap.spot_name']}</h3>
+      <span></span>
       <p id="myList-address">${Data[i]['zwMap.address']}</p>
-      <br>
-      <p id="myList-memo">${Data[i].memo}</p>`)
+      <span></span>
+      <p id="myList-memo">${Data[i].memo}</p></div>`)
 }})
 };
