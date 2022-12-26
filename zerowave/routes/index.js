@@ -2,6 +2,7 @@ let express = require('express');
 
 const controller = require('../controller/Cmain');
 const Cuser = require('../controller/Cuser');
+const CmyList = require('../controller/CmyList');
 const router = express.Router();
 const port = 8000;
 
@@ -24,6 +25,8 @@ router.delete("/mypage", Cuser.mypage_delete);
 
 router.post("/mypage-user", Cuser.passwordCheck);
 router.patch("/mypage-edit", Cuser.mypage_edit);
+router.post("/mypagetest", CmyList.test);
+
 
 router.get('/:type', controller.mainC);
 

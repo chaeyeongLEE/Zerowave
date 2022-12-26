@@ -39,15 +39,24 @@ exports.selectMap = async(req, res) => {
 
 // 장소 저장 시 실행 되는 controller 
 
-exports.addPlaces =  (req,res) => {
+exports.addPlaces = async(req,res) => {
 
     let selectedVal = req.body.mapName;
-    if (selectedVal == "zero") { 
-            let data = {
+
+    const existingSpot = await zwMap.findOne({
+        raw: true,
+        where: { address: req.body.spot_address }
+    });
+    
+    if (existingSpot) { res.send({ check: true, msg: "지도에 등록된 장소입니다." }); } 
+
+    else {
+        if (selectedVal == "zero") { 
+            let data = { 
                 spot_name : req.body.spot_name,
                 address : req.body.spot_address,
-                lat : req.body.lat,
-                lon : req.body.lon,
+                lat : req.body.y,
+                lon : req.body.x,
                 map_email : req.body.email,
                 filter : 0
             }
@@ -62,8 +71,8 @@ exports.addPlaces =  (req,res) => {
             let data = {
                 spot_name : req.body.spot_name,
                 address : req.body.spot_address,
-                lat : req.body.lat,
-                lon : req.body.lon,
+                lat : req.body.y,
+                lon : req.body.x,
                 map_email : req.body.email,
                 filter : 1
             }
@@ -72,7 +81,6 @@ exports.addPlaces =  (req,res) => {
                 let mydata = { id : result.id, memo: req.body.memo };
                 mylisttest.create(mydata)
             });
-        }
-
-    res.send(true)
-    }
+        } 
+    } res.send({ check: false, msg: "장소를 등록하였습니다." });
+}
