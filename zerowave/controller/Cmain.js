@@ -8,7 +8,7 @@ exports.mainC = (req, res) => {
   req.result["type"] = req.params.type;
   if ( req.params.type == 'login' ) login(req,res);
  // if ( req.params.type == 'mypage-user' ) mypageUser(req,res);
-  else res.render(req.params.type, req.result);;
+  else res.render(req.params.type, req.result);
 };
 
 const login = (req, res) => {
