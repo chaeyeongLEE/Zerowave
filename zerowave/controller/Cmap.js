@@ -42,11 +42,11 @@ exports.selectMap = async(req, res) => {
 
 exports.addPlaces = async(req,res) => {
 
-    let selectedVal = req.body.mapName;
+    let selectedVal = req.body.selectedVal;
 
     const existingSpot = await zwMap.findOne({
         raw: true,
-        where: { address: req.body.spot_address }
+        where: { address: req.body.address }
     });
     
     if (existingSpot) { res.send({ check: true, msg: "지도에 등록된 장소입니다." }); } 
@@ -55,33 +55,33 @@ exports.addPlaces = async(req,res) => {
         if (selectedVal == "zero") { 
             let data = { 
                 spot_name : req.body.spot_name,
-                address : req.body.spot_address,
-                lat : req.body.y,
-                lon : req.body.x,
-                map_email : req.body.email,
+                address : req.body.address,
+                lat : req.body.lat,
+                lon : req.body.lon,
+                map_email : req.session.user.email,
                 filter : 0
             }
             zwMap.create(data)
             .then((result) => {
-                let mydata = { id : result.id, memo: req.body.memo };
-                mylisttest.create(mydata)
+                let mydata = { id : result.id };
+                myList.create(mydata)
             });
         }
 
     else if (selectedVal == "ygn") { 
             let data = {
                 spot_name : req.body.spot_name,
-                address : req.body.spot_address,
-                lat : req.body.y,
-                lon : req.body.x,
-                map_email : req.body.email,
+                address : req.body.address,
+                lat : req.body.lat,
+                lon : req.body.lon,
+                map_email : req.session.user.email,
                 filter : 1
             }
             zwMap.create(data)
             .then((result) => {
-                let mydata = { id : result.id, memo: req.body.memo };
-                mylisttest.create(mydata)
+                let mydata = { id : result.id };
+                myList.create(mydata)
             });
-        } 
-    } res.send({ check: false, msg: "장소를 등록하였습니다." });
+        } res.send({ check: false, msg: "장소를 등록하였습니다." });
+    } 
 }
