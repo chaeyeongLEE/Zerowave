@@ -41,6 +41,8 @@ exports.selectMap = async(req, res) => {
 
 exports.addPlaces = async(req,res) => {
 
+    let selectedVal = req.body.mapName;
+
     const existingSpot = await zwMap.findOne({
         raw: true,
         where: { address: req.body.spot_address }
