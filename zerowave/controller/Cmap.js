@@ -41,6 +41,7 @@ exports.selectMap = async(req, res) => {
 
 exports.addPlaces =  (req,res) => {
 
+    let selectedVal = req.body.mapName;
     if (selectedVal == "zero") { 
             let data = {
                 spot_name : req.body.spot_name,
