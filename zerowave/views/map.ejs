@@ -48,7 +48,10 @@
     <div id="favForm" class="transparent">
         <form action="" name="favForm">
             <input type="text" name="" id="memoInput" placeholder="메모">
-            <button type="button" id="addFavBtn">등록</button>
+            <div>
+                <button type="button" id="cancleFavBtn">취소</button>
+                <button type="button" id="addFavBtn">등록</button>
+            </div>
         </form>
     </div>
     <button id="openList" class="transparent" type="button" onclick="toggleList()">openList</button>
@@ -465,6 +468,11 @@
         }
     }
 
+    $('#cancleFavBtn').click(()=>{
+            $('#favForm').addClass('transparent');
+            $('#emptystar').removeClass('transparent');
+            $('#fillstar').addClass('transparent');
+        })
 
 
     let searchLon, searchLat, searchPlaceName, searchAddress;
