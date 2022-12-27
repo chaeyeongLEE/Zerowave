@@ -84,4 +84,31 @@ exports.addPlaces = async(req,res) => {
             });
         } res.send({ check: false, msg: "장소를 등록하였습니다." });
     } 
-}
+};
+
+
+
+// 즐겨찾기 db 전체 조회
+
+exports.loadmySave = async(req,res) => {
+    const favlist = await favorite.findAll({
+        raw: true,
+        where: {'Email': req.session.user.email}
+    }); 
+    res.send(favlist)
+};
+
+
+
+// 즐겨찾기 시 실행되는 controller 
+
+exports.savePlaces = async(req,res) => {
+
+    console.log(req.body);
+    const savePlace = await favorite.create({
+            id : req.body.id, 
+            memo: req.body.memo, 
+            Email: req.session.user.email
+        });
+        res.send(true);
+    }

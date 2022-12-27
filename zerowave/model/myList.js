@@ -13,11 +13,6 @@ const myList = (Sequelize, DataTypes) => {
             type: DataTypes.INTEGER(11),
             allowNull: false
         },
-  
-        memo: {
-          type: DataTypes.TEXT,
-          allowNull: true,
-        }
       },
   
       {

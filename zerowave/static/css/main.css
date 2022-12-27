@@ -544,8 +544,17 @@ display: none;
 
 footer {
 width: 70vw;
+padding-top: 20px;
+}
+footer p{
+  font-size: 10px !important;
+  line-height: 20px;
 }
 
+footer a{
+  font-size: 10px !important;
+  line-height: 20px;
+}
   
 }
 

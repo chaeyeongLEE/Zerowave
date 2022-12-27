@@ -267,25 +267,9 @@ a {
     #map{margin-top:200px;}
   }
 
-  /* #popupModal{
-    z-index: 500;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.256);
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
-  #popupModal > div{
-    width: 250px;
-    height: 150px;
-    background-color: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
+
+  .star{
+    width: 20px;
+    height: 20px;
+  }

@@ -2,26 +2,24 @@ const favorite = (Sequelize, DataTypes) => {
     return Sequelize.define(
       "favorite",
       {
-        id: {
+        Number: {
           type: DataTypes.INTEGER(11),
           allowNull: false,
           primaryKey: true,
           autoIncrement: true,
         },
-  
-        spot_name: {
-            type: DataTypes.TEXT,
-            allowNull: false
-        },
-  
-        address: {
-          type: DataTypes.TEXT,
+        id: {
+          type: DataTypes.INTEGER(11),
           allowNull: false,
+         
         },
-
         memo: {
             type: DataTypes.TEXT,
             allowNull:true,
+        },
+        Email: {
+          type: DataTypes.STRING(255),
+          allowNull:false,
         }
       },
   
