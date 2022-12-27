@@ -55,9 +55,7 @@ exports.favList = async (req, res) => {
 // 즐겨찾기 삭제 근데 map 에서도 실행되어야하는데 가능한지?????????
 
 exports.favlist_delete = async (req, res) => {
-  console.log(req.body);
-  const favlistDelete = await favorite.destroy({where: {id: req.body.spotNumber}});
-  console.log(favlistDelete);
+  const favlistDelete = await favorite.destroy({where: {id: req.body.id}});
   if(favlistDelete) {res.send(true);}
   else res.send(false);
 }
