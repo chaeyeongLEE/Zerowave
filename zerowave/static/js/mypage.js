@@ -64,29 +64,46 @@ $("#withdrawalBtn").click(function () {
       url: "/zerowave/mypage",
     }).then((res) => {
       alert(res.data);
-      location.href="/zerowave";
+      location.href = "/zerowave";
     });
   }
 });
 
-window.onload=test();
+window.onload = loadmyList();
 
-function test() {
+function loadmyList() {
   axios({
-    method: 'POST',
-    url: "/zerowave/mypagetest"
-  }).then((res)=> {
+    method: "POST",
+    url: "/zerowave/mypage-list",
+  }).then((res) => {
     const Data = res.data;
-    for (i=0; i < Data.length; i++) {
+    for (i = 0; i < Data.length; i++) {
       $("#contents").append(`
       <div class="content">
         <pre>
-        <h4>${Data[i]['zwMap.spot_name']}</h4>
+        <p class="none">${Data[i]["id"]}</p>
+        <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
 
-        <p>${Data[i]['zwMap.address']}</p>
+        <p>${Data[i]["zwMap.address"]}</p>
         
         <p>${Data[i].memo}</p>
+<button type="button" onclick="deletemyList()">X</button>
       </pre>
-      </div>`)
-}})
+      </div>`);
+    }
+  });
 };
+
+function deletemyList() {
+  const spotNumber = document.querySelector(".none").innerText;
+  axios({
+    method:"DELETE",
+    url: "/zerowave/mypage-list",
+    data: {spotNumber}
+  }).then((res)=> {
+    if(res.data == true) {
+      alert("삭제가 완료되었습니다.")
+      window.location.reload();
+    }
+  })
+}
