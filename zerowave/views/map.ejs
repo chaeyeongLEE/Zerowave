@@ -376,19 +376,36 @@ function addMarker(position, idx, filter) {
     // 인포윈도우에 장소명을 표시합니다
 
 
-
-
-    
-    function displayInfowindow(marker, title, x, y,address) { 
-        if(searchIdx){
-            var content = `<div class="bubble">${title}<button class="addplace" onclick="addClickPlus(this)" data-pos-lon="${x}" data-pos-lat="${y}" data-place-name="${title}" data-address = "${address}">+</button></div>`; 
-        }else{
-            var content = '<div class="bubble">' + title + '</div>'; 
+        //const islogin = "<%=islogin%>";
+    function displayInfowindow(marker, title, id) { 
+            if(islogin === "true"){ //로그인만 된 경우
+                let havFav = false;
+                
+                for(let i = 0; i<myFav.length; i++){
+                    if(myFav[i].id == id){
+                        havFav = true;
+                        console.log(havFav);
+                    }
+                }
+                if(havFav){ //이미 즐찾함
+                    var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty transparent" id="emptystar"><img src="/static/img/fillstar.png" class="star  fill" id="fillstar">${title}</div>`; 
+                    }
+                else{ //즐찾안함
+                    var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty" id="emptystar"><img src="/static/img/fillstar.png" class="star fill transparent"  id="fillstar">${title}</div>`; 
+            }
+                }
+                else{ //로그인안되어있는경우
+                    var content = `<div class="bubble">${title}</div>`; 
+                }
+                
+                
+                    infowindow.setContent(content); 
+                    infowindow.open(map, marker);
+                    $('.star').click(e => clickStar(e,id));
         }
-               
-                infowindow.setContent(content); 
-                infowindow.open(map, marker);
-    }
+
+
+
 
 
     let searchLon, searchLat, searchPlaceName, searchAddress;
