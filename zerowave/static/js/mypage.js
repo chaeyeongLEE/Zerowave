@@ -79,17 +79,37 @@ function loadmyList() {
     const Data = res.data;
     console.log(Data);
     for (i = 0; i < Data.length; i++) {
-      $("#contents").append(`
-      <div class="content  filter${Data[i]["zwMap.filter"]}"">
-        <pre>
-        <p class="none">${Data[i]["id"]}</p>
-        <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
-
-        <p>${Data[i]["zwMap.address"]}</p>
-        
-<button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
-      </pre>
-      </div>`);
+      let filterclass = 'filter' + String(Data[i]["zwMap.filter"]);
+      let contentSection;
+      if(Data[i]["zwMap.filter"] == 0){
+        contentSection = `
+        <div class="content  ${filterclass}">
+          <pre>
+          <p class="none">${Data[i]["id"]}</p>
+          <p>제로웨이스트샵</p>
+          <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
+  
+          <p>${Data[i]["zwMap.address"]}</p>
+          
+  <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+        </pre>
+        </div>`
+      }
+      else{
+        contentSection = `
+        <div class="content  ${filterclass}">
+          <pre>
+          <p class="none">${Data[i]["id"]}</p>
+          <p>용기내챌린지</p>
+          <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
+  
+          <p>${Data[i]["zwMap.address"]}</p>
+          
+  <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+        </pre>
+        </div>`
+      }
+      $("#contents").append(contentSection);
     }
   });
 };
