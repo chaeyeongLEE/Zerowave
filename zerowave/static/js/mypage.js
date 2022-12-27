@@ -81,20 +81,21 @@ function loadmyList() {
       $("#contents").append(`
       <div class="content">
         <pre>
-        <p class="none">${Data[i]["id"]}</p>
+        <p class="hidden">${Data[i]["id"]}</p>
         <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
 
         <p>${Data[i]["zwMap.address"]}</p>
         
-<button type="button" onclick="deletemyList()">X</button>
+<button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
       </pre>
       </div>`);
     }
   });
 };
 
-function deletemyList() {
-  const spotNumber = document.querySelector(".none").innerText;
+function deletemyList(number) {
+  const spotNumber = number ; 
+ 
   axios({
     method:"DELETE",
     url: "/zerowave/mypage-list",
