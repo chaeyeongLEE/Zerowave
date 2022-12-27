@@ -12,7 +12,7 @@ exports.mypage_list = async (req, res) => {
         attributes: ['spot_name','address','map_email'],
         required: true,
         where: {
-          'map_email': req.session.user.email
+          //'map_email': req.session.user.email
         }
       },
     ],

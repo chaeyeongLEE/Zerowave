@@ -45,6 +45,12 @@
             </div>
         </div>
     </div>
+    <div id="favForm" class="transparent">
+        <form action="" name="favForm">
+            <input type="text" name="" id="memoInput" placeholder="메모">
+            <button type="button" id="addFavBtn">등록</button>
+        </form>
+    </div>
     <button id="openList" class="transparent" type="button" onclick="toggleList()">openList</button>
 <div class="map_wrap">
     <div id="map"></div>
@@ -202,20 +208,19 @@
         for ( var i = 0; i < places.length; i++ ) {
         var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
         let marker = addMarker(placePosition, i);
-
         let itemEl = getListItem(i, places[i], "notSearch");  // 검색 결과 항목 Element를 생성합니다
             // 마커와 검색결과 항목에 mouseover 했을때
             // 해당 장소에 인포윈도우에 장소명을 표시합니다
             // mouseout 했을 때는 인포윈도우를 닫습니다
-        (function(marker, title) { 
+        (function(marker, title, id) { 
             kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title, 0,0); });
             //kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
             
-            itemEl.addEventListener("click", function (e) {displayInfowindow(marker, title);
+            itemEl.addEventListener("click", function (e) {displayInfowindow(marker, title , id);
             //props.setAddress(places[i]);
             map.panTo(placePosition);
               });
-            })(marker, places[i].spot_name);
+            })(marker, places[i].spot_name , places[i].id);
 
             fragment.appendChild(itemEl);
           }
@@ -250,7 +255,7 @@
             console.log(places[i].x);
             console.log(itemEl);
             itemEl.addEventListener("click", function (e) {
-            displayInfowindow(marker, title, x,y ,address);
+            displaySearchInfowindow(marker, title, x,y ,address);
             //props.setAddress(places[i]);
             map.panTo(placePosition);
               });
@@ -389,21 +394,24 @@
         // 인포윈도우에 장소명을 표시합니다
 
         //const islogin = "<%=islogin%>";
-    function displayInfowindow(marker, title, x, y,address) { 
+    function displayInfowindow(marker, title, id) { 
             console.log(islogin, "islogin");
-            if(searchIdx && islogin === "true"){ //로그인되어있고 검색한경우
-                var content = `<div class="bubble">${title}<button class="addplace" onclick="addClickPlus(this)" data-pos-lon="${x}" data-pos-lat="${y}" data-place-name="${title}" data-address = "${address}">+</button></div>`; 
-            }else if(islogin === "true"){ //로그인만 된 경우
-                let havFav;
+            if(islogin === "true"){ //로그인만 된 경우
+                let havFav = false;
+
                 for(let i = 0; i<myFav.length; i++){
-                    console.log(myfav[i]);
-                   // if(myFav[i].)
+                    console.log(id, myFav[i].id);
+                    if(myFav[i].id == id){
+                        havFav = true;
+                        console.log(havFav);
+                    }
                 }
-                if(havFav){
+                console.log(havFav);
+                if(havFav){ //이미 즐찾함
                     var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty" id="emptystar"><img src="/static/img/fillstar.png" class="star transparent fill" id="fillstar">${title}</div>`; 
                     }
-                else{
-                    var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty transparent" id="emptystar"><img src="/static/img/fillstar.png" class="star fill" id="fillstar">${title}</div>`; 
+                else{ //즐찾안함
+                    var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty" id="emptystar"><img src="/static/img/fillstar.png" class="star fill transparent"  id="fillstar">${title}</div>`; 
             }
                 }
                 else{ //로그인안되어있는경우
@@ -413,34 +421,44 @@
                 
                     infowindow.setContent(content); 
                     infowindow.open(map, marker);
-                    $('.star').click(clickStar);
+                    $('.star').click(e => clickStar(e,id));
+        }
+
+        //검색했을때 뜨는 인포윈도우
+        function displaySearchInfowindow(marker, title, x, y,address){
+            let content;
+            if(searchIdx && islogin === "true"){ //로그인되어있고 검색한경우
+                content = `<div class="bubble">${title}<button class="addplace" onclick="addClickPlus(this)" data-pos-lon="${x}" data-pos-lat="${y}" data-place-name="${title}" data-address = "${address}">+</button></div>`; 
+            }
+            infowindow.setContent(content); 
+            infowindow.open(map, marker);
         }
 
     
 
 
-    function clickStar(e){
+    function clickStar(id,e){
         //즐겨찾기하기
         if(e.target.classList.contains('empty')){
             $('#emptystar').addClass('transparent');
             $('#fillstar').removeClass('transparent');
-            /*
-            axios({ 
-            method: "post", 
-            url: "map/addFav",
-            data: {
-                mapName,
-                neLat,
-                neLng,
-                swLat,
-                swLng
+            $('#favForm').removeClass('transparent');
+            $('#addFavBtn').click(()=>{
+                let memo = $('#memoInput').val();
+                axios({ 
+                 method: "post", 
+                 url: "map/savePlaces",
+                data: {
+                id,
+                memo
+
             }
         }).then(function(res){
             var spotList = res.data; 
             displayPlaces(spotList);
 
         });
-        */
+            })
         }else{ //즐겨찾기해제
             $('#emptystar').removeClass('transparent');
             $('#fillstar').addClass('transparent');
