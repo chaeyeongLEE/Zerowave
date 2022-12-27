@@ -2,7 +2,6 @@
 
 const express = require("express");
 const map = require("../controller/Cmap");
-const map2 = require("../controller/Cmap2");
 const router = express.Router();
 
 router.use('*', (req,res,next) => {
@@ -15,7 +14,7 @@ router.use('*', (req,res,next) => {
 //router.get("/", map.index);
 router.post("/selectMap",map.selectMap);
 router.post("/addPlaces",map.addPlaces);
-router.get("/ygn", map2.ygnIndex);
-router.post("/ygn", map2.ygnShopList);
+router.post("/saveList",map.loadmySave);
+router.post("/savePlaces",map.savePlaces);
 
 module.exports = router;
