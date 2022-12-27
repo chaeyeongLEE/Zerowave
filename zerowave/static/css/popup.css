@@ -60,3 +60,7 @@
   #favForm > form{
       background-color: white;
   }
+
+  .star:hover{
+    cursor: pointer;
+  }
