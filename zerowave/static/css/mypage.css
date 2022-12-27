@@ -194,3 +194,7 @@ button {
   border: none;
   background-color: transparent;
 }
+
+.none {
+  display: none;
+}

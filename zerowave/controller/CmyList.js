@@ -2,7 +2,7 @@ const { zwMap } = require("../model"); // Model require
 const { myList } = require("../model"); // Model require
 const { Op } = require("sequelize"); // sequelize 조작어
 
-exports.test = async (req, res) => {
+exports.mypage_list = async (req, res) => {
   const mylistMap = await myList.findAll({
     raw: true,
     include: [
@@ -17,8 +17,13 @@ exports.test = async (req, res) => {
       },
     ],
     attributes: ['id','memo'],
-    
-    // where: {id = mylisttest.id}
   });
   res.send(mylistMap)
 };
+
+
+exports.mypage_list_delete = async (req, res) => {
+  const mylistDelete = await zwMap.destroy({where: {id: req.body.spotNumber}})
+  if(mylistDelete) {res.send(true);}
+  else res.send(false);
+}

@@ -25,7 +25,8 @@ router.delete("/mypage", Cuser.mypage_delete);
 
 router.post("/mypage-user", Cuser.passwordCheck);
 router.patch("/mypage-edit", Cuser.mypage_edit);
-router.post("/mypagetest", CmyList.test);
+router.post("/mypage-list", CmyList.mypage_list);
+router.delete("/mypage-list", CmyList.mypage_list_delete);
 
 
 router.get('/:type', controller.mainC);
