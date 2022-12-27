@@ -171,7 +171,6 @@ h4 {
 .content {
   width: calc(100% / 3 - 58px);
   margin: 0 10px;
-  border: 1px solid #00ed5d;
   border-radius: 10px;
   padding: 15px;
   display: flex;
@@ -197,4 +196,13 @@ button {
 
 .none {
   display: none;
+}
+
+
+.filter0 {
+  border: 1px solid #00ed5d;
+}
+
+.filter1 {
+  border: 1px solid  #0475ff;
 }

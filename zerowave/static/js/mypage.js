@@ -77,11 +77,12 @@ function loadmyList() {
     url: "/zerowave/mypage-list",
   }).then((res) => {
     const Data = res.data;
+    console.log(Data);
     for (i = 0; i < Data.length; i++) {
       $("#contents").append(`
-      <div class="content">
+      <div class="content  filter${Data[i]["zwMap.filter"]}"">
         <pre>
-        <p class="hidden">${Data[i]["id"]}</p>
+        <p class="none">${Data[i]["id"]}</p>
         <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
 
         <p>${Data[i]["zwMap.address"]}</p>
@@ -106,4 +107,4 @@ function deletemyList(number) {
       window.location.reload();
     }
   })
-}
+};

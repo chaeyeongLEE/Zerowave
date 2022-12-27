@@ -46,17 +46,17 @@ db.myList.belongsTo(db.zwMap, {
  as: 'zwMap',
 });
 
-db.zwMap.associate = function(db) {
-  db.zwMap.hasMany(db.myList, {
-    foreignKey: 'id', sourceKey: 'id', 
-    onDelete: 'cascade', onUpdate: 'cascade'})
-};
+// db.zwMap.associate = function(db) {
+//   db.zwMap.hasMany(db.myList, {
+//     foreignKey: 'id', sourceKey: 'id', 
+//     onDelete: 'cascade', onUpdate: 'cascade'})
+// };
 
-db.myList.associate = function(db) {
-  db.myList.belongsTo(db.zwMap, {
-    foreignKey: 'id', sourceKey: 'id', 
-    onDelete: 'cascade', onUpdate: 'cascade'})
-};
+// db.myList.associate = function(db) {
+//   db.myList.belongsTo(db.zwMap, {
+//     foreignKey: 'id', sourceKey: 'id', 
+//     onDelete: 'cascade', onUpdate: 'cascade'})
+// };
 //
 //favorite, zwMap
 // db.zwMap.associate = function(db) {
