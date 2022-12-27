@@ -225,7 +225,7 @@
         for ( var i = 0; i < places.length; i++ ) {
 
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
-        let marker = addMarker(placePosition, i);
+        let marker = addMarker_search(placePosition, i);
         console.log(places[i]);
         let itemEl = getListItem(i, places[i], "search");  // 검색 결과 항목 Element를 생성합니다
         (function(marker, title, x,y, address) { 
@@ -239,7 +239,7 @@
             //props.setAddress(places[i]);
             map.panTo(placePosition);
               });
-            })(marker, places[i].place_name, places[i].x, places[i].y, places[i].address_name);
+            })(marker, places[i].place_name, places[i].x, places[i].y, places[i].road_address_name);
 
             fragment.appendChild(itemEl);
           }
@@ -283,14 +283,16 @@ function placesSearchCB(data, status, pagination) {
 
     }
 }
-        
+ 
+
+/*------*/
 
 function getListItem(index,places,type){
         let spot;
         let address;
         if(type == "search"){
             spot = places.place_name;
-            address = places.address_name;
+            address = places.road_address_name;
         }else if(type = "notSearch"){
             spot = places.spot_name;
             address =  places.address;
@@ -325,15 +327,40 @@ function addMarker(position, idx) {
                 //     spriteSize : new kakao.maps.Size(36, 691), 
                 //     spriteOrigin : new kakao.maps.Point(0, (idx*46)+10),
                 //     offset: new kakao.maps.Point(13, 37) }, 
-                //     markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),     
-                marker = new kakao.maps.Marker({ position: position});
+                //     markerImage = new kakao.maps.MarkerImage(imageSrc="/static/img/locationIcon.png"     
+                var imageSrc="/static/img/redmarker.png", // 마커이미지의 주소입니다    
+                imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
+                imageOption = {offset: new kakao.maps.Point(27, 69)};
+               
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                markerPosition = new kakao.maps.LatLng(37.54699, 127.09598);
+                var marker = new kakao.maps.Marker({ position: position, image:markerImage});
                 marker.setMap(map);
                 markers.push(marker);
 
                     return marker;
     }
 
- 
+    function addMarker_search(position, idx) {
+                
+                // Size = new kakao.maps.Size(36, 37), 
+                // imgOptions =  { 
+                //     spriteSize : new kakao.maps.Size(36, 691), 
+                //     spriteOrigin : new kakao.maps.Point(0, (idx*46)+10),
+                //     offset: new kakao.maps.Point(13, 37) }, 
+                //     markerImage = new kakao.maps.MarkerImage(imageSrc="/static/img/locationIcon.png"     
+                var imageSrc="/static/img/greenicon.png", // 마커이미지의 주소입니다    
+                imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
+                imageOption = {offset: new kakao.maps.Point(27, 69)};
+               
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                markerPosition = new kakao.maps.LatLng(37.54699, 127.09598);
+                var marker = new kakao.maps.Marker({ position: position, image:markerImage});
+                marker.setMap(map);
+                markers.push(marker);
+
+                    return marker;
+    }
 
     function removeMarker() {
                     for ( var i = 0; i < markers.length; i++ ) {
@@ -377,23 +404,24 @@ function addMarker(position, idx) {
 
     function addPlace(){
        let mapName= document.querySelector('input[name="radio"]:checked').value;
-       console.log(searchLon, searchLat, searchPlaceName, searchAddress, mapName);
+       // console.log(searchLon, searchLat, searchPlaceName, searchAddress, mapName);
 
-       /*
        axios({ 
             method: "post", 
             url: "map/addPlaces",
             data: {
-                spot_name : placeName,
-                lat,lon,
-                address,
-            }
+                spot_name : searchPlaceName,
+                address : searchAddress,
+                lat : searchLat,
+                lon : searchLon,
+                selectedVal : mapName }
         }).then(function(res){
-            var spotList = res.data; 
-            displayPlaces(spotList);
-
+            if(res.data.check == true) { alert(res.data.msg);} 
+            else { alert(res.data.msg);} 
+            // var spotList = res.data; 
+            // displayPlaces(spotList);
         });
-        */
+    
         
     }
 

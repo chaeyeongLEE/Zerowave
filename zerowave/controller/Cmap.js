@@ -1,5 +1,6 @@
 const { zwMap } = require("../model"); // Model require
 const { myList } = require("../model"); // Model require
+const { favorite } = require("../model"); // Model require
 const { Op } = require("sequelize"); // sequelize 조작어
 
 // View 선택 값 조회
@@ -39,40 +40,48 @@ exports.selectMap = async(req, res) => {
 
 // 장소 저장 시 실행 되는 controller 
 
-exports.addPlaces =  (req,res) => {
+exports.addPlaces = async(req,res) => {
 
-    let selectedVal = req.body.mapName;
-    if (selectedVal == "zero") { 
-            let data = {
+    let selectedVal = req.body.selectedVal;
+
+    const existingSpot = await zwMap.findOne({
+        raw: true,
+        where: { address: req.body.address }
+    });
+    
+    if (existingSpot) { res.send({ check: true, msg: "지도에 등록된 장소입니다." }); } 
+
+    else {
+        if (selectedVal == "zero") { 
+            let data = { 
                 spot_name : req.body.spot_name,
-                address : req.body.spot_address,
+                address : req.body.address,
                 lat : req.body.lat,
                 lon : req.body.lon,
-                map_email : req.body.email,
+                map_email : req.session.user.email,
                 filter : 0
             }
             zwMap.create(data)
             .then((result) => {
-                let mydata = { id : result.id, memo: req.body.memo };
-                mylisttest.create(mydata)
+                let mydata = { id : result.id };
+                myList.create(mydata)
             });
         }
 
     else if (selectedVal == "ygn") { 
             let data = {
                 spot_name : req.body.spot_name,
-                address : req.body.spot_address,
+                address : req.body.address,
                 lat : req.body.lat,
                 lon : req.body.lon,
-                map_email : req.body.email,
+                map_email : req.session.user.email,
                 filter : 1
             }
             zwMap.create(data)
             .then((result) => {
-                let mydata = { id : result.id, memo: req.body.memo };
-                mylisttest.create(mydata)
+                let mydata = { id : result.id };
+                myList.create(mydata)
             });
-        }
-
-    res.send(true)
-    }
+        } res.send({ check: false, msg: "장소를 등록하였습니다." });
+    } 
+}

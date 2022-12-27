@@ -1,31 +1,36 @@
-const myList = (Sequelize, DataTypes) => {
+const favorite = (Sequelize, DataTypes) => {
     return Sequelize.define(
-      "myList",
+      "favorite",
       {
-        no: {
+        id: {
           type: DataTypes.INTEGER(11),
           allowNull: false,
           primaryKey: true,
           autoIncrement: true,
         },
   
-        id: {
-            type: DataTypes.INTEGER(11),
+        spot_name: {
+            type: DataTypes.TEXT,
             allowNull: false
         },
   
-        memo: {
+        address: {
           type: DataTypes.TEXT,
-          allowNull: true,
+          allowNull: false,
+        },
+
+        memo: {
+            type: DataTypes.TEXT,
+            allowNull:true,
         }
       },
   
       {
-        tableName: "myList",
+        tableName: "favorite",
         freezeTableName: true,
         timestamps: false,
       });
       
   };
   
-  module.exports = myList;
+  module.exports = favorite;

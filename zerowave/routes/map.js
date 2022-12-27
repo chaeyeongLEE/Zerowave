@@ -12,9 +12,9 @@ router.use('*', (req,res,next) => {
     next();
   });
 
-//router.get("/", map.index);s
-router.post("/selectMap",map.selectMap );
-
+//router.get("/", map.index);
+router.post("/selectMap",map.selectMap);
+router.post("/addPlaces",map.addPlaces);
 router.get("/ygn", map2.ygnIndex);
 router.post("/ygn", map2.ygnShopList);
 
