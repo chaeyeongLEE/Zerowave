@@ -95,7 +95,7 @@ exports.loadmySave = async(req,res) => {
         raw: true,
         where: {'Email': req.session.user.email}
     }); 
-    res.send(favlist.id)
+    res.send(favlist)
 };
 
 
@@ -110,4 +110,5 @@ exports.savePlaces = async(req,res) => {
             memo: req.body.memo, 
             Email: req.session.user.email
         });
+        res.send(true);
     }

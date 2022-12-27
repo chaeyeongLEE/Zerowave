@@ -95,18 +95,23 @@
     let myFav;
     let neLat,neLng,swLat,swLng;
 
-    if(islogin){
-        window.onload = loadmyFav();
-    }
+    
+
+    window.onload = loadmyFav();
+
+    
 
     function loadmyFav() {
-        axios({
+        if(islogin == "true"){
+            axios({
             method: "POST",
-            url: "/zerowave/mypage-list",
+            url: "/zerowave/map/saveList",
         }).then((res) => {
             myFav= res.data;
             console.log(myFav);
         });
+        }
+
     };
     
 
@@ -213,7 +218,7 @@
             // 해당 장소에 인포윈도우에 장소명을 표시합니다
             // mouseout 했을 때는 인포윈도우를 닫습니다
         (function(marker, title, id) { 
-            kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title, 0,0); });
+            kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title,id); });
             //kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
             
             itemEl.addEventListener("click", function (e) {displayInfowindow(marker, title , id);
@@ -247,19 +252,17 @@
         let marker = addMarker_search(placePosition, i);
         console.log(places[i]);
         let itemEl = getListItem(i, places[i], "search");  // 검색 결과 항목 Element를 생성합니다
-        (function(marker, title, x,y, address) { 
+        (function(marker, title, x,y, address, id) { 
            // kakao.maps.event.addListener(marker, 'click',  function(mouseEvent) {displayInfowindow(marker, title, 0,0);  });
-            kakao.maps.event.addListener(marker, 'mouseover', function() { displayInfowindow(marker, title, x,y , address); });
+            kakao.maps.event.addListener(marker, 'mouseover', function() { displaySearchInfowindow(marker, title, x,y , address, id); });
            // kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
-
-            console.log(places[i].x);
             console.log(itemEl);
             itemEl.addEventListener("click", function (e) {
-            displaySearchInfowindow(marker, title, x,y ,address);
+            displaySearchInfowindow(marker, title, x,y ,address,id);
             //props.setAddress(places[i]);
             map.panTo(placePosition);
               });
-            })(marker, places[i].place_name, places[i].x, places[i].y, places[i].road_address_name);
+            })(marker, places[i].place_name, places[i].x, places[i].y, places[i].road_address_name, places[i].id);
 
             fragment.appendChild(itemEl);
           }
@@ -395,20 +398,17 @@
 
         //const islogin = "<%=islogin%>";
     function displayInfowindow(marker, title, id) { 
-            console.log(islogin, "islogin");
             if(islogin === "true"){ //로그인만 된 경우
                 let havFav = false;
 
                 for(let i = 0; i<myFav.length; i++){
-                    console.log(id, myFav[i].id);
                     if(myFav[i].id == id){
                         havFav = true;
                         console.log(havFav);
                     }
                 }
-                console.log(havFav);
                 if(havFav){ //이미 즐찾함
-                    var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty" id="emptystar"><img src="/static/img/fillstar.png" class="star transparent fill" id="fillstar">${title}</div>`; 
+                    var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty transparent" id="emptystar"><img src="/static/img/fillstar.png" class="star  fill" id="fillstar">${title}</div>`; 
                     }
                 else{ //즐찾안함
                     var content = `<div class="bubble"><img src="/static/img/emptystar.png" class="star empty" id="emptystar"><img src="/static/img/fillstar.png" class="star fill transparent"  id="fillstar">${title}</div>`; 
@@ -425,10 +425,12 @@
         }
 
         //검색했을때 뜨는 인포윈도우
-        function displaySearchInfowindow(marker, title, x, y,address){
+        function displaySearchInfowindow(marker, title, x, y,address,id){
             let content;
-            if(searchIdx && islogin === "true"){ //로그인되어있고 검색한경우
+            if(islogin === "true"){ //로그인되어있는 경우
                 content = `<div class="bubble">${title}<button class="addplace" onclick="addClickPlus(this)" data-pos-lon="${x}" data-pos-lat="${y}" data-place-name="${title}" data-address = "${address}">+</button></div>`; 
+            }else{
+                content = `<div class="bubble">${title}</div>`; 
             }
             infowindow.setContent(content); 
             infowindow.open(map, marker);
@@ -437,7 +439,7 @@
     
 
 
-    function clickStar(id,e){
+    function clickStar(e,id){
         //즐겨찾기하기
         if(e.target.classList.contains('empty')){
             $('#emptystar').addClass('transparent');
@@ -451,13 +453,11 @@
                 data: {
                 id,
                 memo
-
             }
-        }).then(function(res){
-            var spotList = res.data; 
-            displayPlaces(spotList);
+        }).then((res)=>{
+            window.location.href = "/zerowave/map";
+        })
 
-        });
             })
         }else{ //즐겨찾기해제
             $('#emptystar').removeClass('transparent');
