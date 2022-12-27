@@ -16,7 +16,7 @@ exports.mypage_list = async (req, res) => {
         }
       },
     ],
-    attributes: ['id','memo'],
+    attributes: ['id'],
   });
   res.send(mylistMap)
 };

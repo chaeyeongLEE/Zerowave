@@ -86,7 +86,6 @@ function loadmyList() {
 
         <p>${Data[i]["zwMap.address"]}</p>
         
-        <p>${Data[i].memo}</p>
 <button type="button" onclick="deletemyList()">X</button>
       </pre>
       </div>`);
