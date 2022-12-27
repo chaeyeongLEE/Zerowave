@@ -107,7 +107,7 @@ exports.savePlaces = async(req,res) => {
     console.log(req.body);
     const savePlace = await favorite.create({
             id : req.body.id, 
-            memo: req.body.input.value, 
+            memo: req.body.memo, 
             Email: req.session.user.email
         });
     }

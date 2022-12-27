@@ -259,3 +259,9 @@ a {
     }
     #map{margin-top:200px;}
   }
+
+
+  .star{
+    width: 20px;
+    height: 20px;
+  }
