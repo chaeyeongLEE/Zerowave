@@ -57,3 +57,15 @@ db.myList.associate = function(db) {
     foreignKey: 'id', sourceKey: 'id', 
     onDelete: 'cascade', onUpdate: 'cascade'})
 };
+//
+//favorite, zwMap
+// db.zwMap.associate = function(db) {
+//   db.zwMap.hasMany(db.favorite, {
+//     foreignKey: 'id', sourceKey: 'id',
+//     onDelete: 'cascade', onUpdate: 'cascade'})
+// };
+// db.favorite.associate = function(db) {
+//   db.favorite.belongsTo(db.zwMap, {
+//     foreignKey: 'id', sourceKey: 'id',
+//     onDelete: 'cascade', onUpdate: 'cascade'})
+// };
