@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="/static/css/nav.css" />
     <link rel="stylesheet" href="/static/css/map.css" />
-
+    <link rel="stylesheet" href="/static/css/popup.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +28,7 @@
 
 <body>
     <nav id="nav">
-        <%-include('./nav.ejs', {type: '', islogin:islogin })%>
+        <%-include('./nav.ejs', {type: '', islogin:islogin})%>
     </nav>
     <div id="popupModal" class="transparent">
         <div>
@@ -373,9 +373,10 @@ function addMarker(position, idx) {
     // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다    
     // 인포윈도우에 장소명을 표시합니다
 
-    
+    //const islogin = "<%=islogin%>";
     function displayInfowindow(marker, title, x, y,address) { 
-        if(searchIdx){
+        console.log(islogin, "islogin");
+        if(searchIdx && islogin === "true"){
             var content = `<div class="bubble">${title}<button class="addplace" onclick="addClickPlus(this)" data-pos-lon="${x}" data-pos-lat="${y}" data-place-name="${title}" data-address = "${address}">+</button></div>`; 
         }else{
             var content = '<div class="bubble">' + title + '</div>'; 
