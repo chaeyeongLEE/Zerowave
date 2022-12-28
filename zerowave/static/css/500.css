@@ -157,15 +157,7 @@ table {
   font-display: swap;
 }
 
-footer {
-    border-top: 1px solid black;
-    height: 220px;
-    width: 1400px;
-    position: absolute;
-    bottom: 0;
-    padding: 10px;
-  }
-  
+
 
 body {
   display: flex;
@@ -173,6 +165,8 @@ body {
   align-items: center;
   text-align: center;
   font-family: "NanumBarunpen";
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #error{
@@ -184,11 +178,11 @@ body {
 }
 
 
-/*모바일사이즈*/
 @media screen and (max-width: 700px) {
-  p {
+  body {
     font-size: 17px;
-    line-height: 30px;
-  }
+    position:absolute;
+    left:50%;
+    top:50%;  }
 }
 
