@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Mypage</title>
+    <title>My page</title>
     <!-- <script type="text/javascript">
       $(document).ready(function () {
         // 넣을 헤더의 id
@@ -29,7 +29,7 @@
   <body>
     <nav id="nav"><%-include('./nav.ejs', {type: '', islogin: islogin})%></nav>
     <div id="userInfo">
-      <h1><span id="userName"> <%=sessionUser.name%> </span>님 안녕하세요!</h1>
+      <h1><%=sessionUser.name%>님, 안녕하세요!</h1>
       <br />
       <h3><%=sessionUser.email%></h3>
       <a
@@ -39,7 +39,7 @@
       >
       <button id="withdrawalBtn" type="button">회원탈퇴</button><br />
       <button
-        id="withdrawalBtn"
+        id="listBtn"
         class="loadList"
         type="button"
         onclick="myAddList()"
@@ -47,7 +47,7 @@
         내가 기록한 Maps
       </button>
       <button
-        id="withdrawalBtn"
+        id="favBtn"
         class="myList"
         type="button"
         onclick="myFavList()"
