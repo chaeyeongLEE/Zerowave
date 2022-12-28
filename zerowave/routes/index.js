@@ -2,6 +2,7 @@ let express = require("express");
 
 const controller = require("../controller/Cmain");
 const Cuser = require("../controller/Cuser");
+const Cemail = require("../controller/Cemail");
 const CmyList = require("../controller/CmyList");
 const router = express.Router();
 const nodemailer = require("nodemailer");
@@ -21,6 +22,8 @@ router.post("/join", Cuser.postJoin);
 
 router.post("/login", Cuser.postLogin);
 router.post("/logout", Cuser.postLogout);
+
+router.post("/forgot", Cemail.email);
 
 router.post("/mypage", Cuser.mypage);
 router.delete("/mypage", Cuser.mypage_delete);
