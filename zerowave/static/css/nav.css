@@ -149,8 +149,13 @@ button:hover {
   border: none;
   background-color: transparent;
   color: #00ed5d;
+<<<<<<< HEAD
+  font-size: 40px;
+  font-weight: 800;
+=======
   font-weight: 700;
   font-size: 40px;
+>>>>>>> d070ebfbadc08c099bc712eb596b695d2590d4bb
   width: 180px;
   font-family: 'NanumBarunpen';
 }

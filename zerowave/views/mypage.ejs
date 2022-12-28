@@ -28,7 +28,7 @@
   </head>
   <body>
     <nav id="nav"><%-include('./nav.ejs', {type: '', islogin: islogin})%></nav>
-    <section>
+    <div id="userInfo">
       <h1><span id="userName"> <%=sessionUser.name%> </span>님 안녕하세요!</h1>
       <br />
       <h3><%=sessionUser.email%></h3>
@@ -42,7 +42,7 @@
         id="withdrawalBtn"
         class="loadList"
         type="button"
-        onclick="loadmyList()"
+        onclick="myAddList()"
       >
         내가 기록한 Maps
       </button>
@@ -50,31 +50,23 @@
         id="withdrawalBtn"
         class="myList"
         type="button"
-        onclick="myList()"
+        onclick="myFavList()"
       >
         즐겨찾기
+        
       </button>
+    </div>
+    <section>
       <!-- <div id="contents filter0" class="aaa">a</div>
       <div id="contents filter1" class="bbb">b</div> -->
-      <div class="aaa">a</div>
-      <div class="bbb">b</div>
+      <div id="contents">
+
+      </div>
     </section>
     <script src="/static/js/mypage.js"></script>
     <script>
-      const one = document.querySelector(".aaa");
-      const one1 = document.querySelector(".bbb");
 
-      // one.style.display = "none";
-      function loadmyList() {
-        one.style.display = "block";
-        one1.style.display = "none";
-      }
 
-      one1.style.display = "none";
-      function myList() {
-        one.style.display = "none";
-        one1.style.display = "block";
-      }
     </script>
   </body>
 </html>
