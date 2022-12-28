@@ -70,7 +70,7 @@ $("#withdrawalBtn").click(function () {
 });
 
 window.onload = loadmyList();
-
+//////내가기록한map버튼함수
 function loadmyList() {
   axios({
     method: "POST",
@@ -79,7 +79,30 @@ function loadmyList() {
     const Data = res.data;
     console.log(Data);
     for (i = 0; i < Data.length; i++) {
-      $("#contents").append(`
+      $(".aaa").append(`
+      <div class="content  filter${Data[i]["zwMap.filter"]}"">
+        <pre>
+        <p class="none">${Data[i]["id"]}</p>
+        <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
+
+        <p>${Data[i]["zwMap.address"]}</p>
+ S       
+<button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+      </pre>
+      </div>`);
+    }
+  });
+}
+///////즐겨찾기버튼함수
+function myList() {
+  axios({
+    method: "POST",
+    url: "/zerowave/mypage-list",
+  }).then((res) => {
+    const Data = res.data;
+    console.log(Data);
+    for (i = 0; i < Data.length; i++) {
+      $(".bbb").append(`
       <div class="content  filter${Data[i]["zwMap.filter"]}"">
         <pre>
         <p class="none">${Data[i]["id"]}</p>
@@ -92,19 +115,18 @@ function loadmyList() {
       </div>`);
     }
   });
-};
-
+}
 function deletemyList(number) {
-  const spotNumber = number ; 
- 
+  const spotNumber = number;
+
   axios({
-    method:"DELETE",
+    method: "DELETE",
     url: "/zerowave/mypage-list",
-    data: {spotNumber}
-  }).then((res)=> {
-    if(res.data == true) {
-      alert("삭제가 완료되었습니다.")
+    data: { spotNumber },
+  }).then((res) => {
+    if (res.data == true) {
+      alert("삭제가 완료되었습니다.");
       window.location.reload();
     }
-  })
-};
+  });
+}

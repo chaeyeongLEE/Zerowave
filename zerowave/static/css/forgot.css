@@ -167,7 +167,7 @@ span {
   border-radius: 5px;
   padding: 340px;
 }
-.btn {
+#send_email {
   display: inline-block;
   min-width: 104px;
   text-align: center;
@@ -231,7 +231,6 @@ h2 {
   display: none;
 }
 
-
 /*모바일사이즈*/
 @media screen and (max-width: 700px) {
   h1 {
@@ -264,7 +263,4 @@ h2 {
     padding: 8px 1.5rem 8px;
     margin-top: 0;
   }
-  
-
-
 }
