@@ -51,6 +51,7 @@
             <div>
                 <button type="button" id="cancleFavBtn">취소</button>
                 <button type="button" id="addFavBtn">등록</button>
+                
             </div>
         </form>
     </div>
@@ -62,13 +63,14 @@
          <div class= "option">
             <div>
                 <form onsubmit="searchPlaces(); return false;">
-                    <input type="text" value="" id="keyword" size="25"> 
-                    <button type="submit">검색</button> 
+                    <input type="text" value="" id="keyword"> 
+                    <button type="submit" id="what">검색</button> 
+                    
                 </form>
             </div>    
 
             <div class="dropdown">
-                <button class="dropbtn mapBtn" value="default">Map</button>
+                <button class="dropbtn" value="default">Map</button>
                 <div class="dropdown-content">
                   <button class="mapBtn" value="zero">제로웨이스트</button><hr>
                   <button class="mapBtn" value="ygn">용기내</button>
@@ -352,13 +354,13 @@
 function addMarker(position, idx, filter) {
                 
                 let imageSrc, // 마커이미지의 주소입니다    
-                imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
+                imageSize = new kakao.maps.Size(42, 45), // 마커이미지의 크기입니다
                 imageOption = {offset: new kakao.maps.Point(20, 69)};
     
                 if(filter == 0){
-                    imageSrc = "/static/img/zero_marker.png"
+                    imageSrc = "/static/img/earth_marker.png"
                 }else if(filter == 1){
-                    imageSrc = "/static/img/greenicon.png"
+                    imageSrc = "/static/img/ygn_marker.png"
                 }
                 
                
@@ -374,7 +376,7 @@ function addMarker(position, idx, filter) {
 
     function addMarker_search(position, idx) {
                 
-                var imageSrc="/static/img/marker_green.png", // 마커이미지의 주소입니다    
+                var imageSrc="/static/img/zero_marker.png", // 마커이미지의 주소입니다    
                 imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
                 imageOption = {offset: new kakao.maps.Point(20, 69)};
                
@@ -535,11 +537,18 @@ function addMarker(position, idx, filter) {
                         el.removeChild (el.lastChild);
                     }
             }
-
+            
             
      
     
     
 </script>
+<footer>
+    <p>SeSac</p>
+    <p>서울특별시 용산구 청파로</p>
+    <a href="https://github.com/chaeyeongLEE/earth">https://github.com/chaeyeongLEE/earth</a>
+    <p>Copyright © 2022 zerowave. All rights reserved.</p>
+  </footer>
+  <script src="/static/js/main.js"></script>
 </body>
 </html>
