@@ -43,8 +43,20 @@ db.zwMap.hasMany(db.myList, {
 
 db.myList.belongsTo(db.zwMap, {
   foreignKey: 'id',
- as: 'zwMap',
+  as: 'zwMap',
 });
+
+
+
+db.zwMap.hasMany(db.favorite, {
+  as : "fav",
+});
+
+db.favorite.belongsTo(db.zwMap, {
+  foreignKey: 'id',
+  as: 'fav',
+});
+
 
 // db.zwMap.associate = function(db) {
 //   db.zwMap.hasMany(db.myList, {

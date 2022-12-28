@@ -30,10 +30,14 @@ router.delete("/mypage", Cuser.mypage_delete);
 
 router.post("/mypage-user", Cuser.passwordCheck);
 router.patch("/mypage-edit", Cuser.mypage_edit);
+
 router.post("/mypage-list", CmyList.mypage_list);
-router.post("/mypage-fav", CmyList.favList);
 router.delete("/mypage-list", CmyList.mypage_list_delete);
+
+router.post("/mypage-fav", CmyList.favList);
+router.delete("/mypage-fav", CmyList.favlist_delete);
 router.delete("/favlist", CmyList.favlist_delete);
+
 
 
 router.get('/:type', controller.mainC);

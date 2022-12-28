@@ -70,9 +70,11 @@ $("#withdrawalBtn").click(function () {
 });
 
 
+
 //내가 추가한 maps
 window.onload = myAddList();
 // 실행하자마자 온클릭 디폴트
+
 //////내가기록한map버튼함수
 function myAddList() {
   axios({
@@ -81,6 +83,7 @@ function myAddList() {
   }).then((res) => {
     const Data = res.data;
     console.log(Data);
+    $('#contents').empty();
     for (i = 0; i < Data.length; i++) {
       let filterclass = "filter" + String(Data[i]["zwMap.filter"]);
       let contentSection;
@@ -115,6 +118,7 @@ function myAddList() {
     }
   });
 }
+
 /////즐겨찾기 불러오기함수
 function myFavList() {
   axios({
@@ -123,31 +127,45 @@ function myFavList() {
   }).then((res) => {
     const Data = res.data;
     console.log(Data);
+    $('#contents').empty();
     for (i = 0; i < Data.length; i++) {
-      /*
-      let contentSection  = `
-      <div class="content>
-        <pre>
-        <p class="none">${Data[i]["id"]}</p>
-        <p>제로웨이스트샵</p>
-        <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
-
-        <p>${Data[i]["zwMap.address"]}</p>
-        
-<button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
-      </pre>
-      </div>`
-      */
+      let filterclass = "filter" + String(Data[i]["fav.filter"]);
+      let contentSection;
+      if (Data[i]["fav.filter"] == 0) {
+        contentSection = `
+        <div class="content  ${filterclass}">
+          <pre>
+          <p class="none">${Data[i]["id"]}</p>
+          <p>제로웨이스트샵</p>
+          <h4 id="spotName">${Data[i]["fav.spot_name"]}</h4>
+  
+          <p>${Data[i]["fav.address"]}</p>
+        </pre>
+        </div>`;
+      } else {
+        contentSection = `
+        <div class="content  ${filterclass}">
+          <pre>
+          <p class="none">${Data[i]["id"]}</p>
+          <p>용기내챌린지</p>
+          <h4 id="spotName">${Data[i]["fav.spot_name"]}</h4>
+  
+          <p>${Data[i]["fav.address"]}</p>
+        </pre>
+        </div>`;
+      }
+      $("#contents").append(contentSection);
     }
   });
 }
+
 
 function deletemyList(number) {
   const spotNumber = number;
 
   axios({
     method: "DELETE",
-    url: "/zerowave/mypage-list",
+    url: "/zerowave/mypage-fav",
     data: { spotNumber },
   }).then((res) => {
     if (res.data == true) {

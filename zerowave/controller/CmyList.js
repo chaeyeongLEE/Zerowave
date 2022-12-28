@@ -42,13 +42,14 @@ exports.favList = async (req, res) => {
       {
         model: zwMap,
         as: 'fav',
-        attributes: ['spot_name','address'],
+        attributes: ['spot_name','address','filter'],
         required: true
       }
     ],
-    attributes: ['id'],
+    attributes: ['id', 'memo'],
   });
-  res.send(favList)
+  res.send(favList);
+  console.log(favList);
 };
 
 
