@@ -149,9 +149,10 @@ button:hover {
   border: none;
   background-color: transparent;
   color: #00ed5d;
-  font-weight: 600;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: 800;
   width: 180px;
+  font-family: 'NanumBarunpen';
 }
 
 .logoutBtn:hover {
