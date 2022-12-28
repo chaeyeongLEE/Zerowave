@@ -27,6 +27,11 @@ app.use('/zerowave', router);
 const map = require('./routes/map');
 app.use('/zerowave/map', map);
 
+
+app.use(function (error, req, res, next) {
+  res.render("500");
+});
+
 app.listen(process.env.PORT, () => {
     console.log('server open:', process.env.PORT);
   });
