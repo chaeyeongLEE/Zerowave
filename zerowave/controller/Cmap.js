@@ -91,11 +91,19 @@ exports.addPlaces = async(req,res) => {
 // 즐겨찾기 db 전체 조회
 
 exports.loadmySave = async(req,res) => {
-    const favlist = await favorite.findAll({
+    const loadlist = await favorite.findAll({
         raw: true,
-        where: {'Email': req.session.user.email}
-    }); 
-    res.send(favlist)
+        where: {'Email': req.session.user.email},
+        include: [
+          {
+            model: zwMap,
+            as: 'fav',
+            required: true
+          }
+        ],
+        attributes: ['id', 'memo'],
+      });
+    res.send(loadlist);
 };
 
 

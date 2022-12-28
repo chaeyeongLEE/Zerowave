@@ -69,8 +69,10 @@ $("#withdrawalBtn").click(function () {
   }
 });
 
-window.onload = loadmyList();
+
+//window.onload = loadmyList();
 // 실행하자마자 온클릭 디폴트
+
 //////내가기록한map버튼함수
 function loadmyList() {
   axios({
@@ -114,10 +116,11 @@ function loadmyList() {
   });
 }
 ///////즐겨찾기버튼함수
+
 // function myList() {
 //   axios({
 //     method: "POST",
-//     url: "/zerowave/mypage-list",
+//     url: "/zerowave/mypage-fav",
 //   }).then((res) => {
 //     const Data = res.data;
 //     console.log(Data);
@@ -137,12 +140,13 @@ function loadmyList() {
 //   });
 // }
 
+
 function deletemyList(number) {
   const spotNumber = number;
 
   axios({
     method: "DELETE",
-    url: "/zerowave/mypage-list",
+    url: "/zerowave/mypage-fav",
     data: { spotNumber },
   }).then((res) => {
     if (res.data == true) {
