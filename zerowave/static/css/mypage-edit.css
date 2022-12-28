@@ -263,6 +263,7 @@ label {
   font-weight: bold;
 }
 
+
 /*모바일사이즈*/
 @media screen and (max-width: 700px) {
   .item {

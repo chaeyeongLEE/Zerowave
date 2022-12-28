@@ -186,7 +186,7 @@ span {
 }
 .forgot_form {
   margin: auto;
-  width: 500px;
+  width: 600px;
   border-radius: 5px;
   padding: 340px;
 }
@@ -273,7 +273,7 @@ h2 {
     align-items: center;
   }
   .password_description {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 18px;
   }
   #find_email {
