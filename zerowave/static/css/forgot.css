@@ -206,18 +206,20 @@ span {
   font-family: "NanumBarunpen";
   font-size: 15px;
 }
+
+#send_email:hover{
+  background-color: #0360d2;
+}
+
+a {
+  text-decoration: none;
+  color: #0475ff;
+  font-weight: bold;
+}
+
 .emailaddress {
   margin-top: 20px;
   margin-bottom: 30px;
-}
-
-.inbtn {
-  margin-top: 60px;
-  all: unset;
-  background-color: #0475ff;
-  color: white;
-  padding: 5px 25px;
-  cursor: pointer;
 }
 
 .modal {
