@@ -116,7 +116,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -129,7 +129,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
@@ -161,7 +161,14 @@ h4 {
   margin-bottom: 10px;
 }
 
-#contents {
+.aaa {
+  display: flex;
+  width: 1400px;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+
+.bbb {
   display: flex;
   width: 1400px;
   flex-wrap: wrap;
@@ -177,17 +184,17 @@ h4 {
   margin-bottom: 74px;
 }
 
-.content img {
+/* .content img {
   width: 100px;
   height: 100px;
   margin-right: 50px;
-}
+} */
 
-.content p {
+/* .content p {
   margin-bottom: 5px;
   font-size: 14px;
   line-height: 18px;
-}
+} */
 
 button {
   border: none;
@@ -198,11 +205,10 @@ button {
   display: none;
 }
 
-
 .filter0 {
   border: 1px solid #00ed5d;
 }
 
 .filter1 {
-  border: 1px solid  #0475ff;
+  border: 1px solid #0475ff;
 }
