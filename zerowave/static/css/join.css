@@ -158,6 +158,7 @@ h1 {
   font-weight: 700;
   font-size: 45px;
   color: #0475ff;
+  font-family: 'NanumBarunpen';
 }
 body {
   display: flex;
@@ -236,40 +237,14 @@ body {
   margin-bottom: 10px;
   cursor: pointer;
   font-size: large;
+  border-radius: 4px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 form {
   font-size: 14px;
 }
-/* .birth {
-  color: #7d7d7d;
-  position: absolute;
-  left: 10%;
-}
-
-option {
-  font-size: 16px;
-}
-
-#birth-year {
-  border-radius: 5px;
-  width: 150px;
-  height: 37px;
-  border: none;
-}
-
-#birth-month {
-  border-radius: 5px;
-  width: 96px;
-  height: 37px;
-  border: none;
-}
-#birth-day {
-  border-radius: 5px;
-  width: 97px;
-  height: 37px;
-  border: none;
-} */
 
 .hide {
   display: none;
@@ -278,6 +253,14 @@ option {
 a {
   text-decoration: none;
 }
+
+.mismatch-message {
+  margin-top: 20px;
+  font-family: 'NanumBarunpen';
+  font-weight: bold;
+  color:  #0475ff;
+}
+
 
 /*모바일사이즈*/
 @media screen and (max-width: 700px) {

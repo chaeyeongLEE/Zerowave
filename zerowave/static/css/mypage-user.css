@@ -203,6 +203,8 @@ p {
     color: white;
     border: none;
     font-family: "NanumBarunpen";
+    border-radius: 4px;
+    margin: 10px;
 }
 
 .alink {
