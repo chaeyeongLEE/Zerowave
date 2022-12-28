@@ -70,6 +70,7 @@ $("#withdrawalBtn").click(function () {
 });
 
 window.onload = loadmyList();
+// 실행하자마자 온클릭 디폴트
 //////내가기록한map버튼함수
 function loadmyList() {
   axios({
@@ -79,10 +80,9 @@ function loadmyList() {
     const Data = res.data;
     console.log(Data);
     for (i = 0; i < Data.length; i++) {
-
-      let filterclass = 'filter' + String(Data[i]["zwMap.filter"]);
+      let filterclass = "filter" + String(Data[i]["zwMap.filter"]);
       let contentSection;
-      if(Data[i]["zwMap.filter"] == 0){
+      if (Data[i]["zwMap.filter"] == 0) {
         contentSection = `
         <div class="content  ${filterclass}">
           <pre>
@@ -94,9 +94,8 @@ function loadmyList() {
           
   <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
         </pre>
-        </div>`
-      }
-      else{
+        </div>`;
+      } else {
         contentSection = `
         <div class="content  ${filterclass}">
           <pre>
@@ -108,35 +107,36 @@ function loadmyList() {
           
   <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
         </pre>
-        </div>`
+        </div>`;
       }
-      $("#contents").append(contentSection);
+      $(".aaa").append(contentSection);
     }
   });
 }
 ///////즐겨찾기버튼함수
-function myList() {
-  axios({
-    method: "POST",
-    url: "/zerowave/mypage-list",
-  }).then((res) => {
-    const Data = res.data;
-    console.log(Data);
-    for (i = 0; i < Data.length; i++) {
-      $(".bbb").append(`
-      <div class="content  filter${Data[i]["zwMap.filter"]}"">
-        <pre>
-        <p class="none">${Data[i]["id"]}</p>
-        <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
+// function myList() {
+//   axios({
+//     method: "POST",
+//     url: "/zerowave/mypage-list",
+//   }).then((res) => {
+//     const Data = res.data;
+//     console.log(Data);
+//     for (i = 0; i < Data.length; i++) {
+//       $(".bbb").append(`
+//       <div class="content  filter${Data[i]["zwMap.filter"]}"">
+//         <pre>
+//         <p class="none">${Data[i]["id"]}</p>
+//         <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
 
-        <p>${Data[i]["zwMap.address"]}</p>
-        
-<button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
-      </pre>
-      </div>`);
-    }
-  });
-}
+//         <p>${Data[i]["zwMap.address"]}</p>
+
+// <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+//       </pre>
+//       </div>`);
+//     }
+//   });
+// }
+
 function deletemyList(number) {
   const spotNumber = number;
 
