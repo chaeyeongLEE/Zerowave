@@ -140,6 +140,8 @@ function myFavList() {
           <h4 id="spotName">${Data[i]["fav.spot_name"]}</h4>
   
           <p>${Data[i]["fav.address"]}</p>
+          <p>${Data[i]["memo"]}</p>
+<button type="button" onclick="deletemyFav(${Data[i]["id"]})">X</button>
         </pre>
         </div>`;
       } else {
@@ -151,6 +153,8 @@ function myFavList() {
           <h4 id="spotName">${Data[i]["fav.spot_name"]}</h4>
   
           <p>${Data[i]["fav.address"]}</p>
+          <p>${Data[i]["memo"]}</p>
+<button type="button" onclick="deletemyFav(${Data[i]["id"]})">X</button>
         </pre>
         </div>`;
       }
@@ -165,12 +169,28 @@ function deletemyList(number) {
 
   axios({
     method: "DELETE",
-    url: "/zerowave/mypage-fav",
+    url: "/zerowave/mypage-list",
     data: { spotNumber },
   }).then((res) => {
     if (res.data == true) {
       alert("삭제가 완료되었습니다.");
-      window.location.reload();
+      $("#listBtn").click()
+    }
+  });
+}
+
+
+function deletemyFav(number) {
+  const id = number;
+
+  axios({ 
+    method: "delete", 
+    url: "/zerowave/favlist",
+   data: { id }
+}).then((res) => {
+    if (res.data == true) {
+      alert("삭제가 완료되었습니다.");
+      $("#favBtn").click()
     }
   });
 }
