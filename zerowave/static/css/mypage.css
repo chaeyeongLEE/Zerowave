@@ -124,27 +124,35 @@ table {
   border-spacing: 0;
 }
 @font-face {
-  font-family: 'NanumBarunpen';
+  font-family: "NanumBarunpen";
   font-weight: 400;
   font-style: normal;
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.eot');
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.eot?#iefix') format('embedded-opentype'),
-       url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.woff') format('woff'),
-       url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.ttf') format("truetype");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Regular.ttf")
+      format("truetype");
   font-display: swap;
-} 
+}
 @font-face {
-  font-family: 'NanumBarunpen';
+  font-family: "NanumBarunpen";
   font-weight: 700;
   font-style: normal;
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.eot');
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.eot?#iefix') format('embedded-opentype'),
-       url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.woff') format('woff'),
-       url('https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.ttf') format("truetype");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/NanumBarunpen/NanumBarunpen-Bold.ttf")
+      format("truetype");
   font-display: swap;
-} 
+}
 /*-------------------------------------------*/
 @font-face {
   font-family: "NanumBarunpen";
@@ -177,13 +185,11 @@ table {
   font-display: swap;
 }
 
-
-
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "NanumBarunpen"
+  font-family: "NanumBarunpen";
 }
 
 a {
@@ -191,7 +197,7 @@ a {
   color: black;
   font-size: 17px;
 }
-#withdrawalBtn{
+#withdrawalBtn {
   color: black;
   font-size: 17px;
   font-family: "NanumBarunpen";
@@ -214,7 +220,7 @@ h2 {
   margin-top: 20px;
   margin-left: 5px;
 }
-h3{
+h3 {
   font-size: 30px;
   margin-bottom: 20px;
 }
@@ -225,11 +231,11 @@ h4 {
   margin-bottom: 10px;
 }
 
-#userInfo{
-  width: 45%
+#userInfo {
+  width: 45%;
 }
 
-#contents{
+#contents {
   width: 1200px;
   display: flex;
   flex-wrap: wrap;
@@ -244,7 +250,7 @@ h4 {
   padding: 15px;
   margin-bottom: 20px;
 }
-.content pre{
+.content pre {
   width: 100%;
 }
 
@@ -275,29 +281,21 @@ button {
   border: 1px solid #0475ff;
 }
 
-// gorae 
-#btngroup{
-  margin-top: 60px;
+.memberbtn {
+  margin-left: 90%;
+  width: 1200px;
 }
 
-#btngroup{
-  color: aliceblue;
+#btngroup {
+  margin-top: 50px;
 }
 
-#listBtn{
-  border: 1px solid #00ed5d;
-  border-radius: 5px;
-  width: 150px;
-  height: 50px;
-  font-size: 20px;
-  font-weight: 700px ;
-  font-family: "NanumBarunpen";
-}
-#listBtn:hover{
-  background-color: #00ed5d;
+#btngroup {
   color: aliceblue;
+  width: 680px;
 }
-#favBtn{
+
+#listBtn {
   border: 1px solid #00ed5d;
   border-radius: 5px;
   width: 150px;
@@ -306,18 +304,30 @@ button {
   font-weight: 700px;
   font-family: "NanumBarunpen";
 }
-#favBtn:hover{
+#listBtn:hover {
   background-color: #00ed5d;
   color: aliceblue;
 }
-
+#favBtn {
+  border: 1px solid #00ed5d;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 700px;
+  font-family: "NanumBarunpen";
+}
+#favBtn:hover {
+  background-color: #00ed5d;
+  color: aliceblue;
+}
 
 #spotName {
   font-weight: bold;
 }
 
 /*1200px보다 작을때 */
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   section {
     height: 100vh;
     width: 90vw;
@@ -326,12 +336,11 @@ button {
     align-items: center;
   }
 
-  #contents{
+  #contents {
     justify-content: space-between;
     align-items: center;
     width: 90vw;
   }
-  
 
   .content {
     width: calc(90vw / 2 - 60px);
@@ -341,17 +350,14 @@ button {
     padding: 15px;
     margin-bottom: 20px;
   }
-
 }
 
-
 /*모바일사이즈*/
-@media screen and (max-width: 850px){
+@media screen and (max-width: 850px) {
   section {
     height: 100vh;
     width: 100vw;
   }
-  
 
   .content {
     width: 85vw;

@@ -27,50 +27,40 @@
     </script> -->
   </head>
   <body>
-
     <nav id="nav"><%-include('./nav.ejs', {type: '', islogin: islogin})%></nav>
     <div id="userInfo">
       <h1><%=sessionUser.name%>님, 안녕하세요!</h1>
       <br />
-     <h3><%=sessionUser.email%></h3>
-      <a
-        href="/zerowave/mypage-user"
-        class="<% type == 'mypage-user' && __append('selectedLink')%>"
-        >회원정보수정</a
-      >
-      <button id="withdrawalBtn" type="button">회원탈퇴</button><br>
-    
+      <h3><%=sessionUser.email%></h3>
+      <div class="memberbtn">
+        <a
+          href="/zerowave/mypage-user"
+          class="<% type == 'mypage-user' && __append('selectedLink')%>"
+          >회원정보수정</a
+        >
+        <button id="withdrawalBtn" type="button">회원탈퇴</button><br />
+      </div>
+
       <div id="btngroup">
-      <button
-        id="listBtn"
-        class="loadList"
-        type="button"
-        onclick="myAddList()"
-      >
-        내가 등록한 장소
-      </button>
-      <button
-        id="favBtn"
-        class="myList"
-        type="button"
-        onclick="myFavList()"
-      >
-        즐겨찾기
-        
-      </button>
-    </div>
+        <button
+          id="listBtn"
+          class="loadList"
+          type="button"
+          onclick="myAddList()"
+        >
+          내가 등록한 장소
+        </button>
+        <button id="favBtn" class="myList" type="button" onclick="myFavList()">
+          즐겨찾기
+        </button>
+      </div>
     </div>
     <section>
       <!-- <div id="contents filter0" class="aaa">a</div>
       <div id="contents filter1" class="bbb">b</div> -->
-      <div id="contents">
-
-      </div>
+      <div id="contents"></div>
     </section>
     <script src="/static/js/mypage.js"></script>
-    <script>
-
-
-    </script>
+    <script></script>
   </body>
 </html>
