@@ -97,7 +97,7 @@ function myAddList() {
   
           <p>${Data[i]["zwMap.address"]}</p>
           
-  <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+  <button  id="deleteBtn" type="button" onclick="deletemyList(${Data[i]["id"]})">삭제</button>
         </pre>
         </div>`;
       } else {
@@ -110,7 +110,7 @@ function myAddList() {
   
           <p>${Data[i]["zwMap.address"]}</p>
           
-  <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+  <button  id="deleteBtn" type="button" onclick="deletemyList(${Data[i]["id"]})">삭제</button>
         </pre>
         </div>`;
       }
@@ -141,7 +141,7 @@ function myFavList() {
   
           <p>${Data[i]["fav.address"]}</p>
           <p>${Data[i]["memo"]}</p>
-<button type="button" onclick="deletemyFav(${Data[i]["id"]})">X</button>
+<button id="deleteBtn" type="button" onclick="deletemyFav(${Data[i]["id"]})">삭제</button>
         </pre>
         </div>`;
       } else {
@@ -154,7 +154,7 @@ function myFavList() {
   
           <p>${Data[i]["fav.address"]}</p>
           <p>${Data[i]["memo"]}</p>
-<button type="button" onclick="deletemyFav(${Data[i]["id"]})">X</button>
+<button  id="deleteBtn" type="button" onclick="deletemyFav(${Data[i]["id"]})">삭제</button>
         </pre>
         </div>`;
       }

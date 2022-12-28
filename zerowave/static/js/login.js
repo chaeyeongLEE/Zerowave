@@ -8,7 +8,7 @@ function login(){
                 }
         if(!form.user_email.value || !form.user_pw.value){
             alert("값을 입력해주세요.");
-        }
+        } else {
             axios({
                  method : "post",
                     url : "/zerowave/login",
@@ -19,5 +19,5 @@ function login(){
                     alert(res.data.msg);
                     location.href = "/zerowave";
                 } else { alert(res.data.msg);}
-            })
+            })}
         };

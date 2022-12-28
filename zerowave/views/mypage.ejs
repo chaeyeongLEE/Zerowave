@@ -31,7 +31,7 @@
     <div id="userInfo">
       <h1><%=sessionUser.name%>님, 안녕하세요!</h1>
       <br />
-      <h3><%=sessionUser.email%></h3>
+     <h3><%=sessionUser.email%></h3>
       <a
         href="/zerowave/mypage-user"
         class="<% type == 'mypage-user' && __append('selectedLink')%>"
@@ -44,7 +44,7 @@
         type="button"
         onclick="myAddList()"
       >
-        내가 기록한 Maps
+        내가 등록한 장소
       </button>
       <button
         id="favBtn"
