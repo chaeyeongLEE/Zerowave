@@ -255,6 +255,14 @@ input {
   height: 40px;
 }
 
+#cancel:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+label {
+  font-weight: bold;
+}
+
 /*모바일사이즈*/
 @media screen and (max-width: 700px) {
   .item {

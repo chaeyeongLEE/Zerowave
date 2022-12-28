@@ -178,6 +178,7 @@ body {
   width: 550px;
   height: 38px;
   outline: none;
+  font-family: "NanumBarunpen";
 }
 
 span {
@@ -212,6 +213,7 @@ span {
 }
 
 a {
+  margin-left: 10px;
   text-decoration: none;
   color: #0475ff;
   font-weight: bold;
