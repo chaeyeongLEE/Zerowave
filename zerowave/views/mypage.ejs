@@ -29,7 +29,7 @@
   <body>
     <nav id="nav"><%-include('./nav.ejs', {type: '', islogin: islogin})%></nav>
     <div id="userInfo">
-      <h1><%=sessionUser.name%>님, 안녕하세요!</h1>
+      <h1><%=sessionUser.name%>님,<br> 안녕하세요!</h1>
       <br />
       <h3><%=sessionUser.email%></h3>
       <div class="memberbtn">
@@ -56,8 +56,6 @@
       </div>
     </div>
     <section>
-      <!-- <div id="contents filter0" class="aaa">a</div>
-      <div id="contents filter1" class="bbb">b</div> -->
       <div id="contents"></div>
     </section>
     <script src="/static/js/mypage.js"></script>
