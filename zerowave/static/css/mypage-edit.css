@@ -268,5 +268,7 @@ a {
 label {
   font-size: 14px;
 }
-
+h1{
+  width: 380px;
+}
 }
