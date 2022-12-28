@@ -152,12 +152,15 @@ table {
 h1 {
   font-weight: 700;
   font-size: 15px;
+  margin-bottom: 10px;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "NanumBarunpen";
+  text-align: center;
 }
 .wrapper {
   display: flex;
@@ -175,6 +178,7 @@ body {
   width: 550px;
   height: 38px;
   outline: none;
+  font-family: "NanumBarunpen";
 }
 
 span {
@@ -197,19 +201,27 @@ span {
   background: #0475ff;
   border: none;
   color: #fff;
+  border-radius: 4px;
+  margin: 20px 0 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-family: "NanumBarunpen";
+  font-size: 15px;
 }
+
+#send_email:hover{
+  background-color: #0360d2;
+}
+
+a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #0475ff;
+  font-weight: bold;
+}
+
 .emailaddress {
   margin-top: 20px;
   margin-bottom: 30px;
-}
-
-.inbtn {
-  margin-top: 60px;
-  all: unset;
-  background-color: #0475ff;
-  color: white;
-  padding: 5px 25px;
-  cursor: pointer;
 }
 
 .modal {

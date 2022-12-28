@@ -116,7 +116,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -125,7 +125,6 @@ table {
 }
 
 /*-------------------------------------------*/
-
 
 @font-face {
   font-family: "NanumBarunpen";
@@ -159,23 +158,23 @@ table {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family:  "NanumBarunpen"
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "NanumBarunpen";
+}
 
 .item {
-    margin: auto;
-    width: 500px;
-    padding: 400px;
-} 
+  margin: auto;
+  width: 500px;
+  padding: 400px;
+}
 
 h1 {
-    font-weight: 600;
-    font-size: 25px;
-  }
-  
+  font-weight: 600;
+  font-size: 25px;
+}
+
 .in_email {
   width: 282px;
   height: 40px;
@@ -184,91 +183,113 @@ h1 {
   border-right: none;
   border-bottom: 1.5px solid black;
   outline: none;
-
 }
 
 .in_pw1 {
-    width: 245px;
-    height: 40px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
-    outline: none;
+  width: 245px;
+  height: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid black;
+  outline: none;
+}
 
-  }
-   
 .in_pw2 {
-    width: 208px;
-    height: 40px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
-    outline: none;
+  width: 208px;
+  height: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid black;
+  outline: none;
+}
 
-  }
-   
 .in_name {
-    width: 300px;
-    height: 40px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
-    outline: none;
-  }
+  width: 300px;
+  height: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1.5px solid black;
+  outline: none;
+}
 
-  #editBtn {
-    width: 60px;
-    height: 40px;
-    background-color: #0475FF;
-    color: white;
-    border: none;
-    margin-right: 5px;
+#editBtn {
+  width: 60px;
+  height: 40px;
+  background-color: #0475ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  color: white;
+  border: none;
+  margin-right: 5px;
+  margin-top: 10px;
+  font-family: "NanumBarunpen";
+  border-radius: 4px;
+}
+
+#editBtn:hover {
+  background-color: #0360d2;
 }
 
 .edit_cancel {
   margin-top: 5px;
 }
 
-a {
-    text-decoration: none;
-  }
-  
 #email {
   color: rgb(172, 170, 170);
 }
 
-  /*모바일사이즈*/
+input {
+  font-family: "NanumBarunpen";
+}
+
+#cancel {
+  font-weight: bold;
+  background-color: rgb(242, 242, 242);
+  border-radius: 4px;
+  font-family: "NanumBarunpen";
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border: none;
+  width: 60px;
+  height: 40px;
+}
+
+#cancel:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+label {
+  font-weight: bold;
+}
+
+
+/*모바일사이즈*/
 @media screen and (max-width: 700px) {
   .item {
     margin-top: 100px;
     width: 300px;
     padding: 200px;
-} 
-.in_email {
-  width: 290px;
-  margin-bottom: 5px;
-}
-.in_pw1 {
-  width: 290px;
-  margin-bottom: 5px;
-}
-.in_pw2 {
-  width: 290px;
-  margin-bottom: 5px;
-}
-.in_name {
-  width: 290px;
-}
-.edit_cancel {
-  margin: 0;
-}
-label {
-  font-size: 14px;
-}
-h1{
-  width: 380px;
-}
+  }
+  .in_email {
+    width: 290px;
+    margin-bottom: 5px;
+  }
+  .in_pw1 {
+    width: 290px;
+    margin-bottom: 5px;
+  }
+  .in_pw2 {
+    width: 290px;
+    margin-bottom: 5px;
+  }
+  .in_name {
+    width: 290px;
+  }
+  .edit_cancel {
+    margin: 0;
+  }
+  label {
+    font-size: 14px;
+  }
 }
