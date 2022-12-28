@@ -253,78 +253,147 @@ body > section:nth-child(4) h1 {
 
 body > section:nth-child(4) p {
   width: 758px;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
 }
 
 /*----------------네번째 Main--------------------*/
-
-body > section:nth-child(5) {
+/*-----소개합니다-----*/
+  body > section:nth-child(5) {
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 84px;
-}
-
-body > section:nth-child(5) h4 {
-  color: #00ed5d;
-  margin-top: 32px;
-}
-/*------Wave map------*/
-#zwFuncInfo > div:nth-child(2) img  {
   display: flex;
-  width: 550px;
-  height: 290px;
-}
-
-#zwFuncInfo > div:nth-child(2) h3{
   text-align: center;
+  margin-top: 360px;
+  }
+  
+  body > section:nth-child(5) h3 {
+  padding: 0 40px;
+  line-height: 35px;
+  }
+  
+  body > section:nth-child(5) h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+/*-----wave map-----*/
+  #zwFuncInfo {
+  flex-direction: column;
   justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 40px;
-
-}
-
-#zwFuncInfo > div:nth-child(2) p {
-  width: 500px;
-  text-align: center;
-  margin-bottom: 10px;
-  margin-top: 30px;
-  margin-left: 30px;
-}
-
-
-/*---------------------*/
-
-#zwFuncInfo > div:nth-child(2) img  {
+  align-content:center;
+  flex-grow: 5;
+  flex-shrink: 5;
+  margin-top: 120px;
+  width: 440px;
+  align-items: center;
+  }
+  
+  #zwFuncInfo > div:first-child  {
+  color: black;
   display: flex;
-  width: 550px;
-  height: 290px;
-}
-
-#zwFuncInfo > div:nth-child(2) h3{
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  #zwFuncInfo > div:nth-child(1) h2 {
   text-align: center;
-  justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color:blue;
+  }
 
-}
-
-#zwFuncInfo > div:nth-child(2) p {
-  width: 500px;
+  #zwFuncInfo > div:nth-child(1) img {
+    display: flex;
+    width: 300px;
+  }
+  
+  #zwFuncInfo > div:nth-child(1) p {
+  width: 643px;
   text-align: center;
-  margin-bottom: 10px;
-  margin-top: 30px;
-  margin-left: 30px;
-}
+  margin-bottom: 32px;
+  }
+  
+  #zwFuncInfo img {
+  display: flex;
+  width: 300px;
+  }
 
+  /*------제로샵 정보제공------------*/
+  #zwFuncInfo > div:nth-child(2)  {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  }
+  
+  #zwFuncInfo > div:nth-child(2) h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color:blue;
+  }
 
+  #zwFuncInfo > div:nth-child(2) img {
+    display: flex;
+    width: 670px;
+    height: 350px;
+    margin-top: 100px;
+  }
+  
+  #zwFuncInfo > div:nth-child(2) p {
+  width: 643px;
+  text-align: center;
+  margin-bottom: 32px;
+  }
+  
+  #zwFuncInfo img {
+  display: flex;
+  width: 300px;
+  }
 
+  /*-----용기내 추가------------*/
+  #zwFuncInfo > div:nth-child(3)  {
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    }
+    
+    #zwFuncInfo > div:nth-child(3) h2 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color:blue;
+    }
+  
+    #zwFuncInfo > div:nth-child(3) img {
+      display: flex;
+      width: 670px;
+      height: 350px;
+      margin-top: 70px;
+    }
+    
+    #zwFuncInfo > div:nth-child(3) p {
+    width: 643px;
+    text-align: center;
+    margin-bottom: 32px;
+    }
+    
+    #zwFuncInfo img {
+    display: flex;
+    width: 300px;
+    }
 /*---------------- Footer --------------------*/
 
 footer {
   border-top: 1px solid black;
-  height: 220px;
-  width: 1400px;
-  margin-bottom: 200px;
+   width: 70vw;
+  position: absolute; 
+  bottom: 0;
+  flex: 1;
+  margin-bottom: -5130px;
+  height: 100vh;
 }
 
 .ocean {
@@ -504,99 +573,16 @@ width: 35vw;
 margin-bottom: 40px;
 }
 
-/*----------------1600미만의 네번째 Main--------------------*/
-
-body > section:nth-child(5) {
-flex-direction: column;
-text-align: center;
-}
-
-body > section:nth-child(5) h3 {
-margin-top: 32px;
-padding: 0 40px;
-line-height: 35px;
-}
-
-
-body > section:nth-child(5) h4 {
-margin-top: 30px;
-padding: 0 40px;
-line-height: 30px;
-}
-
-#zwFuncInfo {
-flex-direction: column;
-width: 80vw;
-margin-top: 115px;
-}
-
-#zwFuncInfo > div:first-child {
-margin-right: 0;
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-
-#zwFuncInfo > div:nth-child(1) h3 {
-text-align: center;
-margin-top: 50px;
-margin-bottom: 10px;
-}
-
-#zwFuncInfo > div:nth-child(1) p {
-width: 316px;
-text-align: center;
-margin-bottom: 15px;
-}
-
-#zwFuncInfo img {
-display: flex;
-width: 300px;
-}
-/*---------------------------*/
-#zwFuncInfo > div:nth-child(2) img  {
-  display: flex;
-width: 330px;
-height: 230px;
-}
-
-
-#zwFuncInfo > div:nth-child(2) {
-  flex-direction: column;
-  width: 300px;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-#zwFuncInfo > div:nth-child(2) p {
-  width: 257px;
-  text-align: center;
-  margin-bottom: 10px;
-  margin-top: 30px;
-  margin-left: 30px;
-}
-/*---------------------------*/
 footer {
-width: 70vw;
-position: absolute; 
-bottom: 0;
-padding-bottom: 130px;
-margin-bottom: -4000px;
-height: 99px;
-}
-footer p{
-  font-size: 10px !important;
-  line-height: 20px;
+  border-top: 1px solid black;
+   width: 70vw;
+  position: absolute; 
   bottom: 0;
+  flex: 1;
+  margin-bottom: -5250px;
+  height: 100vh;
 }
 
-footer a{
-  font-size: 10px !important;
-  line-height: 20px;
-  bottom: 0;
-  margin-bottom: 500px;
-}
-  
 }
 
 /*1200px보다 작을때 */
@@ -639,6 +625,11 @@ footer a{
       margin-bottom: 40px;
     }
 
+    body > section:nth-child(5) p {
+      width: 50vw;
+      margin-bottom: -100px;
+    }
+
   /*----------------세번째 Main--------------------*/
     body > section:nth-child(4) img {
       width: 300px;
@@ -655,81 +646,6 @@ footer a{
     }
 }
 
-
-
-#zwFuncInfo {
-  flex-direction: column;
-  width: 80vw;
-  margin-top: 115px;
-  }
-  
-  #zwFuncInfo > div:first-child {
-  margin-right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  }
-  
-  #zwFuncInfo > div:nth-child(1) h3 {
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 10px;
-  }
-  
-  #zwFuncInfo > div:nth-child(1) p {
-  width: 316px;
-  text-align: center;
-  margin-bottom: 15px;
-  }
-  
-  #zwFuncInfo img {
-  display: flex;
-  width: 300px;
-  }
-  /*---------------------------*/
-  #zwFuncInfo > div:nth-child(2) img  {
-    display: flex;
-  width: 330px;
-  height: 230px;
-  }
-  
-  
-  #zwFuncInfo > div:nth-child(2) {
-    flex-direction: column;
-    width: 300px;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  
-  #zwFuncInfo > div:nth-child(2) p {
-    width: 257px;
-    text-align: center;
-    margin-bottom: 10px;
-    margin-top: 30px;
-    margin-left: 30px;
-  }
-  /*---------------------------*/
-  footer {
-  width: 70vw;
-  position: absolute; 
-  bottom: 0;
-  padding-bottom: 130px;
-  margin-bottom: -4000px;
-  height: 99px;
-  }
-  footer p{
-    font-size: 10px !important;
-    line-height: 20px;
-    bottom: 0;
-  }
-  
-  footer a{
-    font-size: 10px !important;
-    line-height: 20px;
-    bottom: 0;
-    margin-bottom: 500px;
-  }
-    
   
 /*----------모바일사이즈----------*/
 @media screen and (max-width: 700px){
@@ -750,7 +666,7 @@ footer a{
   }
   
   h4 {
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 500;
   }
   
@@ -869,63 +785,159 @@ body > section:nth-child(4) p {
   margin-bottom: 40px;
 }
 
-/*----------------네번째 Main--------------------*/
-
 body > section:nth-child(5) {
   flex-direction: column;
+  display: flex;
   text-align: center;
-}
-
-body > section:nth-child(5) h3 {
-  margin-top: 32px;
+  margin-top: 360px;
+  }
+  
+  body > section:nth-child(5) h3 {
   padding: 0 40px;
   line-height: 35px;
-}
+  }
+  
+  body > section:nth-child(5) h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+  }
 
-
-body > section:nth-child(5) h4 {
-  margin-top: 40px;
-  padding: 0 40px;
-  line-height: 30px;
-}
-
-#zwFuncInfo {
+ /*----------------네번째 Main--------------------*/
+/*-----소개합니다-----*/
+body > section:nth-child(5) {
   flex-direction: column;
-  width: 80vw;
-  margin-top: 50px;
-}
-
-#zwFuncInfo > div:first-child {
-  margin-right: 0;
+  display: flex;
+  text-align: center;
+  margin-top: 360px;
+  }
+  
+  body > section:nth-child(5) h3 {
+  padding: 0 40px;
+  line-height: 35px;
+  }
+  
+  body > section:nth-child(5) h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+/*-----wave map-----*/
+  #zwFuncInfo {
+  flex-direction: column;
+  justify-content: center;
+  align-content:center;
+  flex-grow: 5;
+  flex-shrink: 5;
+  margin-top: 120px;
+  width: 440px;
+  align-items: center;
+  }
+  
+  #zwFuncInfo > div:first-child  {
+  color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#zwFuncInfo > div:nth-child(1) h3 {
+  }
+  
+  #zwFuncInfo > div:nth-child(1) h2 {
   text-align: center;
-  margin-top: 54px;
-  margin-bottom: 46px;
-}
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color:blue;
+  }
 
-#zwFuncInfo > div:nth-child(1) p {
-  width: 306px;
+  #zwFuncInfo > div:nth-child(1) img {
+    display: flex;
+    width: 300px;
+  }
+  
+  #zwFuncInfo > div:nth-child(1) p {
+  width: 300px;
+  word-wrap:break-word;
   text-align: center;
-  margin-bottom: 15px;
-}
+  margin-bottom: 32px;
+  }
+  
+  #zwFuncInfo img {
+    display: none;
+  }
 
-#zwFuncInfo img {
+  /*------제로샵 정보제공------------*/
+  #zwFuncInfo > div:nth-child(2)  {
+  color: rgb(137, 115, 172);
   display: flex;
-  width: 200px;
-}
+  flex-direction: column;
+  align-items: center;
+  
+  }
+  
+  #zwFuncInfo > div:nth-child(2) h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color:blue;
+  }
 
-#zwFuncInfo > div:nth-child(2) {
-  display: none;
-}
+  #zwFuncInfo > div:nth-child(2) img {
+    display: none;
+  }
+  
+  #zwFuncInfo > div:nth-child(2) p {
+  width: 300px;
+  word-wrap:break-word;
+  text-align: center;
+  margin-bottom: 32px;
+  }
+  
+  #zwFuncInfo img {
+    display: none;    
+  }
 
+  /*-----용기내 추가------------*/
+  #zwFuncInfo > div:nth-child(3)  {
+    color: rgb(250, 9, 157);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    }
+    
+    #zwFuncInfo > div:nth-child(3) h2 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color:rgb(112, 207, 109);
+    }
+  
+    #zwFuncInfo > div:nth-child(3) img {
+      display: none;
+    }
+    
+    #zwFuncInfo > div:nth-child(3) p {
+    width: 100vw;
+    word-wrap:break-word;
+    text-align: center;
+    margin-bottom: 32px;
+    }
+    
+    #zwFuncInfo img {
+    display: none;
+    }
+  
 .ocean{
   height: 72px;
 }
 
-  
+footer {
+  border-top: 1px solid black;
+  width: 70vw;
+ position: absolute; 
+ bottom: 0;
+ flex: 1;
+ margin-bottom: -4000px;
+ height: 100vh;
+}
+
 }
