@@ -29,7 +29,9 @@ router.post("/mypage-user", Cuser.passwordCheck);
 router.patch("/mypage-edit", Cuser.mypage_edit);
 router.post("/mypage-list", CmyList.mypage_list);
 router.delete("/mypage-list", CmyList.mypage_list_delete);
+router.delete("/favlist", CmyList.favlist_delete);
 
-router.get("/:type", controller.mainC);
+
+router.get('/:type', controller.mainC);
 
 module.exports = router;

@@ -48,7 +48,10 @@
     <div id="favForm" class="transparent">
         <form action="" name="favForm">
             <input type="text" name="" id="memoInput" placeholder="메모">
-            <button type="button" id="addFavBtn">등록</button>
+            <div>
+                <button type="button" id="cancleFavBtn">취소</button>
+                <button type="button" id="addFavBtn">등록</button>
+            </div>
         </form>
     </div>
     <button id="openList" class="transparent" type="button" onclick="toggleList()">openList</button>
@@ -212,7 +215,9 @@
 
         for ( var i = 0; i < places.length; i++ ) {
         var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
-        let marker = addMarker(placePosition, i);
+
+        let marker = addMarker(placePosition, i, places[i].filter);
+
         let itemEl = getListItem(i, places[i], "notSearch");  // 검색 결과 항목 Element를 생성합니다
             // 마커와 검색결과 항목에 mouseover 했을때
             // 해당 장소에 인포윈도우에 장소명을 표시합니다
@@ -343,47 +348,44 @@
                 
 
 
-    function addMarker(position, idx) {
-                    
-                    // Size = new kakao.maps.Size(36, 37), 
-                    // imgOptions =  { 
-                    //     spriteSize : new kakao.maps.Size(36, 691), 
-                    //     spriteOrigin : new kakao.maps.Point(0, (idx*46)+10),
-                    //     offset: new kakao.maps.Point(13, 37) }, 
-                    //     markerImage = new kakao.maps.MarkerImage(imageSrc="/static/img/locationIcon.png"     
-                    var imageSrc="/static/img/redmarker.png", // 마커이미지의 주소입니다    
-                    imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
-                    imageOption = {offset: new kakao.maps.Point(20, 69)};
-                
-                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-                    markerPosition = new kakao.maps.LatLng(37.54699, 127.09598);
-                    var marker = new kakao.maps.Marker({ position: position, image:markerImage});
-                    marker.setMap(map);
-                    markers.push(marker);
 
-                        return marker;
-        }
+function addMarker(position, idx, filter) {
+                
+                let imageSrc, // 마커이미지의 주소입니다    
+                imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
+                imageOption = {offset: new kakao.maps.Point(20, 69)};
+    
+                if(filter == 0){
+                    imageSrc = "/static/img/zero_marker.png"
+                }else if(filter == 1){
+                    imageSrc = "/static/img/greenicon.png"
+                }
+                
+               
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                markerPosition = new kakao.maps.LatLng(37.54699, 127.09598);
+                
+                var marker = new kakao.maps.Marker({ position: position, image:markerImage});
+                marker.setMap(map);
+                markers.push(marker);
+
+                return marker;
+    }
 
     function addMarker_search(position, idx) {
-                    
-                    // Size = new kakao.maps.Size(36, 37), 
-                    // imgOptions =  { 
-                    //     spriteSize : new kakao.maps.Size(36, 691), 
-                    //     spriteOrigin : new kakao.maps.Point(0, (idx*46)+10),
-                    //     offset: new kakao.maps.Point(13, 37) }, 
-                    //     markerImage = new kakao.maps.MarkerImage(imageSrc="/static/img/locationIcon.png"     
-                    var imageSrc="/static/img/greenicon.png", // 마커이미지의 주소입니다    
-                    imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
-                    imageOption = {offset: new kakao.maps.Point(20, 69)};
                 
-                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-                    markerPosition = new kakao.maps.LatLng(37.54699, 127.09598);
-                    var marker = new kakao.maps.Marker({ position: position, image:markerImage});
-                    marker.setMap(map);
-                    markers.push(marker);
+                var imageSrc="/static/img/marker_green.png", // 마커이미지의 주소입니다    
+                imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
+                imageOption = {offset: new kakao.maps.Point(20, 69)};
+               
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+                markerPosition = new kakao.maps.LatLng(37.54699, 127.09598);
+                var marker = new kakao.maps.Marker({ position: position, image:markerImage});
+                marker.setMap(map);
+                markers.push(marker);
 
-                        return marker;
-        }
+                    return marker;
+    }
 
     function removeMarker() {
                         for ( var i = 0; i < markers.length; i++ ) {
@@ -400,7 +402,7 @@
     function displayInfowindow(marker, title, id) { 
             if(islogin === "true"){ //로그인만 된 경우
                 let havFav = false;
-
+                
                 for(let i = 0; i<myFav.length; i++){
                     if(myFav[i].id == id){
                         havFav = true;
@@ -455,16 +457,35 @@
                 memo
             }
         }).then((res)=>{
-            window.location.href = "/zerowave/map";
+            if (res.data == true) { 
+                alert("즐겨찾기에 등록되었습니다.");
+                window.location.href = "/zerowave/map";
+            }
         })
 
             })
         }else{ //즐겨찾기해제
             $('#emptystar').removeClass('transparent');
             $('#fillstar').addClass('transparent');
+            alert("즐겨찾기를 해제하시겠습니까?");
+
+            axios({ 
+                 method: "delete", 
+                 url: "/zerowave/favlist",
+                data: { id }
+
+        }).then((res)=>{
+            window.location.href = "/zerowave/map";
+        })
+
         }
     }
 
+    $('#cancleFavBtn').click(()=>{
+            $('#favForm').addClass('transparent');
+            $('#emptystar').removeClass('transparent');
+            $('#fillstar').addClass('transparent');
+        })
 
 
     let searchLon, searchLat, searchPlaceName, searchAddress;
