@@ -226,6 +226,9 @@ h1 {
     color: white;
     border: none;
     margin-right: 5px;
+    margin-top: 10px;
+    font-family:  "NanumBarunpen";
+    border-radius: 4px;
 }
 
 .edit_cancel {
@@ -234,6 +237,7 @@ h1 {
 
 a {
     text-decoration: none;
+    font-family:  "NanumBarunpen"
   }
   
 #email {
