@@ -268,50 +268,55 @@ body > section:nth-child(5) h4 {
   color: #00ed5d;
   margin-top: 32px;
 }
-
-#zwFuncInfo {
+/*------Wave map------*/
+#zwFuncInfo > div:nth-child(2) img  {
   display: flex;
-  margin-top: 124px;
-  align-items: center;
+  width: 550px;
+  height: 290px;
+}
+
+#zwFuncInfo > div:nth-child(2) h3{
+  text-align: center;
   justify-content: center;
-  width: 1400px;
-}
+  margin-top: 30px;
+  margin-bottom: 40px;
 
-#zwFuncInfo > div:first-child {
-  margin-right: 218px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#zwFuncInfo > div:nth-child(1) h3 {
-  text-align: center;
-  margin-top: 54px;
-  margin-bottom: 46px;
-}
-
-#zwFuncInfo > div:nth-child(1) p {
-  width: 306px;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-#zwFuncInfo img {
-  display: flex;
-  width: 290px;
-}
-
-#zwFuncInfo > div:nth-child(2) {
-  width: 735px;
-  margin-top: 85px;
 }
 
 #zwFuncInfo > div:nth-child(2) p {
-  width: 710px;
-  margin-top: 41px;
-  margin-bottom: 110px;
-  margin-left: 88px;
+  width: 500px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-left: 30px;
 }
+
+
+/*---------------------*/
+
+#zwFuncInfo > div:nth-child(2) img  {
+  display: flex;
+  width: 550px;
+  height: 290px;
+}
+
+#zwFuncInfo > div:nth-child(2) h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+
+}
+
+#zwFuncInfo > div:nth-child(2) p {
+  width: 500px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+
 
 /*---------------- Footer --------------------*/
 
@@ -319,6 +324,7 @@ footer {
   border-top: 1px solid black;
   height: 220px;
   width: 1400px;
+  margin-bottom: 200px;
 }
 
 .ocean {
@@ -422,6 +428,10 @@ footer {
   transform: rotate(332deg) translate(0, 0);
 }
 
+
+
+
+
 @keyframes float {
   0% {
     transform: translate(0, 0);
@@ -434,7 +444,14 @@ footer {
   }
 }
 
-/*1600px보다 작을때 */
+
+
+
+
+
+
+
+/*----------1600px보다 작을때---------- */
 @media screen and (max-width: 1600px) {
   section{
     width: 100%;
@@ -487,7 +504,7 @@ width: 35vw;
 margin-bottom: 40px;
 }
 
-/*----------------네번째 Main--------------------*/
+/*----------------1600미만의 네번째 Main--------------------*/
 
 body > section:nth-child(5) {
 flex-direction: column;
@@ -502,7 +519,7 @@ line-height: 35px;
 
 
 body > section:nth-child(5) h4 {
-margin-top: 40px;
+margin-top: 30px;
 padding: 0 40px;
 line-height: 30px;
 }
@@ -510,7 +527,7 @@ line-height: 30px;
 #zwFuncInfo {
 flex-direction: column;
 width: 80vw;
-margin-top: 50px;
+margin-top: 115px;
 }
 
 #zwFuncInfo > div:first-child {
@@ -522,43 +539,68 @@ align-items: center;
 
 #zwFuncInfo > div:nth-child(1) h3 {
 text-align: center;
-margin-top: 54px;
-margin-bottom: 46px;
+margin-top: 50px;
+margin-bottom: 10px;
 }
 
 #zwFuncInfo > div:nth-child(1) p {
-width: 306px;
+width: 316px;
 text-align: center;
 margin-bottom: 15px;
 }
 
 #zwFuncInfo img {
 display: flex;
-width: 200px;
+width: 300px;
 }
+/*---------------------------*/
+#zwFuncInfo > div:nth-child(2) img  {
+  display: flex;
+width: 330px;
+height: 230px;
+}
+
 
 #zwFuncInfo > div:nth-child(2) {
-display: none;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-
+#zwFuncInfo > div:nth-child(2) p {
+  width: 257px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+/*---------------------------*/
 footer {
 width: 70vw;
-padding-top: 20px;
+position: absolute; 
+bottom: 0;
+padding-bottom: 130px;
+margin-bottom: -4000px;
+height: 99px;
 }
 footer p{
   font-size: 10px !important;
   line-height: 20px;
+  bottom: 0;
 }
 
 footer a{
   font-size: 10px !important;
   line-height: 20px;
+  bottom: 0;
+  margin-bottom: 500px;
 }
   
 }
 
 /*1200px보다 작을때 */
+
 @media screen and (max-width: 1200px){
  /*----------------첫번째 Main--------------------*/
     body > section:nth-child(2){
@@ -614,7 +656,82 @@ footer a{
 }
 
 
-/*모바일사이즈*/
+
+#zwFuncInfo {
+  flex-direction: column;
+  width: 80vw;
+  margin-top: 115px;
+  }
+  
+  #zwFuncInfo > div:first-child {
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  #zwFuncInfo > div:nth-child(1) h3 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  }
+  
+  #zwFuncInfo > div:nth-child(1) p {
+  width: 316px;
+  text-align: center;
+  margin-bottom: 15px;
+  }
+  
+  #zwFuncInfo img {
+  display: flex;
+  width: 300px;
+  }
+  /*---------------------------*/
+  #zwFuncInfo > div:nth-child(2) img  {
+    display: flex;
+  width: 330px;
+  height: 230px;
+  }
+  
+  
+  #zwFuncInfo > div:nth-child(2) {
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  #zwFuncInfo > div:nth-child(2) p {
+    width: 257px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+  /*---------------------------*/
+  footer {
+  width: 70vw;
+  position: absolute; 
+  bottom: 0;
+  padding-bottom: 130px;
+  margin-bottom: -4000px;
+  height: 99px;
+  }
+  footer p{
+    font-size: 10px !important;
+    line-height: 20px;
+    bottom: 0;
+  }
+  
+  footer a{
+    font-size: 10px !important;
+    line-height: 20px;
+    bottom: 0;
+    margin-bottom: 500px;
+  }
+    
+  
+/*----------모바일사이즈----------*/
 @media screen and (max-width: 700px){
   h1 {
     font-size: 40px;

@@ -278,8 +278,11 @@ button:hover {
   border: none;
   background-color: transparent;
   color: #00ed5d;
-  font-weight: 700;
+
   font-size: 40px;
+  font-weight: 800;
+  font-weight: 700;
+
   width: 180px;
   font-family: 'NanumBarunpen';
 }
