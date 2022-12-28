@@ -69,7 +69,8 @@ $("#withdrawalBtn").click(function () {
   }
 });
 
-window.onload = loadmyList();
+
+
 //////내가기록한map버튼함수
 function loadmyList() {
   axios({
@@ -118,7 +119,7 @@ function loadmyList() {
 function myList() {
   axios({
     method: "POST",
-    url: "/zerowave/mypage-list",
+    url: "/zerowave/mypage-fav",
   }).then((res) => {
     const Data = res.data;
     console.log(Data);
@@ -137,12 +138,14 @@ function myList() {
     }
   });
 }
+
+//
 function deletemyList(number) {
   const spotNumber = number;
 
   axios({
     method: "DELETE",
-    url: "/zerowave/mypage-list",
+    url: "/zerowave/mypage-fav",
     data: { spotNumber },
   }).then((res) => {
     if (res.data == true) {
