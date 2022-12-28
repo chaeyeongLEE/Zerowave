@@ -5,33 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forgot</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/static/css/forgot.css" />
   </head>
   <body>
-    <form action="" class="forgot_form">
+    <form class="forgot_form" id="forgot_form">
       <div class="wrapper">
         <h1 class="password_title">비밀번호 찾기</h1>
         <p class="password_description">
           비밀번호를 재설정할 수 있는 링크를 보내드려요.
         </p>
-
         <div class="emailaddress">
-          <label for="find_email">이메일 주소</label><br />
-          <input
-            type="text"
-            placeholder="이메일"
-            id="find_email"
-            name="user_email"
-          /><br />
-
-          <button type="button" class="btn">링크발송</button>
-          <div class="modal hidden">
-            <div class="modal__background"></div>
-            <div class="modal__content">
-              <h2>메일주소로 발송되었습니다.</h2>
-              <button type="button" class="inbtn">확인</button>
-            </div>
-          </div>
+          <label for="find_email">가입 시 사용한 이메일 주소를 입력해주세요. </label><br />
+          (발송이 지연 될 수 있으니 조금 기다려 주세요.)<br/><br/>
+          <input type="text" placeholder="이메일 주소" id="find_email" name="find_email"/> <br />
+          <input id="send_email" type="button" value="링크발송" onclick="forgot()" /><br/>
           <span class="password_link">
             이메일 주소가 떠오르지 않으시나요?
             <a href="/zerowave/join">가입하기</a>

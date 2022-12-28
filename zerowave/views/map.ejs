@@ -457,13 +457,27 @@ function addMarker(position, idx, filter) {
                 memo
             }
         }).then((res)=>{
-            window.location.href = "/zerowave/map";
+            if (res.data == true) { 
+                alert("즐겨찾기에 등록되었습니다.");
+                window.location.href = "/zerowave/map";
+            }
         })
 
             })
         }else{ //즐겨찾기해제
             $('#emptystar').removeClass('transparent');
             $('#fillstar').addClass('transparent');
+            alert("즐겨찾기를 해제하시겠습니까?");
+
+            axios({ 
+                 method: "delete", 
+                 url: "/zerowave/favlist",
+                data: { id }
+
+        }).then((res)=>{
+            window.location.href = "/zerowave/map";
+        })
+
         }
     }
 

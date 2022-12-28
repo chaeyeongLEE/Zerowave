@@ -1,12 +1,13 @@
-const openButton = document.querySelector("button");
-const modal = document.querySelector(".modal");
-const closeButton = modal.querySelector("button");
-const modalBackground = modal.querySelector(".modal__background");
-
-function displayModal(){
-    modal.classList.toggle("hidden");
-}
-
-openButton.addEventListener("click", displayModal);
-closeButton.addEventListener("click", displayModal)
-modalBackground.addEventListener("click", displayModal);
+function forgot (){
+    let form = document.getElementById("forgot_form");
+    let data ={ email : form.find_email.value}
+    
+    axios ({
+        method: "post",
+        url: "/zerowave/forgot",
+        data: data
+    }).then((res) => {
+        alert(res.data);
+        location.href="/zerowave";
+    })
+};

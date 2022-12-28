@@ -69,9 +69,12 @@ $("#withdrawalBtn").click(function () {
   }
 });
 
-window.onload = loadmyList();
 
-function loadmyList() {
+//내가 추가한 maps
+window.onload = myAddList();
+// 실행하자마자 온클릭 디폴트
+//////내가기록한map버튼함수
+function myAddList() {
   axios({
     method: "POST",
     url: "/zerowave/mypage-list",
@@ -79,32 +82,77 @@ function loadmyList() {
     const Data = res.data;
     console.log(Data);
     for (i = 0; i < Data.length; i++) {
-      $("#contents").append(`
-      <div class="content  filter${Data[i]["zwMap.filter"]}"">
+      let filterclass = "filter" + String(Data[i]["zwMap.filter"]);
+      let contentSection;
+      if (Data[i]["zwMap.filter"] == 0) {
+        contentSection = `
+        <div class="content  ${filterclass}">
+          <pre>
+          <p class="none">${Data[i]["id"]}</p>
+          <p>제로웨이스트샵</p>
+          <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
+  
+          <p>${Data[i]["zwMap.address"]}</p>
+          
+  <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+        </pre>
+        </div>`;
+      } else {
+        contentSection = `
+        <div class="content  ${filterclass}">
+          <pre>
+          <p class="none">${Data[i]["id"]}</p>
+          <p>용기내챌린지</p>
+          <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
+  
+          <p>${Data[i]["zwMap.address"]}</p>
+          
+  <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
+        </pre>
+        </div>`;
+      }
+      $("#contents").append(contentSection);
+    }
+  });
+}
+/////즐겨찾기 불러오기함수
+function myFavList() {
+  axios({
+    method: "POST",
+    url: "/zerowave/mypage-fav",
+  }).then((res) => {
+    const Data = res.data;
+    console.log(Data);
+    for (i = 0; i < Data.length; i++) {
+      /*
+      let contentSection  = `
+      <div class="content>
         <pre>
         <p class="none">${Data[i]["id"]}</p>
+        <p>제로웨이스트샵</p>
         <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
 
         <p>${Data[i]["zwMap.address"]}</p>
         
 <button type="button" onclick="deletemyList(${Data[i]["id"]})">X</button>
       </pre>
-      </div>`);
+      </div>`
+      */
     }
   });
-};
+}
 
 function deletemyList(number) {
-  const spotNumber = number ; 
- 
+  const spotNumber = number;
+
   axios({
-    method:"DELETE",
+    method: "DELETE",
     url: "/zerowave/mypage-list",
-    data: {spotNumber}
-  }).then((res)=> {
-    if(res.data == true) {
-      alert("삭제가 완료되었습니다.")
+    data: { spotNumber },
+  }).then((res) => {
+    if (res.data == true) {
+      alert("삭제가 완료되었습니다.");
       window.location.reload();
     }
-  })
-};
+  });
+}

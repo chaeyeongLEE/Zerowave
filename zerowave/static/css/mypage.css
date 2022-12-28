@@ -116,7 +116,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -129,7 +129,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
@@ -139,7 +139,7 @@ a {
 
 section {
   height: 1070px;
-  width: 1400px;
+  width: 1200px;
 }
 
 h1 {
@@ -161,32 +161,37 @@ h4 {
   margin-bottom: 10px;
 }
 
-#contents {
+#userInfo{
+  width: 90vw;
+}
+
+#contents{
+  width: 1200px;
   display: flex;
-  width: 1400px;
   flex-wrap: wrap;
   margin-top: 70px;
 }
 
 .content {
-  width: calc(100% / 3 - 58px);
+  width: calc(1200px / 3 - 58px);
+  height: 100%;
   margin: 0 10px;
   border-radius: 10px;
   padding: 15px;
-  display: flex;
-  margin-bottom: 74px;
+  margin-bottom: 20px;
+}
+.content pre{
+  width: 100%;
 }
 
-.content img {
+/* .content img {
   width: 100px;
   height: 100px;
   margin-right: 50px;
-}
+} */
 
 .content p {
-  margin-bottom: 5px;
-  font-size: 14px;
-  line-height: 18px;
+  width: calc(1200px / 3 - 100px);
 }
 
 button {
@@ -198,11 +203,53 @@ button {
   display: none;
 }
 
-
 .filter0 {
   border: 1px solid #00ed5d;
 }
 
 .filter1 {
-  border: 1px solid  #0475ff;
+  border: 1px solid #0475ff;
+}
+
+/*1200px보다 작을때 */
+@media screen and (max-width: 1200px){
+  section {
+    height: 100vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #contents{
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+  }
+  
+
+  .content {
+    width: calc(90vw / 2 - 60px);
+    height: 100%;
+    margin: 0 10px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+/*모바일사이즈*/
+@media screen and (max-width: 850px){
+  section {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+
+  .content {
+    width: 85vw;
+    height: auto;
+  }
 }
