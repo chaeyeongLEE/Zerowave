@@ -7,7 +7,10 @@ function forgot (){
         url: "/zerowave/forgot",
         data: data
     }).then((res) => {
-        alert(res.data);
-        location.href="/zerowave";
+        if(res.data.check){
+            alert(res.data.msg);
+            location.href="/zerowave"
+        }
+        else alert(res.data.msg);  
     })
 };

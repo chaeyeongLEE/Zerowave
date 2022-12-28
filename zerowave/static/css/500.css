@@ -173,8 +173,8 @@ body {
     position:absolute;
     left:50%;
     top:50%;
-    margin-left:-150px;
-    margin-top:-150px;
+    margin-left:-125px;
+    margin-top:-110px;
 }
 
 
@@ -183,6 +183,7 @@ body {
     font-size: 17px;
     position:absolute;
     left:50%;
-    top:50%;  }
+    top:50%;  
+  }
 }
 

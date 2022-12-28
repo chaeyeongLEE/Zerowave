@@ -10,7 +10,7 @@ exports.email = async(req, res) => {
     raw: true,
     where: { user_email: email } });
 
-  if (!existingUserEmail) { res.send("입력하신 이메일 주소가 존재하지 않습니다.") }
+  if (!existingUserEmail) { res.send({check: false, msg:"입력하신 이메일 주소가 존재하지 않습니다."}) }
 
   else { 
     var variable ="0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z".split(",");
@@ -51,7 +51,7 @@ exports.email = async(req, res) => {
     if (error) { console.log(error); res.send("에러");} 
     else {
       console.log("Email sent: " + info.response);
-      res.send("임시 비밀번호를 발송했습니다. 메일을 확인하세요");}
+      res.send({check: true, msg:"임시 비밀번호를 발송했습니다. 메일을 확인하세요."})}
     });
   }
 }
