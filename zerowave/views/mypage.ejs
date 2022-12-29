@@ -28,32 +28,34 @@
   </head>
   <body>
     <nav id="nav"><%-include('./nav.ejs', {type: '', islogin: islogin})%></nav>
-    <div id="userInfo">
-      <h1><%=sessionUser.name%>님,<br> 안녕하세요!</h1>
-      <br />
-      <h3><%=sessionUser.email%></h3>
-      <div class="memberbtn">
-        <a
-          href="/zerowave/mypage-user"
-          class="<% type == 'mypage-user' && __append('selectedLink')%>"
-          >회원정보수정</a
-        >
-        <button id="withdrawalBtn" type="button">회원탈퇴</button><br />
+    <div id="userInfoBtn">
+      <div id="userInfo">
+        <h1><%=sessionUser.name%>님,<br> 안녕하세요!</h1>
+        <br />
+        <h3><%=sessionUser.email%></h3>
+        <div class="memberbtn">
+          <a
+            href="/zerowave/mypage-user"
+            class="<% type == 'mypage-user' && __append('selectedLink')%>"
+            >회원정보수정</a
+          >
+          <button id="withdrawalBtn" type="button">회원탈퇴</button><br />
+        </div>
       </div>
+        <div id="btngroup">
+          <button
+            id="listBtn"
+            class="loadList"
+            type="button"
+            onclick="myAddList()"
+          >
+            내가 등록한 장소
+          </button>
+          <button id="favBtn" class="myList" type="button" onclick="myFavList()">
+            즐겨찾기
+          </button>
+        </div>
     </div>
-      <div id="btngroup">
-        <button
-          id="listBtn"
-          class="loadList"
-          type="button"
-          onclick="myAddList()"
-        >
-          내가 등록한 장소
-        </button>
-        <button id="favBtn" class="myList" type="button" onclick="myFavList()">
-          즐겨찾기
-        </button>
-      </div>
 
     <section>
       <div id="contents"></div>

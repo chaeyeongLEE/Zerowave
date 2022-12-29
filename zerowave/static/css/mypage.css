@@ -232,8 +232,8 @@ h4 {
   margin-bottom: 10px;
 }
 
-#userInfo {
-  width: 45%;
+#userInfoBtn{
+  width: 1100px;
 }
 
 #contents {
@@ -286,7 +286,6 @@ button {
 }
 
 .memberbtn {
-  margin-left: 90%;
   width: 300px;
 }
 
@@ -375,6 +374,10 @@ p > img {
 
 /*1200px보다 작을때 */
 @media screen and (max-width: 1200px) {
+  #userInfoBtn{
+    width: 90vw;
+  }
+
   section {
     height: 100vh;
     width: 90vw;
@@ -386,8 +389,12 @@ p > img {
   #contents {
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 90vw;
   }
+  #btngroup {
+    width: 90%;
+  }
+
 
   .content {
     width: calc(90vw / 2 - 60px);
@@ -418,15 +425,7 @@ p > img {
 
 /*1200이하*/
 @media screen and (max-width: 1200px) {
-  section {
-    height: 100vh;
-    width: 100vw;
-  }
 
-  .content {
-    width: 100vw;
-    height: auto;
-  }
   #btngroup {
     width: 90%;
   }
@@ -436,7 +435,7 @@ p > img {
   } */
 
   #listBtn {
-    margin-left: 15%;
+    margin-left: 0;
     font-size: 15px;
     padding: 5px;
     width: 28vw;
@@ -448,4 +447,18 @@ p > img {
     width: 28vw;
     height: 5vh;
   }
+  }
+
+
+  @media screen and (max-width: 850px){
+    section {
+      height: 100vh;
+      width: 100vw;
+    }
+  
+  
+    .content {
+      width: 85vw;
+      height: auto;
+    }
   }
