@@ -286,8 +286,13 @@ button {
 }
 
 .memberbtn {
-  margin-left: 85%;
-  width: 500px;
+  margin-left: 90%;
+  width: 300px;
+}
+
+#btngroup {
+  margin-top: 50px;
+
 }
 
 #btngroup {
@@ -381,7 +386,7 @@ p > img {
   #contents {
     justify-content: space-between;
     align-items: center;
-    width: 90vw;
+    width: 100vw;
   }
 
   .content {
@@ -419,7 +424,7 @@ p > img {
   }
 
   .content {
-    width: 85vw;
+    width: 100vw;
     height: auto;
   }
   #btngroup {

@@ -316,8 +316,9 @@ button:hover {
 
   .category{
     position: absolute;
+
     top: -45px;
-    right: -42px;
+    right: -40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
