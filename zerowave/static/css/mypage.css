@@ -190,8 +190,6 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: "NanumBarunpen";
-  overflow-x:hidden; 
-  overflow-y:auto;
 }
 
 a {
@@ -235,7 +233,7 @@ h4 {
 }
 
 #userInfo {
-  width: 70%;
+  width: 45%;
 }
 
 #contents {
@@ -253,7 +251,6 @@ h4 {
   padding: 15px;
   margin-bottom: 20px;
 }
-
 .content pre {
   width: 100%;
 }
@@ -289,17 +286,14 @@ button {
 }
 
 .memberbtn {
-  margin-left: 90%;
-  width: 1200px;
-}
-
-#btngroup {
-  margin-top: 50px;
+  margin-left: 85%;
+  width: 500px;
 }
 
 #btngroup {
   color: aliceblue;
-  margin-left: 8.5%;
+  margin-top: 50px;
+  width: 45%;
 }
 
 #listBtn {
@@ -417,8 +411,8 @@ p > img {
 
 
 
-/*모바일사이즈*/
-@media screen and (max-width: 850px) {
+/*1200이하*/
+@media screen and (max-width: 1200px) {
   section {
     height: 100vh;
     width: 100vw;
@@ -428,10 +422,13 @@ p > img {
     width: 85vw;
     height: auto;
   }
-
+  #btngroup {
+    width: 90%;
+  }
+/* 
   .memberbtn {
     margin: 0;
-  }
+  } */
 
   #listBtn {
     margin-left: 15%;
