@@ -93,7 +93,7 @@ function myAddList() {
           
           <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
 
-          <p>${Data[i]["zwMap.address"]}</p>
+          <p id="address">${Data[i]["zwMap.address"]}</p>
   <button  id="deleteBtn" type="button" onclick="deletemyList(${Data[i]["id"]})">삭제</button>
         </pre>
         </div>`;
@@ -106,7 +106,7 @@ function myAddList() {
     
           <h4 id="spotName">${Data[i]["zwMap.spot_name"]}</h4>
   
-          <p>${Data[i]["zwMap.address"]}</p>    
+          <p id="address">${Data[i]["zwMap.address"]}</p>    
   <button  id="deleteBtn" type="button" onclick="deletemyList(${Data[i]["id"]})">삭제</button>
         </pre>
         </div>`;
@@ -137,7 +137,7 @@ function myFavList() {
           <p id="filtersort"><img src="/static/img/earth_marker.png" alt="zerowaste_marker">제로웨이스트샵</p>
           <h4 id="spotName">${Data[i]["fav.spot_name"]}</h4>
   
-          <p>${Data[i]["fav.address"]}</p>
+          <p id="address">${Data[i]["fav.address"]}</p>
           <p class="${memoclass}">${Data[i]["memo"]}</p>
 <button id="deleteBtn" type="button" onclick="deletemyFav(${Data[i]["id"]})">삭제</button>
         </pre>
@@ -150,7 +150,7 @@ function myFavList() {
           <p id="filtersort"><img src="/static/img/ygn_marker.png" alt="ygn_marker">용기내 챌린지</p>
           <h4 id="spotName">${Data[i]["fav.spot_name"]}</h4>
   
-          <p>${Data[i]["fav.address"]}</p>
+          <p id="address">${Data[i]["fav.address"]}</p>
           <p class="${memoclass}">${Data[i]["memo"]}</p>
 <button  id="deleteBtn" type="button" onclick="deletemyFav(${Data[i]["id"]})">삭제</button>
         </pre>

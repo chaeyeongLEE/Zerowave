@@ -372,6 +372,10 @@ p > img {
   font-style: italic;
 }
 
+#address {
+  font-weight: bold;
+}
+
 /*1200px보다 작을때 */
 @media screen and (max-width: 1200px) {
   #userInfoBtn{
