@@ -133,6 +133,15 @@ a {
   text-decoration: none;
   color: black;
 }
+
+input {
+  border-radius: 0;
+  }
+  
+  input[type=text], input[type=button], input[type=submit] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  }
 /*-------------------------------------------*/
 @font-face {
   font-family: "NanumBarunpen";
