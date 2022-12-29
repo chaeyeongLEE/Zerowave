@@ -190,6 +190,8 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: "NanumBarunpen";
+  overflow-x:hidden; 
+  overflow-y:auto;
 }
 
 a {
@@ -251,6 +253,7 @@ h4 {
   padding: 15px;
   margin-bottom: 20px;
 }
+
 .content pre {
   width: 100%;
 }
@@ -296,7 +299,7 @@ button {
 
 #btngroup {
   color: aliceblue;
-  margin-left: -5%;
+  margin-left: 8.5%;
 }
 
 #listBtn {
