@@ -225,3 +225,12 @@ a {
 input {
   font-family: "NanumBarunpen";
 }
+
+@media screen and (max-width: 850px){
+  .item {
+    margin: auto;
+    width: 100vw;
+    padding: 300px 0;
+    text-align: center;
+  }
+}

@@ -31,17 +31,26 @@
         <h1><%=sessionUser.name%>님의 프로필</h1>
           <br>
         <form id="edit-form">
-          <label for="email">이메일 : </label>
+          <div>
+            <label for="email">이메일 : </label>
           <input type="text" value="<%=sessionUser.email%>" id="email" name="email"  placeholder="이메일" class="in_email" readonly>    
+          </div>
           <br>
-          <label for="pw1">새 비밀번호 : </label>
+          <div>
+            <label for="pw1">새 비밀번호 : </label>
           <input type="password"  id="pw1" name="pw1" placeholder="새 비밀번호" class="in_pw1" required>
+          </div>  
           <br>
-          <label for="pw2">새 비밀번호 확인 : </label>
-          <input type="password" id="pw2" name="pw2" placeholder="새 비밀번호 확인" class="in_pw2" required>
+          <div>
+            <label for="pw2">새 비밀번호 확인 : </label>
+            <input type="password" id="pw2" name="pw2" placeholder="새 비밀번호 확인" class="in_pw2" required>
+          </div>
           <br>
-          <label for="name">이름 : </label>
-          <input type="text" value="<%=sessionUser.name%>" id="name" name="name" placeholder="이름" class="in_name" required><br>
+          <div>
+            <label for="name">이름 : </label>
+            <input type="text" value="<%=sessionUser.name%>" id="name" name="name" placeholder="이름" class="in_name" required>
+          </div>
+          <br>
           <div class="edit_cancel">
             <button id="editBtn" type="button" onclick="editProfile()">수정</button>
             <button id="cancel" onclick="location.href='/zerowave/mypage'">취소</button>
