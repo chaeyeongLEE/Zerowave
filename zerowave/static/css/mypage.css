@@ -235,7 +235,7 @@ h4 {
 }
 
 #userInfo {
-  width: 70%;
+  width: 65%;
 }
 
 #contents {
@@ -290,7 +290,7 @@ button {
 
 .memberbtn {
   margin-left: 90%;
-  width: 1200px;
+  width: 300px;
 }
 
 #btngroup {
@@ -387,7 +387,7 @@ p > img {
   #contents {
     justify-content: space-between;
     align-items: center;
-    width: 90vw;
+    width: 100vw;
   }
 
   .content {
@@ -425,7 +425,7 @@ p > img {
   }
 
   .content {
-    width: 85vw;
+    width: 100vw;
     height: auto;
   }
 

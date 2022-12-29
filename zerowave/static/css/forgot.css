@@ -161,6 +161,7 @@ body {
   align-items: center;
   font-family: "NanumBarunpen";
   text-align: center;
+  
 }
 .wrapper {
   display: flex;
@@ -268,7 +269,7 @@ h2 {
     font-size: 13px;
   }
   body {
-    margin-left: -25%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -279,17 +280,17 @@ h2 {
   }
   #find_email {
     margin-top: 1px;
-    width: 380px;
+    width: 250px;
     height: 30px;
   }
   span {
     font-size: 13px;
   }
   .forgot_form {
-    margin-top: 240px;
-    width: 500px;
+    width: 100vw;
     border-radius: 5px;
-    padding: 60px;
+    padding: 0px;
+    margin: 240px 0 0 0;
   }
   .btn {
     padding: 8px 1.5rem 8px;

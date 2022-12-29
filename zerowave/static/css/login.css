@@ -239,4 +239,11 @@ form {
     width: 280px;
     height: 50px;
   }
+
+  .item {
+    margin: auto;
+    width: 100vw;
+    padding: 300px 0;
+    text-align: center;
+  }
 }
