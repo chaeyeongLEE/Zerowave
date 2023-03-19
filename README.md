@@ -3,7 +3,7 @@
 <h1> Zerowave </h1>
 🗓️ 진행 기간 : 2022.12.10 ~ 2022.12.29 <br />
 🙌 진행 인원 : 5명 (프론트엔드: 3명, 백엔드: 2명)
-
+<br />
 <h2> 프로젝트 소개 </h2>
 <h3> 1. 기획 의도 </h3>
 ZEROWAVE는 우리의 지구를 건강하게 지켜나가기위해, 언제 어디서든 제로웨이스트를 실천할수있도록 돕는 사이트입니다.<br />
@@ -40,6 +40,6 @@ ZEROWAVE는 우리의 지구를 건강하게 지켜나가기위해, 언제 어�
 </div>
 <h4> 🌊 API 🌊  </h4>
 <div>
-  <a href="https://apis.map.kakao.com/"><img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=flat&logo=Kakao&logoColor=white"/>
+ <a href="https://apis.map.kakao.com/"><img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=flat&logo=Kakao&logoColor=white"/>
 
 </div>
