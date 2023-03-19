@@ -1,6 +1,8 @@
 <img width="1411" alt="zerowave1" src="https://user-images.githubusercontent.com/116782324/226173433-35e251fc-8730-4ca1-88fa-b926046b994f.png"><img width="1425" alt="zerowave2" src="https://user-images.githubusercontent.com/116782324/226173390-b4533e67-59bc-41a1-a436-d2d92810a4c3.png">
 
 <h1> Zerowave </h1>
+🗓️ 진행 기간 : 2022.12.10 ~ 2022.12.29
+🙌 진행 인원 : 5명 (프론트엔드: 3명, 백엔드: 2명)
 
 <h2> 프로젝트 소개 </h2>
 <h3> 1. 기획 의도 </h3>
