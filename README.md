@@ -18,7 +18,7 @@ ZEROWAVE는 우리의 지구를 건강하게 지켜나가기위해, 언제 어�
 |API| KakaoMap API <br />|
 
 <h3> 🤍 배포 사이트 🤍 </h3>
-<a href="http://13.125.15.23:8000/zerowave">zerowave</a>
+<a href="http://13.125.15.23:8000/zerowave"> zerowave </a>
 
 <h1> ✍️ Stack </h1>
 <h4> 🌊 Front-end 🌊 </h4>
