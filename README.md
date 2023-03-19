@@ -1,5 +1,5 @@
-# Zerowave
-환경보호를 위한 친환경 장소 공유 웹서비스입니다. 지도에서 제로웨이스트를 실천하는 가게를 검색하고 저장할 수 있습니다.
+<img width="1411" alt="zerowave1" src="https://user-images.githubusercontent.com/116782324/226173433-35e251fc-8730-4ca1-88fa-b926046b994f.png"><img width="1425" alt="zerowave2" src="https://user-images.githubusercontent.com/116782324/226173390-b4533e67-59bc-41a1-a436-d2d92810a4c3.png">
+
 <h1> Zerowave </h1>
 
 <h2> 프로젝트 소개 </h2>
@@ -13,10 +13,10 @@ ZEROWAVE는 우리의 지구를 건강하게 지켜나가기위해, 언제 어�
 |:---|:---|
 |메인 및 지도 페이지|1. Session 을 통해 로그인 여부에 따른 상이한 페이지 구현 <br>2. KakaoMap API를 이용한 지도 관련 컴포넌트 구현 <br /> 3. mySQL을 이용하여 서버의 DB를 가져와 지도에 구현|
 |회원가입/로그인 페이지|1. Sessio을 이용하여 회원정보 수정 시 사용자의 세션과 입력값을 서버로 전달해 사용자를 찾고 새로운 값으로 변경할 시 UserDB에 업데이트. <br>2. bcryptjs : 암호화 모듈을 통해 가입 시 서버에 실제 입력값이 아닌 암호화 된 비밀번호를 전달 <br /> 3. Axios & Sequelize : 사용자의 입력값을 서버로 전달하여 해당 사용자의 유무를 DB에서 조회한 후 결과값에 따라 UserDB에 새로운 값을 생성<br /> 
-|API|1. KakaoMap API <br />|
+|API| KakaoMap API <br />|
 
 <h3> 🤍 배포 사이트 🤍 </h3>
-<a href="http://13.125.15.23:8000/zerowave"></a>
+<a href="http://13.125.15.23:8000/zerowave">zerowave</a>
 
 <h1> ✍️ Stack </h1>
 <h4> 🌊 Front-end 🌊 </h4>
