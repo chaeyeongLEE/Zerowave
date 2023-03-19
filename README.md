@@ -34,9 +34,10 @@ ZEROWAVE는 우리의 지구를 건강하게 지켜나가기위해, 언제 어�
 </div>
 <h4> 🌊 Collaboration 🌊 </h4>
 <div>
-<img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" width="50"/>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/1024px-Notion-logo.svg.png" width="50"/>
-<img src="https://cdn-icons-png.flaticon.com/512/3800/3800024.png" width="50"/>
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/>
+<img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white"/>
+<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white"/>
+ 
 </div>
 <h4> 🌊 API 🌊  </h4>
 <div>
