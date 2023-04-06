@@ -253,30 +253,27 @@
         removeAllChildNods(listEl); // 검색 결과 목록에 추가된 항목들을 제거합니다
         removeMarker();       // 지도에 표시되고 있는 마커를 제거합니다
 
-        for ( var i = 0; i < places.length; i++ ) {
+        for ( let i = 0; i < places.length; i++ ) {
 
-        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
-        let marker = addMarker_search(placePosition, i);
-        console.log(places[i]);
-        let itemEl = getListItem(i, places[i], "search");  // 검색 결과 항목 Element를 생성합니다
-        (function(marker, title, x,y, address, id) { 
-           // kakao.maps.event.addListener(marker, 'click',  function(mouseEvent) {displayInfowindow(marker, title, 0,0);  });
-            kakao.maps.event.addListener(marker, 'mouseover', function() { displaySearchInfowindow(marker, title, x,y , address, id); });
-           // kakao.maps.event.addListener(marker, 'mouseout', function() { infowindow.close(); });
-            console.log(itemEl);
-            itemEl.addEventListener("click", function (e) {
-            displaySearchInfowindow(marker, title, x,y ,address,id);
-            //props.setAddress(places[i]);
-            map.panTo(placePosition);
-              });
+            let placePosition = new kakao.maps.LatLng(places[i].y, places[i].x);
+            let marker = addMarker_search(placePosition, i);
+            console.log(places[i]);
+            let itemEl = getListItem(i, places[i], "search");  // 검색 결과 항목 Element를 생성합니다
+            (function(marker, title, x,y, address, id) { 
+                kakao.maps.event.addListener(marker, 'mouseover', function() { displaySearchInfowindow(marker, title, x,y , address, id); });
+                itemEl.addEventListener("click", function (e) {
+                    displaySearchInfowindow(marker, title, x,y ,address,id);
+                    map.panTo(placePosition);
+                });
             })(marker, places[i].place_name, places[i].x, places[i].y, places[i].road_address_name, places[i].id);
 
             fragment.appendChild(itemEl);
-          }
+        }
 
-          listEl?.appendChild(fragment);
-          menuEl.scrollTop = 0;
-    }
+        listEl?.appendChild(fragment);
+        menuEl.scrollTop = 0;
+    } 
+
 
 
     // 키워드 검색을 요청하는 함수입니다
