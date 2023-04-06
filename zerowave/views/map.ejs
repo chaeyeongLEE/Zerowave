@@ -207,7 +207,7 @@
 
     //검색 결과 목록과 마커 표시, 표출
     function displayPlaces(places) {
-        var listEl = document.getElementById('placesList'), 
+        let listEl = document.getElementById('placesList'), 
         menuEl = document.getElementById('menu_wrap'),
         fragment = document.createDocumentFragment(), 
         listStr = '';
@@ -216,7 +216,7 @@
         removeMarker();       // 지도에 표시되고 있는 마커를 제거합니다
 
         for ( var i = 0; i < places.length; i++ ) {
-        var placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
+        let placePosition = new kakao.maps.LatLng(places[i].lat, places[i].lon);
 
         let marker = addMarker(placePosition, i, places[i].filter);
 
